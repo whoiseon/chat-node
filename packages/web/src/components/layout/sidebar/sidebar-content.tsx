@@ -59,7 +59,7 @@ export default function SidebarContent() {
           {Array.from({ length: 10 }).map((_, index) => (
             <SidebarGroup.Item
               key={index}
-              href={`/favorite/${index + 1}`}
+              href={`/chat/room/${index + 1}`}
               icon={<Icons.LogoIcon strokeWidth={2.2} />}
             >
               game {index + 1}

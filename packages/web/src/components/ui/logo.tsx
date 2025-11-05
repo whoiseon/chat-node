@@ -3,12 +3,24 @@
 import { cn } from '@/lib/utils';
 import { Icons } from './icon';
 
+type TextProps = {
+  className?: string;
+};
+
+export function LogoText({ className }: TextProps) {
+  return (
+    <h1 className={cn('text-base tracking-tight font-semibold', className)}>
+      ChatNode
+    </h1>
+  );
+}
+
 type LogoProps = {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
 };
 
-export default function Logo({ className, size = 'md' }: LogoProps) {
+export function Logo({ className, size = 'md' }: LogoProps) {
   const sizeMap = {
     sm: '[&_svg]:size-3 p-1',
     md: '[&_svg]:size-5 p-1.5',
@@ -23,6 +35,33 @@ export default function Logo({ className, size = 'md' }: LogoProps) {
       )}
     >
       <Icons.LogoIcon className="text-white" />
+    </div>
+  );
+}
+
+type LogoWithTextProps = {
+  className?: string;
+  goHome?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+};
+
+export function LogoWithText({
+  className,
+  goHome = true,
+  size = 'md',
+}: LogoWithTextProps) {
+  if (goHome) {
+    return (
+      <a href="/" className={cn('flex items-center gap-x-2', className)}>
+        <Logo size={size} />
+        <LogoText />
+      </a>
+    );
+  }
+  return (
+    <div className={cn('flex items-center gap-x-2', className)}>
+      <Logo size={size} />
+      <LogoText className="text-sm" />
     </div>
   );
 }

@@ -6,6 +6,10 @@ import {
   TrendingUp,
   Flame,
   Hash,
+  Settings,
+  Lock,
+  User,
+  CircleAlert,
 } from 'lucide-react';
 
 export const Icons = {
@@ -14,4 +18,8 @@ export const Icons = {
   TrendingUp,
   Flame,
   Hash,
+  Settings,
+  Lock,
+  User,
+  CircleAlert,
 };

@@ -13,9 +13,9 @@ type SidebarGroupProps = {
 
 function SidebarGroup({ children, title, className }: SidebarGroupProps) {
   return (
-    <div className={cn('flex flex-col px-2 pb-2', className)}>
+    <div className={cn('flex flex-col px-2 pb-2 gap-y-px', className)}>
       {title && (
-        <span className="text-xs font-semibold px-2 text-foreground-muted h-[30px] flex items-center">
+        <span className="text-xs font-semibold px-2 text-muted-foreground h-[30px] flex items-center">
           {title}
         </span>
       )}
@@ -41,8 +41,8 @@ function SidebarGroupItem({ children, href, icon }: SidebarGroupItemProps) {
     <Link
       href={href}
       className={cn(
-        'h-[30px] flex items-center px-2 py-1 rounded-md text-foreground-muted hover:bg-stone-200 dark:hover:bg-stone-700 gap-x-2 [&_svg]:size-4.5 transition-all duration-100',
-        isActive ? 'bg-stone-200 dark:bg-stone-700' : ''
+        'h-[30px] flex items-center px-2 py-1 rounded-md text-muted-foreground hover:bg-stone-200 dark:hover:bg-stone-750 gap-x-2 [&_svg]:size-4.5 transition-all duration-100',
+        isActive ? 'bg-stone-200 dark:bg-stone-750' : ''
       )}
     >
       {icon}
