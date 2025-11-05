@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "build": "swc src -d dist .swcrc --copy-files",
-    "dev": "NODE_ENV=development nodemon --exec \"ts-node --swc -r tsconfig-paths/register\" src/server.ts",
+    "dev": "NODE_ENV=development nodemon --exec tsx src/server.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:pull": "prisma db pull",
@@ -48,6 +48,7 @@
     "@types/koa-logger": "^3.1.5",
     "@types/koa__router": "^12.0.4",
     "prisma": "^6.16.1",
-    "tsconfig-paths": "^4.2.0"
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.20.6"
   }
 }

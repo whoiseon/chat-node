@@ -1,9 +1,8 @@
 import bcrypt from 'bcrypt';
 import { Prisma } from 'generated/prisma';
 
-import { AuthBody, AuthTokens, LogInInput, SignUpInput } from '@/types';
-
 import { db } from '@/database';
+import { AuthBody, AuthTokens, LogInInput, SignUpInput } from '@/types';
 import { generateToken } from '@/lib/token';
 
 export class AuthService {

@@ -12,6 +12,5 @@
   "module": {
     "type": "commonjs",
     "strictMode": true
-  },
-  "exclude": ["generated/**/*", "**/node_modules/**/*", "**/*.d.ts"]
+  }
 }

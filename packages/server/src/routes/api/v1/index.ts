@@ -10,12 +10,6 @@ v1.get('/check', async (ctx) => {
   };
 });
 
-v1.get('/test', async (ctx) => {
-  ctx.body = {
-    user_id: ctx.state.user_id,
-  };
-});
-
 v1.use('/auth', auth.routes());
 
 export default v1;

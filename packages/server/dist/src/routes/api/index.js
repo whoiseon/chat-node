@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});Object.defineProperty(exports,"default",{enumerable:true,get:function(){return _default}});var _router=/*#__PURE__*/_interop_require_default(require("@koa/router"));var _v1=/*#__PURE__*/_interop_require_default(require("./v1"));function _interop_require_default(obj){return obj&&obj.__esModule?obj:{default:obj}}var api=new _router.default;api.use("/v1",_v1.default.routes());var _default=api;
+//# sourceMappingURL=index.js.map

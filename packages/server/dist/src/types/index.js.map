@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/types/index.ts"],"sourcesContent":["export * from './auth';\n\n// API 공통 응답 타입\nexport interface ApiResponse<T = any> {\n  success: boolean;\n  message: string;\n  payload?: T;\n}\n\nexport interface ApiError {\n  success: false;\n  message: string;\n}\n"],"names":[],"mappings":"2FAAc"}

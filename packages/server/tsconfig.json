@@ -28,8 +28,10 @@
     }
   },
   "ts-node": {
-    "swc": true
+    "swc": true,
+    "transpileOnly": true,
+    "ignore": ["(?:^|/)node_modules/", "(?:^|/)generated/"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "generated"]
 }

@@ -2,7 +2,7 @@ import Router from '@koa/router';
 
 import { setTokenCookie } from '@/lib/token';
 import { extractErrorMessage, validateBody } from '@/lib/utils';
-import { AuthService } from '@/services/auth.service';
+
 import {
   AuthBody,
   SignUpInput,
@@ -12,6 +12,8 @@ import {
   ApiError,
   ApiResponse,
 } from '@/types';
+
+import { AuthService } from '@/services/auth.service';
 
 const auth = new Router();
 const authService = new AuthService();
