@@ -7,7 +7,7 @@ import z from 'zod';
 export function validateBody<T>(ctx: Context, schema: z.ZodSchema<T>) {
   const validate = schema.safeParse(ctx.request.body);
   if (!validate.success) {
-    ctx.status = 400;
+    ctx.status = 200;
     ctx.body = {
       success: false,
       message: getFirstZodErrorMessage(validate.error),
@@ -59,7 +59,10 @@ export function buildQueryString(params: Record<string, any>): string {
  * @param params 추가할 파라미터
  * @returns 완성된 URL
  */
-export function appendQueryParams(baseUrl: string, params: Record<string, any>): string {
+export function appendQueryParams(
+  baseUrl: string,
+  params: Record<string, any>
+): string {
   if (!params || Object.keys(params).length === 0) {
     return baseUrl;
   }

@@ -1,8 +1,15 @@
 import bcrypt from 'bcrypt';
 import { Prisma } from 'generated/prisma';
 
-import { db } from '@/database';
-import { AuthBody, AuthTokens, LogInInput, SignUpInput } from '@/types';
+import { prisma } from '@/database';
+import {
+  AuthBody,
+  AuthTokens,
+  LogInInput,
+  SignUpInput,
+  TokenError,
+  TokenErrorCode,
+} from '@/types';
 import { generateToken } from '@/lib/token';
 
 export class AuthService {
@@ -10,12 +17,12 @@ export class AuthService {
    * 회원가입
    */
   async register(input: SignUpInput): Promise<AuthBody> {
-    const prisma = db.getPrisma();
     const { username, password } = input;
 
     // 이메일 중복검사
     const existingUsername = await this.findUser(username, 'username', {
       id: true,
+      username: true,
     });
     if (existingUsername) {
       throw new Error('이미 존재하는 아이디입니다');
@@ -45,13 +52,15 @@ export class AuthService {
   /**
    * 로그인
    */
-  async signIn(input: LogInInput): Promise<AuthBody> {
+  async logIn(input: LogInInput): Promise<AuthBody> {
     const { username, password } = input;
 
     const user = await this.findUser(username, 'username', {
       id: true,
       passwordHash: true,
+      username: true,
     });
+
     if (!user) {
       throw new Error('잘못된 계정정보입니다');
     }
@@ -76,10 +85,19 @@ export class AuthService {
   /**
    * 유저 조회
    */
-  async findUser(value: string, by: 'username', select?: Prisma.UserSelect) {
-    const prisma = db.getPrisma();
+  async findUser(
+    value: string,
+    by: 'userId' | 'username',
+    select?: Prisma.UserSelect
+  ) {
+    if (!value) return;
 
     switch (by) {
+      case 'userId':
+        return prisma.user.findUnique({
+          where: { id: value },
+          select,
+        });
       case 'username':
         return prisma.user.findUnique({
           where: { username: value },
@@ -94,8 +112,6 @@ export class AuthService {
    * 유저 토큰 생성
    */
   async generateUserToken(userId: string): Promise<AuthTokens> {
-    const prisma = db.getPrisma();
-
     const authToken = await prisma.authToken.create({
       data: {
         userId,
@@ -110,7 +126,8 @@ export class AuthService {
       },
       {
         subject: 'refresh_token',
-        expiresIn: '30d',
+        // expiresIn: '30d',
+        expiresIn: '30s', // 30 seconds for testing
       }
     );
 
@@ -120,7 +137,8 @@ export class AuthService {
       },
       {
         subject: 'access_token',
-        expiresIn: '1h',
+        // expiresIn: '1h',
+        expiresIn: '10s', // 10 seconds for testing
       }
     );
 
@@ -136,33 +154,102 @@ export class AuthService {
     refreshTokenExp: number,
     originalRefreshToken: string
   ): Promise<AuthTokens> {
-    const now = new Date().getTime();
-    const diff = refreshTokenExp * 1000 - now;
-    let refreshToken = originalRefreshToken;
-    // 리프레시 토큰 만료 시간이 23일 이하일 때 리프레시 토큰 갱신
-    if (diff < 1000 * 60 * 60 * 24 * 23) {
-      console.log('refreshing refreshToken');
-      refreshToken = await generateToken(
-        {
-          user_id: userId,
-          token_id: tokenId,
-        },
-        {
-          subject: 'refresh_token',
-          expiresIn: '30d',
-        }
+    // 토큰 검증
+    const authToken = await prisma.authToken.findUnique({
+      where: { id: tokenId },
+    });
+
+    if (!authToken) {
+      throw new TokenError(
+        TokenErrorCode.REFRESH_TOKEN_NOT_FOUND,
+        '유효하지 않은 리프레시 토큰입니다'
       );
     }
+
+    // 토큰 차단 확인
+    if (authToken.blocked) {
+      throw new TokenError(
+        TokenErrorCode.REFRESH_TOKEN_INVALID,
+        '리프레시 토큰이 차단되었습니다'
+      );
+    }
+
+    // 토큰 소유자 확인
+    if (authToken.userId !== userId) {
+      throw new TokenError(
+        TokenErrorCode.REFRESH_TOKEN_INVALID,
+        '토큰의 소유자가 일치하지 않습니다'
+      );
+    }
+
+    // 기존 토큰 차단
+    await prisma.authToken.update({
+      where: { id: tokenId },
+      data: { blocked: true },
+    });
+
+    // 새로운 토큰 생성
+    const newAuthToken = await prisma.authToken.create({
+      data: { userId },
+    });
+
+    const now = Date.now();
+    const idff = refreshTokenExp * 1000 - now;
+
+    // 리프레시 토큰도 갱신 ( 남은 기간이 7일 미만일 때 )
+    const shouldRefreshToken = idff < 1000 * 60 * 60 * 24 * 7;
+
+    const refreshToken = shouldRefreshToken
+      ? await generateToken(
+          {
+            user_id: userId,
+            token_id: newAuthToken.id,
+          },
+          {
+            subject: 'refresh_token',
+            // expiresIn: '30d',
+            expiresIn: '2m', // 2 minutes for testing
+          }
+        )
+      : originalRefreshToken;
+
     const accessToken = await generateToken(
       {
         user_id: userId,
       },
       {
         subject: 'access_token',
-        expiresIn: '1h',
+        // expiresIn: '1h',
+        expiresIn: '30s', // 30 seconds for testing
       }
     );
 
     return { refreshToken, accessToken };
+  }
+
+  /**
+   * 특정 유저의 모든 토큰 무효화 (로그아웃 등)
+   */
+  async revokeAllTokens(userId: string): Promise<void> {
+    await prisma.authToken.updateMany({
+      where: { userId, blocked: false },
+      data: { blocked: true },
+    });
+  }
+
+  /**
+   * 만료된 토큰 정리 (크론잡 등에서 주기적 실행)
+   */
+  async cleanupExpiredTokens(): Promise<number> {
+    // 30일 이상 된 토큰 삭제
+    const result = await prisma.authToken.deleteMany({
+      where: {
+        createdAt: {
+          lt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 30),
+        },
+      },
+    });
+
+    return result.count;
   }
 }

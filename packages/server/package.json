@@ -14,14 +14,16 @@
     "prisma:pull": "prisma db pull",
     "prisma:push": "prisma db push",
     "prisma:seed": "prisma db seed",
-    "prisma:studio": "prisma studio",
+    "prisma:studio": "prisma studio --config ./prisma.config.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@apollo/server": "^5.0.0",
     "@as-integrations/koa": "^1.1.1",
     "@koa/router": "^14.0.0",
-    "@prisma/client": "6.16.1",
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "7.0.0",
+    "@prisma/config": "^7.0.0",
     "bcrypt": "^6.0.0",
     "class-validator": "^0.14.2",
     "cookies": "^0.9.1",
@@ -47,7 +49,7 @@
     "@types/koa-bodyparser": "^4.3.12",
     "@types/koa-logger": "^3.1.5",
     "@types/koa__router": "^12.0.4",
-    "prisma": "^6.16.1",
+    "prisma": "^7.0.0",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.20.6"
   }

@@ -1,5 +1,5 @@
-import AuthTemplate from '@/components/feature/auth/auth-template';
-import SignupForm from '@/components/feature/auth/signup-form';
+import AuthTemplate from '@/features/auth/components/auth-template';
+import SignupForm from '@/features/auth/components/signup-form';
 
 export default function Page() {
   return (
