@@ -1,7 +1,7 @@
-import { AuthRequest, AuthResponse, UserInfoResponse } from './auth.types';
-import { client } from '../client';
-import { API_ENDPOINTS } from '../endpoints';
-import { ApiResponse } from '../types';
+import { AuthRequest, AuthResponse, UserInfoResponse } from '../types/auth.types';
+import { client } from '@/shared/lib/api/client';
+import { API_ENDPOINTS } from '@/shared/lib/api/endpoints';
+import { ApiResponse } from '@/shared/lib/api/types';
 
 /**
  * 로그인 API
@@ -15,7 +15,6 @@ export async function login(
     API_ENDPOINTS.AUTH.LOGIN,
     data
   );
-  console.log(response.data);
   return response.data;
 }
 
@@ -39,30 +38,14 @@ export async function signUp(
  * 유저 정보 조회 API
  * @returns - 유저 정보 응답 데이터
  */
-export async function getMe(
-  accessToken?: string
-): Promise<ApiResponse<UserInfoResponse>> {
-  const response = await client.get<ApiResponse<UserInfoResponse>>(
-    API_ENDPOINTS.AUTH.ME,
-    {
-      headers: accessToken
-        ? { Authorization: `Bearer ${accessToken}` }
-        : undefined,
-    }
+export async function getMe(): Promise<UserInfoResponse | null> {
+  const response = await client.get<ApiResponse<UserInfoResponse | null>>(
+    API_ENDPOINTS.AUTH.ME
   );
 
-  return response.data;
-}
+  if (!response.data.success) return null;
 
-/**
- * 토큰 갱신 API
- * @returns - 갱신된 토큰 정보
- */
-export async function refreshToken(): Promise<ApiResponse<null>> {
-  const response = await client.post<ApiResponse<null>>(
-    API_ENDPOINTS.AUTH.REFRESH
-  );
-  return response.data;
+  return response.data.payload ?? null;
 }
 
 /**

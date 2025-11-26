@@ -1,12 +1,15 @@
 'use client';
 
-import { cn } from '@/shared/lib/utils';
-import { useSidebarScroll } from './context/sidebar-scroll-context';
 import Link from 'next/link';
+
+import { useMe } from '@/features/auth/hooks/use-me';
+
+import { cn } from '@/shared/lib/utils';
 import { Button } from '@/shared/components/ui/button';
 import { Icons } from '@/shared/components/ui/icon';
-import { LogoText, Logo } from '@/shared/components/ui/logo';
-import { useMe } from '@/features/auth/hooks/use-me';
+import { LogoText } from '@/shared/components/ui/logo';
+
+import { useSidebarScroll } from './context/sidebar-scroll-context';
 
 export default function SidebarFooter() {
   const { data: me } = useMe();
@@ -21,7 +24,7 @@ export default function SidebarFooter() {
     >
       <div className="flex justify-between items-center p-2 h-full w-full">
         {me ? (
-          <div>{me.payload?.username}</div>
+          <div>{me.username}</div>
         ) : (
           <Button
             asChild

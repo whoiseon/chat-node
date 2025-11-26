@@ -1,6 +1,6 @@
 import Router from '@koa/router';
 
-import { refresh, resetTokenCookie, setTokenCookie } from '@/lib/token';
+import { clearAuthCookies, setAuthCookies } from '@/lib/token';
 import { extractErrorMessage, validateBody } from '@/lib/utils';
 
 import {
@@ -13,9 +13,12 @@ import {
   ApiResponse,
   TokenErrorCode,
   TokenError,
+  AuthResponse,
 } from '@/types';
 
 import { AuthService } from '@/services/auth.service';
+
+import { requireAuth } from '@/lib/middlewares/auth';
 
 const auth = new Router();
 const authService = new AuthService();
@@ -29,20 +32,19 @@ auth.post('/signup', async (ctx) => {
 
     const { username, password } = ctx.request.body as SignUpInput;
 
-    const result = await authService.register({ username, password });
+    const authBody = await authService.register({ username, password });
 
-    setTokenCookie(ctx, {
-      accessToken: result.tokens.accessToken,
-      refreshToken: result.tokens.refreshToken,
+    setAuthCookies(ctx, {
+      accessToken: authBody.tokens.accessToken,
+      refreshToken: authBody.tokens.refreshToken,
     });
 
-    const response: ApiResponse<AuthBody> = {
+    const response: ApiResponse<AuthResponse> = {
       success: true,
       message: '',
       payload: {
-        userId: result.userId,
-        username: result.username,
-        tokens: result.tokens,
+        userId: authBody.userId,
+        username: authBody.username,
       },
     };
 
@@ -67,20 +69,19 @@ auth.post('/login', async (ctx) => {
 
     const { username, password } = ctx.request.body as LogInInput;
 
-    const result: AuthBody = await authService.logIn({ username, password });
+    const authBody: AuthBody = await authService.logIn({ username, password });
 
-    setTokenCookie(ctx, {
-      accessToken: result.tokens.accessToken,
-      refreshToken: result.tokens.refreshToken,
+    setAuthCookies(ctx, {
+      accessToken: authBody.tokens.accessToken,
+      refreshToken: authBody.tokens.refreshToken,
     });
 
-    const response: ApiResponse<AuthBody> = {
+    const response: ApiResponse<AuthResponse> = {
       success: true,
       message: '',
       payload: {
-        userId: result.userId,
-        username: result.username,
-        tokens: result.tokens,
+        userId: authBody.userId,
+        username: authBody.username,
       },
     };
 
@@ -97,99 +98,34 @@ auth.post('/login', async (ctx) => {
 });
 
 /**
- * 리프레시
- */
-auth.post('/refresh', async (ctx) => {
-  try {
-    const refreshToken = ctx.cookies.get('refresh_token');
-
-    if (!refreshToken) {
-      ctx.status = 401;
-      ctx.body = {
-        success: false,
-        message: '리프레시 토큰이 없습니다',
-        code: TokenErrorCode.REFRESH_TOKEN_NOT_FOUND,
-      };
-      return;
-    }
-
-    const result = await refresh(ctx, refreshToken);
-
-    setTokenCookie(ctx, {
-      accessToken: result.tokens.accessToken,
-      refreshToken: result.tokens.refreshToken,
-    });
-
-    ctx.body = {
-      success: true,
-      message: '',
-      payload: null,
-    };
-  } catch (error) {
-    if (error instanceof TokenError) {
-      // Token Rotation 위반 감지 시 모든 토큰 무효화
-      if (error.code === TokenErrorCode.REFRESH_TOKEN_USED) {
-        resetTokenCookie(ctx);
-
-        ctx.status = 401;
-        ctx.body = {
-          success: false,
-          message: '보안 위반이 감지되었습니다. 다시 로그인해주세요.',
-          code: error.code,
-        };
-        return;
-      }
-
-      ctx.status = 401;
-      ctx.body = {
-        success: false,
-        message: error.message,
-        code: error.code,
-      };
-      return;
-    }
-
-    ctx.status = 400;
-    ctx.body = {
-      success: false,
-      message: extractErrorMessage(error),
-    };
-  }
-});
-
-/**
  * 로그아웃
  */
-auth.post('/logout', async (ctx) => {
-  try {
-    const userId = ctx.state.user_id;
+auth.post('/logout', requireAuth, async (ctx) => {
+  const userId = ctx.state.userId;
 
-    if (userId) {
-      // 모든 토큰 무효화
-      await authService.revokeAllTokens(userId);
-    }
-
-    resetTokenCookie(ctx);
-
-    ctx.body = {
-      success: true,
-      message: '',
-    };
-  } catch (error) {
-    ctx.status = 400;
-    ctx.body = {
-      success: false,
-      message: extractErrorMessage(error),
-    };
+  if (userId) {
+    await authService.revokeAll(userId);
   }
+
+  clearAuthCookies(ctx);
+
+  ctx.body = {
+    success: true,
+    message: '',
+  };
 });
 
 /**
  * 테스트
  */
-auth.get('/me', async (ctx) => {
+/**
+ * 테스트
+ */
+auth.get('/me', requireAuth, async (ctx) => {
   try {
-    const user = await authService.findUser(ctx.state.user_id, 'userId', {
+    const userId = ctx.state.userId!;
+
+    const user = await authService.findUser(userId, 'userId', {
       id: true,
       username: true,
     });

@@ -1,6 +1,6 @@
 'use client';
 
-import { logout } from '@/shared/lib/api/auth';
+import { logout } from '@/features/auth/services/auth-service';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
@@ -13,7 +13,6 @@ export function useLogOut() {
     onSuccess: () => {
       // 모든 쿼리 캐시 초기화
       queryClient.clear();
-
       // 로그인 페이지로 이동
       router.push('/auth/login');
     },

@@ -1,16 +1,16 @@
 'use client';
 
-import { getMe } from '@/shared/lib/api/auth';
 import { useQuery } from '@tanstack/react-query';
-import { queryKey } from '../../../shared/hooks/query-key';
 
-export function useMe(enabled: boolean = true) {
+import { queryKey } from '@/shared/hooks/query-key';
+import { getMe } from '@/features/auth/services/auth-service';
+
+export function useMe(enabled: boolean = false) {
   return useQuery({
     queryKey: queryKey.auth.me(),
-    queryFn: () => getMe(),
-    enabled,
-    retry: false, // 401 에러 시 재시도 안함
-    staleTime: 1000 * 60 * 5, // 5분
-    gcTime: 1000 * 60 * 30, // 30분 (이전 cacheTime)
+    queryFn: getMe,
+    enabled, // 캐시만 사용
+    retry: 1, // 401 에러 시 1회 재시도 (새로운 쿠키로)
+    placeholderData: (previousData) => previousData, // 재시도 중 이전 데이터 유지
   });
 }

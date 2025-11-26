@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+
 import AppLayout from '@/shared/components/layout/app-layout';
 
 export default async function DefaultLayout({

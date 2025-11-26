@@ -16,6 +16,11 @@ export interface AuthBody {
   tokens: AuthTokens;
 }
 
+export interface AuthResponse {
+  userId: string;
+  username: string;
+}
+
 export type RefreshBody = {
   accessToken: string;
   refreshToken: string;

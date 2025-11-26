@@ -1,48 +1,56 @@
 import '@/styles/globals.css';
 
 import { type Metadata } from 'next';
+
 import AppProvider from '@/shared/components/provider/app-provider';
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query';
 import { queryKey } from '@/shared/hooks/query-key';
-import { getMe } from '@/shared/lib/api/auth';
-import { cookies } from 'next/headers';
-import { getQueryClient } from '@/shared/lib/react-query/get-query-client';
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import { serverFetch } from '@/shared/lib/api/server-fetch';
 
 export const metadata: Metadata = {
   title: '챗노드 - ChatNode',
   description: '채팅 앱',
 };
 
-async function prefetchMe() {
-  const cookieStore = await cookies();
-  const accessToken = cookieStore.get('access_token')?.value;
-
-  const queryClient = getQueryClient();
-
-  try {
-    await queryClient.prefetchQuery({
-      queryKey: queryKey.auth.me(),
-      queryFn: () => getMe(accessToken),
-    });
-  } catch (error) {
-    console.log('User not authenticated');
-  }
-
-  return queryClient;
-}
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = await prefetchMe();
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: queryKey.auth.me(),
+    queryFn: async () => {
+      try {
+        const response = await serverFetch('/auth/me', {
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          return null;
+        }
+
+        const data = await response.json();
+        return data.payload ?? null;
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    },
+  });
+
+  const dehydratedState = dehydrate(queryClient);
 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased h-dvh overflow-hidden relative bg-background">
         <AppProvider>
-          <HydrationBoundary state={dehydrate(queryClient)}>
+          <HydrationBoundary state={dehydratedState}>
             {children}
           </HydrationBoundary>
         </AppProvider>

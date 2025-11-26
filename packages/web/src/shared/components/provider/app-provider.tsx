@@ -1,7 +1,6 @@
 'use client';
 
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import ReactQueryProvider from './react-query-provider';
+import { ReactQueryProvider } from './react-query-provider';
 import ThemeProvider from './theme-provider';
 
 export default function AppProvider({
@@ -12,7 +11,6 @@ export default function AppProvider({
   return (
     <ReactQueryProvider>
       <ThemeProvider>{children}</ThemeProvider>
-      <ReactQueryDevtools />
     </ReactQueryProvider>
   );
 }

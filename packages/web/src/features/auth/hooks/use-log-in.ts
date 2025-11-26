@@ -1,8 +1,8 @@
 'use client';
 
-import { login } from '@/shared/lib/api/auth';
+import { login } from '@/features/auth/services/auth-service';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { queryKey } from '../../../shared/hooks/query-key';
+import { queryKey } from '@/shared/hooks/query-key';
 import { useRouter } from 'next/navigation';
 
 export function useLogIn() {
@@ -19,12 +19,8 @@ export function useLogIn() {
 
       if (data.payload) {
         queryClient.setQueryData(queryKey.auth.me(), {
-          success: true,
-          message: '',
-          payload: {
-            userId: data.payload.userId,
-            username: data.payload.username,
-          },
+          userId: data.payload.userId,
+          username: data.payload.username,
         });
 
         router.push('/');
