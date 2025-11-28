@@ -1,7 +1,10 @@
 import Router from '@koa/router';
 
 import { clearAuthCookies, setAuthCookies } from '@/lib/token';
-import { extractErrorMessage, validateBody } from '@/lib/utils';
+import { generateResponseBody, validateBody } from '@/lib/utils';
+import { requireAuth } from '@/lib/middlewares/auth';
+
+import { AuthService } from '@/services/auth.service';
 
 import {
   AuthBody,
@@ -9,92 +12,93 @@ import {
   LogInInput,
   signUpSchema,
   logInSchema,
-  ApiError,
-  ApiResponse,
-  TokenErrorCode,
-  TokenError,
   AuthResponse,
 } from '@/types';
-
-import { AuthService } from '@/services/auth.service';
-
-import { requireAuth } from '@/lib/middlewares/auth';
+import { NpService } from '@/services/np.service';
 
 const auth = new Router();
+
 const authService = new AuthService();
+const npService = new NpService();
 
 /**
  * 회원가입
  */
 auth.post('/signup', async (ctx) => {
-  try {
-    if (!validateBody(ctx, signUpSchema)) return;
+  if (!validateBody(ctx, signUpSchema)) return;
 
-    const { username, password } = ctx.request.body as SignUpInput;
+  const { username, password } = ctx.request.body as SignUpInput;
 
-    const authBody = await authService.register({ username, password });
+  // 회원가입
+  const authBody = await authService.register({ username, password });
 
-    setAuthCookies(ctx, {
-      accessToken: authBody.tokens.accessToken,
-      refreshToken: authBody.tokens.refreshToken,
+  // 회원가입 가입 보너스 지급
+  await npService.signUpNpBonus(authBody.userId).catch((error) => {
+    console.error('[Auth.signup] 회원가입 보너스 지급 중 오류 발생:', error);
+  });
+
+  // 토큰 쿠키 설정
+  setAuthCookies(ctx, {
+    accessToken: authBody.tokens.accessToken,
+    refreshToken: authBody.tokens.refreshToken,
+  });
+
+  const dailyLoginBonus = await npService
+    .checkAndGiveDailyLoginBonus(authBody.userId)
+    .catch((error) => {
+      console.error(
+        '[Auth.signup] 일일 로그인 보너스 지급 중 오류 발생:',
+        error
+      );
     });
 
-    const response: ApiResponse<AuthResponse> = {
-      success: true,
-      message: '',
-      payload: {
-        userId: authBody.userId,
-        username: authBody.username,
-      },
-    };
+  // 마지막 로그인 시간 업데이트
+  await authService.updateLastLoginAt(authBody.userId);
 
-    ctx.body = response;
-  } catch (error) {
-    const errorResponse: ApiError = {
-      success: false,
-      message: extractErrorMessage(error),
-    };
-
-    ctx.status = 400;
-    ctx.body = errorResponse;
-  }
+  ctx.body = generateResponseBody<AuthResponse>(true, '', {
+    dailyLoginBonus: {
+      isGiven: dailyLoginBonus?.isGiven ?? false,
+      amount: dailyLoginBonus?.amount ?? 0,
+    },
+  });
 });
 
 /**
  * 로그인
  */
 auth.post('/login', async (ctx) => {
-  try {
-    if (!validateBody(ctx, logInSchema)) return;
+  if (!validateBody(ctx, logInSchema)) return;
 
-    const { username, password } = ctx.request.body as LogInInput;
+  const { username, password } = ctx.request.body as LogInInput;
 
-    const authBody: AuthBody = await authService.logIn({ username, password });
+  // 로그인
+  const authBody: AuthBody = await authService.logIn({ username, password });
 
-    setAuthCookies(ctx, {
-      accessToken: authBody.tokens.accessToken,
-      refreshToken: authBody.tokens.refreshToken,
+  // 토큰 쿠키 설정
+  setAuthCookies(ctx, {
+    accessToken: authBody.tokens.accessToken,
+    refreshToken: authBody.tokens.refreshToken,
+  });
+
+  // 일일 로그인 보너스 지급
+  const dailyLoginBonus = await npService
+    .checkAndGiveDailyLoginBonus(authBody.userId)
+    .catch((error) => {
+      console.error(
+        '[Auth.login] 일일 로그인 보너스 지급 중 오류 발생:',
+        error
+      );
     });
 
-    const response: ApiResponse<AuthResponse> = {
-      success: true,
-      message: '',
-      payload: {
-        userId: authBody.userId,
-        username: authBody.username,
-      },
-    };
+  // 마지막 로그인 시간 업데이트
+  await authService.updateLastLoginAt(authBody.userId);
 
-    ctx.body = response;
-  } catch (error) {
-    const errorResponse: ApiError = {
-      success: false,
-      message: extractErrorMessage(error),
-    };
-
-    ctx.status = 400;
-    ctx.body = errorResponse;
-  }
+  ctx.body = generateResponseBody<AuthResponse>(true, '', {
+    dailyLoginBonus: {
+      isGiven: dailyLoginBonus?.isGiven ?? false,
+      amount: dailyLoginBonus?.amount ?? 0,
+    },
+  });
 });
 
 /**
@@ -109,51 +113,7 @@ auth.post('/logout', requireAuth, async (ctx) => {
 
   clearAuthCookies(ctx);
 
-  ctx.body = {
-    success: true,
-    message: '',
-  };
-});
-
-/**
- * 테스트
- */
-/**
- * 테스트
- */
-auth.get('/me', requireAuth, async (ctx) => {
-  try {
-    const userId = ctx.state.userId!;
-
-    const user = await authService.findUser(userId, 'userId', {
-      id: true,
-      username: true,
-    });
-
-    if (!user) {
-      ctx.status = 404;
-      ctx.body = {
-        success: false,
-        message: '찾을 수 없는 유저입니다.',
-      };
-      return;
-    }
-
-    ctx.body = {
-      success: true,
-      message: '',
-      payload: {
-        userId: user.id,
-        username: user.username,
-      },
-    };
-  } catch (error: unknown) {
-    ctx.status = 400;
-    ctx.body = {
-      success: false,
-      message: extractErrorMessage(error),
-    };
-  }
+  ctx.body = generateResponseBody(true, '');
 });
 
 export default auth;

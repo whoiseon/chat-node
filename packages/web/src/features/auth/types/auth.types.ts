@@ -15,18 +15,16 @@ export interface AuthRequest {
 }
 
 /**
- * 인증 응답 타입
+ * 로그인 응답 타입
  */
 export interface AuthResponse {
-  userId: string;
-  username: string;
-  tokens: AuthTokens;
+  dailyLoginBonus: DailyLoginBonus;
 }
 
 /**
- * 유저 정보 응답 타입
+ * 일일 로그인 보너스 타입
  */
-export interface UserInfoResponse {
-  userId: string;
-  username: string;
+export interface DailyLoginBonus {
+  isGiven: boolean;
+  amount: number;
 }

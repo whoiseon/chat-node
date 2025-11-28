@@ -1,7 +1,7 @@
 import { Context, Middleware, Next } from 'koa';
 import { verifyToken, setAuthCookies, clearAuthCookies } from '@/lib/token';
 import { AuthService } from '@/services/auth.service';
-import { TokenError, TokenErrorCode } from '@/types';
+import { generateResponseBody } from '../utils';
 
 type AccessPayload = { type: 'access'; userId: string };
 type RefreshPayload = { type: 'refresh'; userId: string; tokenId: string };
@@ -72,10 +72,7 @@ export const extractUser: Middleware = async (ctx: Context, next: Next) => {
 export const requireAuth: Middleware = async (ctx: Context, next: Next) => {
   if (!ctx.state.userId) {
     ctx.status = 401;
-    ctx.body = {
-      success: false,
-      message: '인증 정보가 없습니다.',
-    };
+    ctx.body = generateResponseBody(false, '인증 정보가 없습니다.');
     return;
   }
   return next();

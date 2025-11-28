@@ -24,10 +24,10 @@ export default async function RootLayout({
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: queryKey.auth.me(),
+    queryKey: queryKey.user.me(),
     queryFn: async () => {
       try {
-        const response = await serverFetch('/auth/me', {
+        const response = await serverFetch('/user/me', {
           cache: 'no-store',
         });
 
@@ -38,7 +38,6 @@ export default async function RootLayout({
         const data = await response.json();
         return data.payload ?? null;
       } catch (error) {
-        console.error(error);
         return null;
       }
     },

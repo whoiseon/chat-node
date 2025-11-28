@@ -25,6 +25,21 @@ export function extractErrorMessage(error: unknown) {
 }
 
 /**
+ * Response body generator
+ */
+export function generateResponseBody<T>(
+  success: boolean,
+  message: string,
+  payload?: T
+) {
+  return {
+    success,
+    message,
+    payload: payload ?? null,
+  };
+}
+
+/**
  * Zod Error formatter
  */
 function getFirstZodErrorMessage(error: z.ZodError) {

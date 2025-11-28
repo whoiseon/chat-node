@@ -40,6 +40,7 @@ export default function SignupForm() {
       password: data.password,
     });
   };
+
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>

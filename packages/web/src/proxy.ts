@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+import { API_ENDPOINTS } from '@/shared/lib/api/endpoints';
+
 export async function proxy(request: NextRequest) {
-    // const response = NextResponse.next(); // Removed: response is created later
-    
+  // const response = NextResponse.next(); // Removed: response is created later
+
   const accessToken = request.cookies.get('access_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -19,28 +21,33 @@ export async function proxy(request: NextRequest) {
   }
 
   try {
-    const backendResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/auth/me`, {
-      method: 'GET',
-      headers: {
-        Cookie: request.cookies.toString(),
-      },
-    });
+    const backendResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE}${API_ENDPOINTS.USER.ME}`,
+      {
+        method: 'GET',
+        headers: {
+          Cookie: request.cookies.toString(),
+        },
+      }
+    );
 
     const setCookieHeader = backendResponse.headers.get('set-cookie');
 
     if (setCookieHeader) {
       // 백엔드에서 받은 쿠키를 파싱하여 요청 헤더에 업데이트
       const newHeaders = new Headers(request.headers);
-      newHeaders.set('Cookie', setCookieHeader); 
-      
+      newHeaders.set('Cookie', setCookieHeader);
+
       // 더 정교한 처리가 필요하다면 set-cookie-parser 등을 사용해야 함.
       // 하지만 보통 fetch의 Cookie 헤더는 하나로 합쳐져서 전송됨.
       // 여기서는 간단히 백엔드가 준 전체 Set-Cookie 값을 Cookie 헤더로 설정하여 다음 요청(Layout)에 전달.
       // 주의: Set-Cookie는 여러 개일 수 있음. fetch API에서는 getSetCookie() 사용 권장.
-      
-      const cookies = backendResponse.headers.getSetCookie ? backendResponse.headers.getSetCookie() : [setCookieHeader];
-      const cookieString = cookies.map(c => c.split(';')[0]).join('; ');
-      
+
+      const cookies = backendResponse.headers.getSetCookie
+        ? backendResponse.headers.getSetCookie()
+        : [setCookieHeader];
+      const cookieString = cookies.map((c) => c.split(';')[0]).join('; ');
+
       newHeaders.set('Cookie', cookieString);
 
       // 갱신된 헤더로 다음 응답 생성
@@ -51,14 +58,14 @@ export async function proxy(request: NextRequest) {
       });
 
       // 브라우저에도 새 쿠키 설정
-      cookies.forEach(cookie => {
+      cookies.forEach((cookie) => {
         response.headers.append('Set-Cookie', cookie);
       });
-      
+
       return response;
     }
   } catch (error) {
-    console.error('Middleware Auth Check Failed: ', error)
+    console.error('Middleware Auth Check Failed: ', error);
   }
 
   return NextResponse.next();

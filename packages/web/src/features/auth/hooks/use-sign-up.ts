@@ -1,9 +1,13 @@
 'use client';
 
-import { login, signUp } from '@/shared/lib/api/auth';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { queryKey } from '../../../shared/hooks/query-key';
+
+import { toastOptions } from '@/shared/lib/constant/toast-options';
+import { queryKey } from '@/shared/hooks/query-key';
+
+import { signUp } from '@/features/auth/services/auth-service';
 
 export function useSignUp() {
   const router = useRouter();
@@ -11,24 +15,21 @@ export function useSignUp() {
 
   return useMutation({
     mutationFn: signUp,
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       if (!data.success) {
-        console.log(data.message);
+        toast.error(data.message, toastOptions.error);
         return;
       }
 
-      if (data.payload) {
-        queryClient.setQueryData(queryKey.auth.me(), {
-          success: true,
-          message: '',
-          payload: {
-            userId: data.payload.userId,
-            username: data.payload.username,
-          },
-        });
-
-        router.push('/');
+      if (data.payload?.dailyLoginBonus.isGiven) {
+        toast.success(
+          `${data.payload?.dailyLoginBonus.amount.toLocaleString()} NP를 지급받았습니다.`,
+          toastOptions.dailyLoginBonus
+        );
       }
+
+      await queryClient.invalidateQueries({ queryKey: queryKey.user.me() });
+      router.push('/');
     },
     onError: (error) => {
       console.error(error);

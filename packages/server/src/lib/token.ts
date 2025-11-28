@@ -6,7 +6,7 @@ import jwt, {
 } from 'jsonwebtoken';
 import { Context } from 'koa';
 
-import { TokenError, TokenErrorCode } from '@/types';
+import { TokenError } from '@/lib/middlewares/error';
 
 const { JWT_SECRET } = process.env;
 
@@ -22,10 +22,14 @@ type RefreshPayload = {
 };
 
 const ACCESS_EXPIRES_IN = '1h';
+// const ACCESS_EXPIRES_IN = '10s';
 const REFRESH_EXPIRES_IN = '7d';
+// const REFRESH_EXPIRES_IN = '30s';
 
 const ACCESS_TOKEN_MAX_AGE = 1000 * 60 * 60; // 1 hour
+// const ACCESS_TOKEN_MAX_AGE = 1000 * 10; // 10 seconds
 const REFRESH_TOKEN_MAX_AGE = 1000 * 60 * 60 * 24 * 7; // 7 days
+// const REFRESH_TOKEN_MAX_AGE = 1000 * 60 * 60 * 24 * 7; // 7 days
 
 export const signToken = <T extends AccessPayload | RefreshPayload>(
   payload: T,
@@ -43,17 +47,11 @@ export const verifyToken = <T>(token: string): T => {
   } catch (e) {
     if (e instanceof TokenExpiredError) {
       console.log('[verifyToken] 토큰 만료 에러 발생');
-      throw new TokenError(
-        TokenErrorCode.TOKEN_EXPIRED,
-        '토큰이 만료되었습니다'
-      );
+      throw new TokenError('토큰이 만료되었습니다');
     }
     if (e instanceof JsonWebTokenError) {
       console.log('[verifyToken] 토큰 형식/서명 에러 발생');
-      throw new TokenError(
-        TokenErrorCode.TOKEN_INVALID,
-        '토큰이 유효하지 않습니다'
-      );
+      throw new TokenError('토큰이 유효하지 않습니다');
     }
     console.error('[verifyToken] 예상치 못한 에러:', e);
     throw e;

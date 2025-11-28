@@ -11,7 +11,7 @@ model AdminUser {
   id           String   @id @default(cuid())
   userId       String   @map("fk_user_id")
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+  updatedAt    DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
   User         User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([userId], map: "idx_user_id")
@@ -31,16 +31,155 @@ model AuthToken {
 }
 
 model User {
-  id           String   @id @default(cuid())
+  id              String   @id @default(cuid())
   username        String   @unique
   passwordHash    String  @map("password_hash")
-  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
-  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamp(6)
+  np              Int     @default(0)
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt       DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+  lastLoginAt     DateTime? @map("last_login_at") @db.Timestamp(6)
 
   AuthToken AuthToken[]
   AdminUser AdminUser[]
 
+  ownedNodeCons UserNodeCon[]
+
+  mainNodeConId String? @map("fk_main_node_con_id")
+
+  npTransactions NpTransaction[]
+
   @@index([username], map: "idx_username")
+  @@index([np]) // 잔액 검색/정렬용
 
   @@map("user")
+}
+
+model NodeCon {
+  id           String   @id @default(cuid())
+  name         String @unique
+  description  String?
+  imageUrl     String? @map("image_url")
+  np  Int? @default(0)
+
+  tags         NodeConTagRelation[]
+
+  ownedBy UserNodeCon[]
+
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt    DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@index([name])
+  @@index([np])
+
+  @@map("node_con")
+}
+
+model UserNodeCon {
+  id           String   @id @default(cuid())
+  userId       String   @map("fk_user_id")
+  nodeConId    String   @map("fk_node_con_id")
+  
+  // 구매 정보
+  purchasedAt  DateTime @default(now()) @map("purchased_at") @db.Timestamp(6)
+
+  // 구매 시 사용한 NP 거래 ID (추적용)
+  transactionId String? @unique @map("fk_transaction_id")
+  
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  NodeCon      NodeCon  @relation(fields: [nodeConId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@unique([userId, nodeConId]) // 같은 노드콘을 중복 보유 불가
+  @@index([userId])
+  @@index([nodeConId])
+  @@index([purchasedAt])
+
+  @@map("user_node_con")
+}
+
+model NodeConTag {
+  id           String   @id @default(cuid())
+  name         String @unique
+
+  nodeCons NodeConTagRelation[]
+
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt    DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@index([name])
+  @@map("node_con_tag")
+}
+
+model NodeConTagRelation {
+  id           String      @id @default(cuid())
+  nodeConId    String      @map("fk_node_con_id")
+  tagId        String      @map("fk_tag_id")
+
+  NodeCon      NodeCon     @relation(fields: [nodeConId], references: [id], onDelete: Cascade)
+  Tag          NodeConTag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime    @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@unique([nodeConId, tagId]) // 같은 태그 중복 설정 불가
+  @@index([nodeConId])
+  @@index([tagId])
+  @@map("node_con_tag_relation")
+}
+
+// NP 거래 타입 열거형
+enum NpTransactionType {
+  CHARGE    // 충전 (관리자/결제 시스템에서)
+  PURCHASE  // 구매 (노드콘 구매 등)
+  USE       // 사용 (노드콘 사용 등)
+  BONUS     // 보너스 지급
+  EARNED    // 적립 (활동 등으로 획득)
+  WITHDRAW  // 회수 (관리자가 회수)
+  GIFT      // 선물/무료/이벤트 지급
+}
+
+// NP 거래 내역 모델
+model NpTransaction {
+  id           String              @id @default(cuid())
+  userId       String              @map("fk_user_id")
+  
+  type         NpTransactionType   // 거래 타입
+  amount       Int                 // 거래 금액 (음수: 차감, 양수: 충전)
+  balanceBefore Int                @map("balance_before") // 거래 전 잔액
+  balanceAfter  Int                @map("balance_after") // 거래 후 잔액
+  
+  description  String?             // 거래 설명 (예: "노드콘 구매: Node.js 아이콘")
+  
+  // 관련 데이터 (구매한 노드콘 ID 등)
+  metadata     Json?               // 추가 정보 저장 (유연한 구조)
+
+  User         User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime            @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+  @@index([userId, createdAt]) // 유저별 거래 내역 조회 최적화
+
+  @@map("np_transaction")
+}
+
+enum SystemSettingKey {
+  SIGNUP_BONUS_AMOUNT
+  DAILY_LOGIN_BONUS_MIN_AMOUNT
+  DAILY_LOGIN_BONUS_MAX_AMOUNT
+}
+
+model SystemSetting {
+  id           Int      @id @default(autoincrement())
+  key          SystemSettingKey   @unique
+  settingValue Int                @map("setting_value")
+  enabled      Boolean            @default(true) @map("enabled")
+
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt    DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@index([key])
+  @@map("system_setting")
 }

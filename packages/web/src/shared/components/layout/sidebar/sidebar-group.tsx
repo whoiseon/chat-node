@@ -41,7 +41,7 @@ function SidebarGroupItem({ children, href, icon }: SidebarGroupItemProps) {
     <Link
       href={href}
       className={cn(
-        'h-[30px] flex items-center px-2 py-1 rounded-md text-muted-foreground hover:bg-stone-200 dark:hover:bg-stone-750 gap-x-2 [&_svg]:size-4.5 transition-all duration-100',
+        'h-[30px] flex items-center px-2 py-1 rounded-md text-muted-foreground hover:bg-accent gap-x-2 [&_svg]:size-4.5 transition-all duration-100',
         isActive ? 'bg-stone-200 dark:bg-stone-750' : ''
       )}
     >

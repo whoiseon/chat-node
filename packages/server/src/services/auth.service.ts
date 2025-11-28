@@ -1,15 +1,9 @@
-import bcrypt from 'bcrypt';
 import { Prisma } from 'generated/prisma';
+import bcrypt from 'bcrypt';
 
 import { prisma } from '@/database';
-import {
-  AuthBody,
-  AuthTokens,
-  LogInInput,
-  SignUpInput,
-  TokenError,
-  TokenErrorCode,
-} from '@/types';
+import { AuthBody, LogInInput, SignUpInput } from '@/types';
+import { BusinessError, TokenError } from '@/lib/middlewares/error';
 import { createAccessToken, createRefreshToken } from '@/lib/token';
 
 export class AuthService {
@@ -24,8 +18,9 @@ export class AuthService {
       id: true,
       username: true,
     });
+
     if (existingUsername) {
-      throw new Error('이미 존재하는 아이디입니다');
+      throw new BusinessError('이미 존재하는 아이디입니다');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -60,12 +55,12 @@ export class AuthService {
     });
 
     if (!user) {
-      throw new Error('잘못된 계정정보입니다');
+      throw new BusinessError('잘못된 계정정보입니다');
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
     if (!isPasswordValid) {
-      throw new Error('잘못된 계정정보입니다');
+      throw new BusinessError('잘못된 계정정보입니다');
     }
 
     const tokens = await this.issueTokens(user.id);
@@ -109,10 +104,7 @@ export class AuthService {
         '[AuthService.rotateRefreshToken] 세션 레코드 없음 → 잘못된 리프레시 토큰'
       );
 
-      throw new TokenError(
-        TokenErrorCode.REFRESH_TOKEN_NOT_FOUND,
-        '리프레시 토큰이 없습니다'
-      );
+      throw new TokenError('리프레시 토큰이 없습니다');
     }
 
     if (token.userId !== userId) {
@@ -120,20 +112,14 @@ export class AuthService {
         '[AuthService.rotateRefreshToken] 세션 userId 불일치, 세션 userId:',
         token.userId
       );
-      throw new TokenError(
-        TokenErrorCode.REFRESH_TOKEN_INVALID,
-        '리프레시 토큰이 유효하지 않습니다'
-      );
+      throw new TokenError('리프레시 토큰이 유효하지 않습니다');
     }
 
     if (token.blocked) {
       console.log(
         '[AuthService.rotateRefreshToken] 이미 차단된 리프레시 토큰 재사용 시도'
       );
-      throw new TokenError(
-        TokenErrorCode.REFRESH_TOKEN_INVALID,
-        '리프레시 토큰이 유효하지 않습니다'
-      );
+      throw new TokenError('리프레시 토큰이 유효하지 않습니다');
     }
 
     console.log(
@@ -173,6 +159,18 @@ export class AuthService {
   }
 
   /**
+   * 마지막 로그인 시간 업데이트
+   */
+  async updateLastLoginAt(userId: string): Promise<Date | null> {
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: { lastLoginAt: new Date() },
+    });
+
+    return updatedUser.lastLoginAt;
+  }
+
+  /**
    * 유저 조회
    */
   async findUser(
@@ -180,7 +178,7 @@ export class AuthService {
     by: 'userId' | 'username',
     select?: Prisma.UserSelect
   ) {
-    if (!value) return;
+    if (!value) return null;
 
     switch (by) {
       case 'userId':

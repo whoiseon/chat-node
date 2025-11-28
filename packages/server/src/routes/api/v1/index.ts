@@ -1,6 +1,7 @@
 import Router from '@koa/router';
 
 import auth from './auth';
+import user from './user';
 
 const v1 = new Router();
 
@@ -11,5 +12,6 @@ v1.get('/check', async (ctx) => {
 });
 
 v1.use('/auth', auth.routes());
+v1.use('/user', user.routes());
 
 export default v1;

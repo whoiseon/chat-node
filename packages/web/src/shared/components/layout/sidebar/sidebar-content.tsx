@@ -42,16 +42,10 @@ export default function SidebarContent() {
           홈
         </SidebarGroup.Item>
         <SidebarGroup.Item
-          href="/trending"
-          icon={<Icons.Flame strokeWidth={2.2} />}
+          href="/market/nodecon"
+          icon={<Icons.NodeconShop strokeWidth={2.2} />}
         >
-          인기
-        </SidebarGroup.Item>
-        <SidebarGroup.Item
-          href="/topic"
-          icon={<Icons.Hash strokeWidth={2.2} />}
-        >
-          주제별
+          노드콘
         </SidebarGroup.Item>
       </SidebarGroup>
       <ScrollArea className="h-full min-h-0" onScrollCapture={handleScroll}>

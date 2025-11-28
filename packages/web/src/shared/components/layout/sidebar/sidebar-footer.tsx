@@ -2,14 +2,15 @@
 
 import Link from 'next/link';
 
-import { useMe } from '@/features/auth/hooks/use-me';
-
 import { cn } from '@/shared/lib/utils';
-import { Button } from '@/shared/components/ui/button';
-import { Icons } from '@/shared/components/ui/icon';
-import { LogoText } from '@/shared/components/ui/logo';
+
+import { useMe } from '@/features/user/hooks/use-me';
+import UserProfileDropdown from '@/features/user/components/user-profile-dropdown';
 
 import { useSidebarScroll } from './context/sidebar-scroll-context';
+
+import { Button } from '../../ui/button';
+import { LogoText } from '../../ui/logo';
 
 export default function SidebarFooter() {
   const { data: me } = useMe();
@@ -24,12 +25,12 @@ export default function SidebarFooter() {
     >
       <div className="flex justify-between items-center p-2 h-full w-full">
         {me ? (
-          <div>{me.username}</div>
+          <UserProfileDropdown me={me} />
         ) : (
           <Button
             asChild
             variant="ghost"
-            className="text-muted-foreground hover:bg-stone-200 dark:hover:bg-stone-750 items-center justify-start px-2"
+            className="text-muted-foreground hover:bg-stone-200 dark:hover:bg-stone-750 items-center justify-start px-2 h-8!"
           >
             <Link
               href="/auth/login"
@@ -40,13 +41,6 @@ export default function SidebarFooter() {
             </Link>
           </Button>
         )}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-muted-foreground hover:bg-stone-200 dark:hover:bg-stone-750"
-        >
-          <Icons.Settings />
-        </Button>
       </div>
     </div>
   );

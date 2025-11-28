@@ -1,4 +1,4 @@
-import { AuthRequest, AuthResponse, UserInfoResponse } from '../types/auth.types';
+import { AuthRequest, AuthResponse } from '../types/auth.types';
 import { client } from '@/shared/lib/api/client';
 import { API_ENDPOINTS } from '@/shared/lib/api/endpoints';
 import { ApiResponse } from '@/shared/lib/api/types';
@@ -32,20 +32,6 @@ export async function signUp(
   );
 
   return response.data;
-}
-
-/**
- * 유저 정보 조회 API
- * @returns - 유저 정보 응답 데이터
- */
-export async function getMe(): Promise<UserInfoResponse | null> {
-  const response = await client.get<ApiResponse<UserInfoResponse | null>>(
-    API_ENDPOINTS.AUTH.ME
-  );
-
-  if (!response.data.success) return null;
-
-  return response.data.payload ?? null;
 }
 
 /**
