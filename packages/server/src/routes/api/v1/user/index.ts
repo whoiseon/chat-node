@@ -6,7 +6,7 @@ import { BusinessError } from '@/lib/middlewares/error';
 
 import { UserService } from '@/services/user.service';
 
-import { UserResponse } from '@/types';
+import { UserResponse, UserRole } from '@/types';
 
 const user = new Router();
 const userService = new UserService();
@@ -28,11 +28,20 @@ user.get('/me', requireAuth, async (ctx) => {
     throw new BusinessError('존재하지 않는 유저입니다.');
   }
 
+  const adminUser = await userService.findAdminUser(userId);
+
+  let role = UserRole.USER;
+
+  if (adminUser) {
+    role = UserRole.ADMIN;
+  }
+
   ctx.body = generateResponseBody<UserResponse>(true, '', {
     userId: user.id,
     username: user.username,
     np: user.np,
     mainNodeConId: user.mainNodeConId,
+    role,
   });
 });
 

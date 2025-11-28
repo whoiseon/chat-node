@@ -6,4 +6,7 @@ export interface UserResponse {
   username: string;
   np: number;
   mainNodeConId: string;
+  role: UserRole;
 }
+
+export type UserRole = 'user' | 'admin';

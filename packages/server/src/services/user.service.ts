@@ -4,6 +4,15 @@ import { prisma } from '@/database';
 import { BusinessError } from '@/lib/middlewares/error';
 
 export class UserService {
+  async findAdminUser(userId: string) {
+    return prisma.adminUser.findUnique({
+      where: { userId },
+      select: {
+        id: true,
+      },
+    });
+  }
+
   /**
    * 유저 조회
    */
