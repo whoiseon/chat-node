@@ -1,7 +1,6 @@
 import { Prisma } from 'generated/prisma';
 
 import { prisma } from '@/database';
-import { BusinessError } from '@/lib/middlewares/error';
 
 export class UserService {
   async findAdminUser(userId: string) {
