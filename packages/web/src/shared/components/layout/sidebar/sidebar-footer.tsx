@@ -3,14 +3,13 @@
 import Link from 'next/link';
 
 import { cn } from '@/shared/lib/utils';
+import { Button } from '@/shared/components/ui/button';
+import { LogoText } from '@/shared/components/ui/logo';
 
 import { useMe } from '@/features/user/hooks/use-me';
 import UserProfileDropdown from '@/features/user/components/user-profile-dropdown';
 
 import { useSidebarScroll } from './context/sidebar-scroll-context';
-
-import { Button } from '../../ui/button';
-import { LogoText } from '../../ui/logo';
 
 export default function SidebarFooter() {
   const { data: me } = useMe();
@@ -20,12 +19,18 @@ export default function SidebarFooter() {
     <div
       className={cn(
         'flex items-center w-full h-[48px] transition-all duration-100',
-        !isBottom ? 'border-t border-t-border' : 'border-t-0'
+        !isBottom
+          ? 'border-t border-t-stone-250 dark:border-t-stone-750'
+          : 'border-t-0'
       )}
     >
       <div className="flex justify-between items-center p-2 h-full w-full">
         {me ? (
-          <UserProfileDropdown me={me} />
+          <UserProfileDropdown
+            nodeconId={me.mainNodeConId}
+            username={me.username}
+            np={me.np}
+          />
         ) : (
           <Button
             asChild

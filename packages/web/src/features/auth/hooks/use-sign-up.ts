@@ -1,31 +1,38 @@
 'use client';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 
-import { toastOptions } from '@/shared/lib/constant/toast-options';
 import { queryKey } from '@/shared/hooks/query-key';
+import { useToast } from '@/shared/hooks/useToast';
 
 import { signUp } from '@/features/auth/services/auth-service';
+import { npMessage } from '@/shared/lib/constant/message/np';
 
 export function useSignUp() {
   const router = useRouter();
   const queryClient = useQueryClient();
+  const toast = useToast();
 
   return useMutation({
     mutationFn: signUp,
     onSuccess: async (data) => {
       if (!data.success) {
-        toast.error(data.message, toastOptions.error);
+        toast({
+          type: 'error',
+          message: data.message,
+        });
         return;
       }
 
       if (data.payload?.dailyLoginBonus.isGiven) {
-        toast.success(
-          `${data.payload?.dailyLoginBonus.amount.toLocaleString()} NP를 지급받았습니다.`,
-          toastOptions.dailyLoginBonus
-        );
+        toast({
+          type: 'np',
+          message: npMessage.given(data.payload?.dailyLoginBonus.amount),
+          options: {
+            description: npMessage.dailyLoginBonusDescription,
+          },
+        });
       }
 
       await queryClient.invalidateQueries({ queryKey: queryKey.user.me() });

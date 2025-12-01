@@ -31,10 +31,13 @@ export class NpService {
       shouldGiveBonus = true;
     } else {
       // 마지막 로그인 날짜(day)가 어제인지 확인
-      const lastLoginDate = user.lastLoginAt.getDate();
-      const today = now.getDate();
+      const lastLoginDate = new Date(user.lastLoginAt);
+      lastLoginDate.setHours(0, 0, 0, 0);
 
-      if (today - lastLoginDate >= 1) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (lastLoginDate < today) {
         shouldGiveBonus = true;
       }
     }

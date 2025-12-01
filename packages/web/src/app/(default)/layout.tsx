@@ -12,6 +12,7 @@ export default async function DefaultLayout({
 
   // 리사이즈 패널 레이아웃 데이터
   const layout = cookieStore.get('react-resizable-panels:layout');
+
   // 기본 레이아웃 데이터
   let defaultLayout: number[] | undefined;
 
@@ -20,9 +21,5 @@ export default async function DefaultLayout({
     defaultLayout = JSON.parse(layout.value) as number[];
   }
 
-  return (
-    <AppLayout defaultLayout={defaultLayout}>
-      <main className="w-full h-auto min-h-0">{children}</main>
-    </AppLayout>
-  );
+  return <AppLayout defaultLayout={defaultLayout}>{children}</AppLayout>;
 }

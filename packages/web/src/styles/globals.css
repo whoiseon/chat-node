@@ -49,6 +49,8 @@
   --color-popover-border: var(--popover-border);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --shadow-card: var(--card-shadow);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -57,7 +59,7 @@
   --shadow-outline: 0 0 0 1px var(--color-border-accent);
 
   /* Theme Colors */
-  --color-stone-150: #f5f5f5;
+  --color-stone-150: #eeedec;
   --color-stone-250: #e5e5e5;
   --color-stone-850: #231f1e;
   --color-stone-775: #2e2927;
@@ -71,6 +73,8 @@
   --foreground: var(--color-stone-900);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
+  --card-border: var(--color-stone-100);
+  --card-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
   --popover: var(--color-stone-100);
   --popover-foreground: oklch(0.147 0.004 49.25);
   --popover-border: var(--color-stone-250);
@@ -106,8 +110,10 @@
 .dark {
   --background: var(--color-stone-900);
   --foreground: var(--color-stone-50);
-  --card: var(--color-stone-850);
+  --card: var(--color-stone-800);
+  --card-shadow: 0 4px 16px 1px rgba(0, 0, 0, 0.04);
   --card-foreground: oklch(0.985 0.001 106.423);
+  --card-border: var(--color-stone-900);
   --popover: var(--color-stone-800);
   --popover-foreground: oklch(0.985 0.001 106.423);
   --popover-border: var(--color-stone-750);

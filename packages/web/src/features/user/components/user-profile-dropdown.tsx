@@ -13,17 +13,22 @@ import {
 } from '@/shared/components/ui/dropdown-menu';
 import { Icons } from '@/shared/components/ui/icon';
 import { cn } from '@/shared/lib/utils';
+import NPViewer from '@/shared/components/system/np-viewer';
+import UserWithNodecon from '@/shared/components/system/user-with-nodecon';
 
 import { useLogOut } from '@/features/auth/hooks/use-log-out';
 
-import { UserResponse } from '../types/user.types';
-import NPViewer from '@/shared/components/system/np-viewer';
-
 interface UserProfileDropdownProps {
-  me: UserResponse;
+  nodeconId: string;
+  username: string;
+  np: number;
 }
 
-export default function UserProfileDropdown({ me }: UserProfileDropdownProps) {
+export default function UserProfileDropdown({
+  nodeconId,
+  username,
+  np,
+}: UserProfileDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { mutate: logOut } = useLogOut();
 
@@ -32,11 +37,10 @@ export default function UserProfileDropdown({ me }: UserProfileDropdownProps) {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="text-foreground hover:bg-stone-200 dark:hover:bg-stone-750 w-full h-8 justify-between"
+          className="text-foreground hover:bg-stone-200 dark:hover:bg-stone-750 w-full h-8 p-2! justify-between"
         >
           <div className="flex items-center gap-x-2">
-            <Icons.User className="size-4" />
-            <span>{me.username}</span>
+            <UserWithNodecon nodeconId={nodeconId} username={username} />
           </div>
           <Icons.ChevronUp
             className={cn(
@@ -55,7 +59,7 @@ export default function UserProfileDropdown({ me }: UserProfileDropdownProps) {
         <DropdownMenuGroup className="p-1 gap-y-px">
           <DropdownMenuItem className="text-xs justify-between">
             <span className="text-muted-foreground">보유 NP</span>
-            <NPViewer np={me.np} />
+            <NPViewer np={np} />
           </DropdownMenuItem>
           <DropdownMenuItem className="text-xs justify-between">
             <span className="text-muted-foreground">설정</span>

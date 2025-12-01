@@ -1,10 +1,12 @@
 'use client';
 
 import { Icons } from '@/shared/components/ui/icon';
-import SidebarGroup from './sidebar-group';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
-import { useSidebarScroll } from './context/sidebar-scroll-context';
 import { cn } from '@/shared/lib/utils';
+import { TooltipHandler } from '@/shared/components/system/tooltip-handler';
+
+import SidebarGroup from './sidebar-group';
+import { useSidebarScroll } from './context/sidebar-scroll-context';
 
 export default function SidebarContent() {
   const { setIsBottom, setIsTop, isTop } = useSidebarScroll();
@@ -35,7 +37,9 @@ export default function SidebarContent() {
       <SidebarGroup
         className={cn(
           'transition-all duration-100',
-          !isTop ? 'border-b border-b-border' : 'border-b-0'
+          !isTop
+            ? 'border-b border-b-stone-250 dark:border-b-stone-750'
+            : 'border-b-0'
         )}
       >
         <SidebarGroup.Item href="/" icon={<Icons.Home strokeWidth={2.2} />}>
@@ -53,18 +57,18 @@ export default function SidebarContent() {
           {Array.from({ length: 10 }).map((_, index) => (
             <SidebarGroup.Item
               key={index}
-              href={`/chat/room/${index + 1}`}
+              href={`/server/${index + 1}`}
               icon={<Icons.LogoIcon strokeWidth={2.2} />}
             >
               game {index + 1}
             </SidebarGroup.Item>
           ))}
         </SidebarGroup>
-        <SidebarGroup title="내 채팅">
+        <SidebarGroup title="내 서버">
           {Array.from({ length: 20 }).map((_, index) => (
             <SidebarGroup.Item
               key={index}
-              href={`/chat/${index + 1}`}
+              href={`/server/${index + 1}`}
               icon={<Icons.LogoIcon strokeWidth={2.2} />}
             >
               ChatNode 고객센터 {index + 1}

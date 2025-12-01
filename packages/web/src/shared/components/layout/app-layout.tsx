@@ -17,17 +17,8 @@ export default function AppLayout({
   defaultLayout = [13, 87],
 }: AppLayoutProps) {
   const onLayout = (sizes: number[]) => {
-    // 기존 쿠키에 react-resizable-panels:layout 쿠키가 있는지 확인
-    const existingLayout = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('react-resizable-panels:layout='));
-
     // 리사이즈 패널 레이아웃 데이터 저장
-    if (!existingLayout) {
-      document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-        sizes
-      )}`;
-    }
+    document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
   };
 
   return (

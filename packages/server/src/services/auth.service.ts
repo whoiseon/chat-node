@@ -30,6 +30,20 @@ export class AuthService {
       data: { username, passwordHash: hashedPassword },
     });
 
+    // 기본 노드콘 설정
+    await prisma.userNodeCon.create({
+      data: {
+        userId: newUser.id,
+        nodeConId: 'cmiidt8n600073b6skzle4v6w',
+      },
+    });
+
+    // 대표 노드콘 설정
+    await prisma.user.update({
+      where: { id: newUser.id },
+      data: { mainNodeConId: 'cmiidt8n600073b6skzle4v6w' },
+    });
+
     const tokens = await this.issueTokens(newUser.id);
 
     return {
