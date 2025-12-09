@@ -22,6 +22,8 @@ import {
   Star,
   CalendarClock,
   MessageSquareDot,
+  Plus,
+  X,
 } from 'lucide-react';
 
 export const Icons = {
@@ -41,6 +43,8 @@ export const Icons = {
   SystemForTheme: LaptopMinimal,
   ChevronUp,
   ChevronDown,
+  X,
+  Plus,
   LogOut,
   Star,
   Since: CalendarClock,

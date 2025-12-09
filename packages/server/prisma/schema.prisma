@@ -46,6 +46,10 @@ model User {
 
   mainNodeConId String? @map("fk_main_node_con_id")
 
+  ownedServers    Server[]         @relation("ServerManager")
+  joinedServers   ServerMember[]   @relation("ServerMember")
+  serverFavorites ServerFavorite[] @relation("ServerFavorite")
+
   npTransactions NpTransaction[]
 
   @@index([username], map: "idx_username")
@@ -124,6 +128,118 @@ model NodeConTagRelation {
   @@index([nodeConId])
   @@index([tagId])
   @@map("node_con_tag_relation")
+}
+
+// 서버
+model Server {
+  id          String  @id @default(cuid())
+  name        String  @unique // 서버 이름
+  description String? // 서버 설명
+  imageUrl    String? @map("image_url") // 서버 프로필 이미지
+  slug        String? @unique @map("slug") // 서버 슬러그
+
+  managerId String @map("fk_manager_id") // 서버 개설자
+  manager   User   @relation("ServerManager", fields: [managerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  ServerMember ServerMember[]
+  favorites    ServerFavorite[]
+  tags         ServerTagRelation[]
+  settings     ServerSetting[]
+
+  @@index([managerId])
+  @@index([slug])
+  @@map("server")
+}
+
+model ServerSetting {
+  id       String @id @default(cuid())
+  serverId String @map("fk_server_id")
+  server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  approvalRequired Boolean @default(false) @map("approval_required")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@unique([serverId])
+  @@index([serverId])
+  @@map("server_setting")
+}
+
+enum ServerMemberRole {
+  MANAGER // 서버 오너
+  STAFF // 서버 스탭
+  MEMBER // 서버 멤버
+}
+
+// 서버 멤버
+model ServerMember {
+  id          String           @id @default(cuid())
+  serverId    String           @map("fk_server_id")
+  userId      String           @map("fk_user_id")
+  role        ServerMemberRole // 서버 멤버 역할
+  displayName String?          @map("display_name") // 서버 멤버 이름
+
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  user   User   @relation("ServerMember", fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+
+  @@unique([serverId, userId]) // 같은 서버에 중복 가입 불가
+  @@index([serverId])
+  @@index([userId])
+  @@index([role])
+  @@map("server_member")
+}
+
+// 서버 즐겨찾기
+model ServerFavorite {
+  id       String @id @default(cuid())
+  serverId String @map("fk_server_id")
+  userId   String @map("fk_user_id")
+
+  // 관계
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  user   User   @relation("ServerFavorite", fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@unique([serverId, userId]) // 같은 서버를 중복 즐겨찾기 불가
+  @@index([serverId])
+  @@index([userId])
+  @@index([createdAt]) // 최근 즐겨찾기 조회용
+  @@map("server_favorite")
+}
+
+model ServerTag {
+  id   String @id @default(cuid())
+  name String @unique
+
+  createdAt  DateTime            @default(now()) @map("created_at") @db.Timestamp(6)
+  serverTags ServerTagRelation[]
+
+  @@index([name])
+  @@map("server_tag")
+}
+
+model ServerTagRelation {
+  id       String @id @default(cuid())
+  serverId String @map("fk_server_id")
+  tagId    String @map("fk_tag_id")
+
+  Server Server    @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  Tag    ServerTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@unique([serverId, tagId]) // 같은 서버와 태그 중복 설정 불가
+  @@index([serverId])
+  @@index([tagId])
+  @@map("server_tag_relation")
 }
 
 // NP 거래 타입 열거형

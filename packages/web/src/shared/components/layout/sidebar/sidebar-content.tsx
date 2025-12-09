@@ -3,12 +3,14 @@
 import { Icons } from '@/shared/components/ui/icon';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import { cn } from '@/shared/lib/utils';
-import { TooltipHandler } from '@/shared/components/system/tooltip-handler';
+
+import { useMe } from '@/features/user/hooks/use-me';
 
 import SidebarGroup from './sidebar-group';
 import { useSidebarScroll } from './context/sidebar-scroll-context';
 
 export default function SidebarContent() {
+  const { data: me } = useMe();
   const { setIsBottom, setIsTop, isTop } = useSidebarScroll();
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -42,15 +44,23 @@ export default function SidebarContent() {
             : 'border-b-0'
         )}
       >
-        <SidebarGroup.Item href="/" icon={<Icons.Home strokeWidth={2.2} />}>
+        <SidebarGroup.Item href="/" icon={<Icons.Home strokeWidth={2} />}>
           홈
         </SidebarGroup.Item>
         <SidebarGroup.Item
           href="/market/nodecon"
-          icon={<Icons.NodeconShop strokeWidth={2.2} />}
+          icon={<Icons.NodeconShop strokeWidth={2} />}
         >
           노드콘
         </SidebarGroup.Item>
+        {me && (
+          <SidebarGroup.Item
+            href="/create-server"
+            icon={<Icons.Plus strokeWidth={2} />}
+          >
+            서버 개설
+          </SidebarGroup.Item>
+        )}
       </SidebarGroup>
       <ScrollArea className="h-full min-h-0" onScrollCapture={handleScroll}>
         <SidebarGroup title="즐겨찾기">
@@ -58,7 +68,7 @@ export default function SidebarContent() {
             <SidebarGroup.Item
               key={index}
               href={`/server/${index + 1}`}
-              icon={<Icons.LogoIcon strokeWidth={2.2} />}
+              icon={<Icons.LogoIcon strokeWidth={2} />}
             >
               game {index + 1}
             </SidebarGroup.Item>
@@ -69,7 +79,7 @@ export default function SidebarContent() {
             <SidebarGroup.Item
               key={index}
               href={`/server/${index + 1}`}
-              icon={<Icons.LogoIcon strokeWidth={2.2} />}
+              icon={<Icons.LogoIcon strokeWidth={2} />}
             >
               ChatNode 고객센터 {index + 1}
             </SidebarGroup.Item>

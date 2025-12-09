@@ -25,16 +25,14 @@ export function useToast() {
       case 'error':
         toast.error(message, {
           ...defaultOptions,
-          className:
-            'border border-destructive/30! text-red-500! dark:text-red-300!',
+          className: 'text-red-500! dark:text-red-300!',
           ...options,
         });
         break;
       case 'warning':
         toast.warning(message, {
           ...defaultOptions,
-          className:
-            'border border-yellow-600/20! dark:border-yellow-400/20! text-yellow-600! dark:text-yellow-300!',
+          className: 'text-yellow-600! dark:text-yellow-300!',
           ...options,
         });
         break;

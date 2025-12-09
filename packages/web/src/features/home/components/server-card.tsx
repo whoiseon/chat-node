@@ -10,6 +10,7 @@ import { useState } from 'react';
 
 export default function ServerCard() {
   const [hover, setHover] = useState(false);
+
   return (
     <li
       className="flex flex-col w-full bg-card rounded min-h-100 shadow-card"

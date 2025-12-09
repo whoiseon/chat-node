@@ -6,9 +6,9 @@ import { ScrollArea } from '@/shared/components/ui/scroll-area';
 
 export default function Home() {
   return (
-    <ScrollArea className="w-full h-full min-h-svh">
+    <ScrollArea className="w-full h-full min-h-svh" hasScrollX>
       <ResponsiveLayout>
-        <div className="flex flex-col mx-auto my-0">
+        <div className="flex flex-col mx-auto my-0 px-6">
           <div className="pt-4">
             <div className="flex items-center justify-center mt-16">
               <span className="text-3xl font-bold text-foreground">

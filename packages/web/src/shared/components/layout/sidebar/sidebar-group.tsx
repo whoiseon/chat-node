@@ -30,9 +30,15 @@ type SidebarGroupItemProps = {
   children: React.ReactNode;
   href: string;
   icon?: React.ReactNode;
+  className?: string;
 };
 
-function SidebarGroupItem({ children, href, icon }: SidebarGroupItemProps) {
+function SidebarGroupItem({
+  children,
+  href,
+  icon,
+  className,
+}: SidebarGroupItemProps) {
   const pathname = usePathname();
   const isActive =
     pathname === href || (href !== '/' && pathname.startsWith(href));
@@ -41,6 +47,7 @@ function SidebarGroupItem({ children, href, icon }: SidebarGroupItemProps) {
     <Link
       href={href}
       className={cn(
+        className,
         'h-[30px] flex items-center px-2 py-1 rounded-md text-muted-foreground hover:bg-accent gap-x-2 [&_svg]:size-4.5 transition-all duration-100',
         isActive ? 'bg-stone-200 dark:bg-stone-750' : ''
       )}

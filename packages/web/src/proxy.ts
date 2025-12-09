@@ -11,8 +11,11 @@ export async function proxy(request: NextRequest) {
   const isAuthPage = pathname.startsWith('/auth');
   const isAuthenticated = !!accessToken;
 
-  if (isAuthPage && isAuthenticated) {
-    return NextResponse.redirect(new URL('/', request.url));
+  // 인증이 필요한 라우트
+  const privateRoutes = ['/create-server'];
+
+  if (privateRoutes.includes(pathname) && !isAuthenticated) {
+    return NextResponse.redirect(new URL('/auth/login', request.url));
   }
 
   // 인증된 사용자가 auth 페이지 접근
@@ -64,9 +67,7 @@ export async function proxy(request: NextRequest) {
 
       return response;
     }
-  } catch (error) {
-    console.error('Middleware Auth Check Failed: ', error);
-  }
+  } catch (error) {}
 
   return NextResponse.next();
 }
