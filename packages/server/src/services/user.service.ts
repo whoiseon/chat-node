@@ -1,8 +1,10 @@
 import { Prisma } from 'generated/prisma';
 
 import { prisma } from '@/database';
-import { UserResponse, UserRole } from '@/types';
 import cache from '@/cache';
+
+import { UserResponse, UserRole } from '@/routes/api/v1/user/user.types';
+
 import { BusinessError } from '@/lib/middlewares/error';
 
 export class UserService {
@@ -11,7 +13,7 @@ export class UserService {
    * @param userId
    */
   async findUserWithCache(userId: string): Promise<UserResponse | null> {
-    const userKey = cache.generateKey.user(userId);
+    const userKey = cache.generateKey.userInfo(userId);
     let cachedUser = await cache.get<UserResponse>(userKey);
 
     if (cachedUser) {

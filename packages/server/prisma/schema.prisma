@@ -143,15 +143,23 @@ model Server {
 
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(6)
 
-  ServerMember ServerMember[]
-  favorites    ServerFavorite[]
-  tags         ServerTagRelation[]
-  settings     ServerSetting[]
+  members         ServerMember[]
+  favorites       ServerFavorite[]
+  tags            ServerTagRelation[]
+  settings        ServerSetting[]
+  invitationCodes ServerInvitationCode[]
 
   @@index([managerId])
   @@index([slug])
   @@map("server")
+}
+
+enum ServerJoinType {
+  DIRECT // 직접 가입
+  APPROVED // 승인
+  PRIVATE // 비공개 (초대코드 필요)
 }
 
 model ServerSetting {
@@ -159,7 +167,7 @@ model ServerSetting {
   serverId String @map("fk_server_id")
   server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
-  approvalRequired Boolean @default(false) @map("approval_required")
+  joinType ServerJoinType @default(DIRECT) @map("join_type")
 
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
   updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(6)
@@ -231,8 +239,8 @@ model ServerTagRelation {
   serverId String @map("fk_server_id")
   tagId    String @map("fk_tag_id")
 
-  Server Server    @relation(fields: [serverId], references: [id], onDelete: Cascade)
-  Tag    ServerTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  server Server    @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  tag    ServerTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(6)
 
@@ -240,6 +248,22 @@ model ServerTagRelation {
   @@index([serverId])
   @@index([tagId])
   @@map("server_tag_relation")
+}
+
+model ServerInvitationCode {
+  id       String @id @default(cuid())
+  serverId String @map("fk_server_id")
+  server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  code     String @unique
+
+  expiresAt DateTime? @map("expires_at") @db.Timestamp(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(6)
+
+  @@unique([serverId, code])
+  @@index([serverId])
+  @@index([code])
+  @@index([expiresAt])
+  @@map("server_invitation_code")
 }
 
 // NP 거래 타입 열거형

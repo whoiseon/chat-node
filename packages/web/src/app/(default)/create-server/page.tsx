@@ -1,7 +1,7 @@
-import CreateServerForm from '@/features/create-server/components/create-server-form';
+import { CreateServerForm } from '@/features/server/components/create-server-form';
 
-import ResponsiveLayout from '@/shared/components/layout/responsive-layout';
-import SettingLayout from '@/shared/components/layout/setting-layout';
+import { ResponsiveLayout } from '@/shared/components/layout/responsive-layout';
+import { SettingLayout } from '@/shared/components/layout/setting-layout';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
 
 export default function Page() {

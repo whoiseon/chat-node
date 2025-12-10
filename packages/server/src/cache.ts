@@ -189,7 +189,9 @@ class Cache implements CacheService {
    */
   get generateKey(): CacheKeyGenerator {
     return {
-      user: (userId: string) => `user:${userId}`,
+      userInfo: (userId: string) => `user:info:${userId}`,
+      serverInvitationCode: (serverId: string) =>
+        `server:invitation-code:${serverId}`,
     };
   }
 }
@@ -203,5 +205,6 @@ export default cache;
  * 캐시 키 생성 함수 타입
  */
 type CacheKeyGenerator = {
-  user: (userId: string) => string;
+  userInfo: (userId: string) => string;
+  serverInvitationCode: (serverId: string) => string;
 };

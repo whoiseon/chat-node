@@ -11,7 +11,7 @@ interface SettingRowBlockProps {
   children: React.ReactNode;
 }
 
-export default function SettingRowBlock({
+export function SettingRowBlock({
   title,
   description,
   className,

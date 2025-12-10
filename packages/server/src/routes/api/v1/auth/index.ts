@@ -5,16 +5,10 @@ import { generateResponseBody, validateBody } from '@/lib/utils';
 import { requireAuth } from '@/lib/middlewares/auth';
 
 import { AuthService } from '@/services/auth.service';
-
-import {
-  AuthBody,
-  SignUpInput,
-  LogInInput,
-  signUpSchema,
-  logInSchema,
-  AuthResponse,
-} from '@/types';
 import { NpService } from '@/services/np.service';
+
+import { AuthBody, SignUpInput, LogInInput, AuthResponse } from './auth.types';
+import { signUpSchema, logInSchema } from './auth.schema';
 
 const auth = new Router();
 

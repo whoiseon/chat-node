@@ -1,7 +1,7 @@
-import ServerCardGrid from '@/features/home/components/server-card-grid';
-import ServerFilterBlock from '@/features/home/components/server-filter-block';
+import { ServerCardGrid } from '@/features/home/components/server-card-grid';
+import { ServerFilterBlock } from '@/features/home/components/server-filter-block';
 
-import ResponsiveLayout from '@/shared/components/layout/responsive-layout';
+import { ResponsiveLayout } from '@/shared/components/layout/responsive-layout';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
 
 export default function Home() {

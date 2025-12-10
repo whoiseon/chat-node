@@ -1,33 +1,25 @@
 'use client';
 
-import {
-  SetStateAction,
-  Dispatch,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useState } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { Badge } from '../ui/badge';
 import { Icons } from '../ui/icon';
-import { Input } from '../ui/input';
 
 interface TagInputProps {
   tags: string[];
-  setTags: Dispatch<SetStateAction<string[]>>;
+  onChange: (tags: string[]) => void;
   maxTags?: number;
+  tabIndex?: number;
 }
 
-export default function TagInput({
+export function TagInput({
   tags,
-  setTags,
+  onChange,
   maxTags = 5,
+  tabIndex,
 }: TagInputProps) {
   const [value, setValue] = useState('');
   const [isComposing, setIsComposing] = useState(false);
-
-  const ignore = useRef<boolean>(false);
 
   const onCompositionStart = () => {
     setIsComposing(true);
@@ -36,12 +28,6 @@ export default function TagInput({
   const onCompositionEnd = () => {
     setIsComposing(false);
   };
-
-  useEffect(() => {
-    if (tags.length === 0) return;
-    if (tags.length >= maxTags) return;
-    setTags(tags);
-  }, [tags, setTags, maxTags]);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -54,55 +40,45 @@ export default function TagInput({
   };
 
   const insertTag = (tag: string) => {
-    ignore.current = true;
     setValue('');
 
     if (tag === '') return;
     if (tags.length >= maxTags) return;
 
-    let processed = tag;
-    processed = tag.trim();
+    let processed = tag.trim().slice(0, 255);
 
     if (processed.indexOf(' #') > 0) {
       const tempTags: string[] = [];
       const regex = /#(\S+)/g;
       let execArray: RegExpExecArray | null = null;
-
       while ((execArray = regex.exec(processed))) {
         if (execArray !== null) {
           tempTags.push(execArray[1]);
         }
       }
-
-      setTags((prevTags) => {
-        // 중복 체크
-        const newTags = tempTags.filter((t) => !prevTags.includes(t));
-        return [...prevTags, ...newTags];
-      });
+      const newTags = [...tags, ...tempTags];
+      onChange(newTags);
       return;
     }
 
     if (processed.charAt(0) === '#') {
       processed = processed.slice(1, processed.length);
     }
-
-    setTags((prevTags) => {
-      // 중복 체크
-      if (prevTags.includes(processed)) return prevTags;
-      return [...prevTags, processed];
-    });
+    const newTags = [...tags, processed];
+    onChange(newTags);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (isComposing) return;
 
     if (e.key === 'Backspace' && value === '') {
-      setTags(tags.slice(0, tags.length - 1));
+      const nextTags = tags.slice(0, tags.length - 1);
+      onChange(nextTags);
       return;
     }
-
     const keys = [',', 'Enter'];
     if (keys.includes(e.key)) {
+      // 등록
       e.preventDefault();
       insertTag(value);
     }
@@ -110,12 +86,7 @@ export default function TagInput({
 
   const onRemove = (tag: string) => {
     const nextTags = tags.filter((t) => t !== tag);
-
-    if (nextTags.length === 0) {
-      setTags([]);
-    } else {
-      setTags(nextTags);
-    }
+    onChange(nextTags);
   };
 
   return (
@@ -142,6 +113,7 @@ export default function TagInput({
               onCompositionEnd={onCompositionEnd}
               onKeyDown={onKeyDown}
               placeholder="태그를 입력하세요"
+              tabIndex={tabIndex}
             />
           )}
         </div>

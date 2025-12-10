@@ -22,8 +22,11 @@ import {
   Star,
   CalendarClock,
   MessageSquareDot,
+  CheckCheck,
   Plus,
   X,
+  Clock,
+  Tag,
 } from 'lucide-react';
 
 export const Icons = {
@@ -38,10 +41,13 @@ export const Icons = {
   Check,
   CircleAlert,
   Users,
+  Clock,
+  Tag,
   SunForTheme: Sun,
   MoonForTheme: Moon,
   SystemForTheme: LaptopMinimal,
   ChevronUp,
+  DoubleCheck: CheckCheck,
   ChevronDown,
   X,
   Plus,

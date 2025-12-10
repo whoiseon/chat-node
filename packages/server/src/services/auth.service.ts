@@ -2,9 +2,15 @@ import { Prisma } from 'generated/prisma';
 import bcrypt from 'bcrypt';
 
 import { prisma } from '@/database';
-import { AuthBody, LogInInput, SignUpInput } from '@/types';
+
 import { BusinessError, TokenError } from '@/lib/middlewares/error';
 import { createAccessToken, createRefreshToken } from '@/lib/token';
+
+import {
+  AuthBody,
+  LogInInput,
+  SignUpInput,
+} from '@/routes/api/v1/auth/auth.types';
 
 export class AuthService {
   /**

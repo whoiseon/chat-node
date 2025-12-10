@@ -1,28 +1,26 @@
 'use client';
 
-import { Input } from '@/shared/components/ui/input';
+import { Textarea } from '@/shared/components/ui/textarea';
 import { Label } from '@/shared/components/ui/label';
 
 import { cn } from '@/shared/lib/utils';
-
 import { FormErrorMessage } from './form-error-message';
 
-interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FormTextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   labelClassName?: string;
   labelRight?: React.ReactNode;
   errorMessage?: string;
-  inputLeft?: React.ReactNode;
 }
 
-export function FormInput({
+export function FormTextarea({
   label,
   labelClassName,
   labelRight,
   errorMessage,
-  inputLeft,
   ...props
-}: FormInputProps) {
+}: FormTextareaProps) {
   return (
     <div className="grid gap-2 w-full">
       {label && (
@@ -33,20 +31,10 @@ export function FormInput({
           {labelRight && labelRight}
         </div>
       )}
-      {inputLeft ? (
-        <div className="relative">
-          {inputLeft}
-          <Input
-            className={cn(errorMessage && 'border-destructive!')}
-            {...props}
-          />
-        </div>
-      ) : (
-        <Input
-          className={cn(errorMessage && 'border-destructive')}
-          {...props}
-        />
-      )}
+      <Textarea
+        className={cn(errorMessage && 'border-destructive')}
+        {...props}
+      />
       {errorMessage && <FormErrorMessage message={errorMessage} />}
     </div>
   );

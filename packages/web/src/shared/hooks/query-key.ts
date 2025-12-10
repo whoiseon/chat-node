@@ -6,4 +6,8 @@ export const queryKey = {
     all: ['user'] as const,
     me: () => [...queryKey.user.all, 'me'] as const,
   },
+  server: {
+    all: ['server'] as const,
+    list: () => [...queryKey.server.all, 'list'] as const,
+  },
 } as const;

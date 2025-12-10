@@ -6,7 +6,7 @@ import { BusinessError } from '@/lib/middlewares/error';
 
 import { UserService } from '@/services/user.service';
 
-import { UserResponse } from '@/types';
+import { UserResponse } from './user.types';
 
 const user = new Router();
 const userService = new UserService();

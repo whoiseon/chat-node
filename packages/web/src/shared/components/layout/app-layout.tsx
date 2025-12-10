@@ -12,7 +12,7 @@ type AppLayoutProps = {
   defaultLayout: number[] | undefined;
 };
 
-export default function AppLayout({
+export function AppLayout({
   children,
   defaultLayout = [13, 87],
 }: AppLayoutProps) {

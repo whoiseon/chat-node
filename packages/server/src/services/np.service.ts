@@ -1,7 +1,10 @@
-import { prisma } from '@/database';
-import { BusinessError } from '@/lib/middlewares/error';
-import { DailyLoginBonus } from '@/types';
 import { NpTransactionType, Prisma, SystemSettingKey } from 'generated/prisma';
+
+import { prisma } from '@/database';
+
+import { BusinessError } from '@/lib/middlewares/error';
+
+import { DailyLoginBonus } from '@/routes/api/v1/auth/auth.types';
 
 export class NpService {
   /**
@@ -23,7 +26,6 @@ export class NpService {
       };
     }
 
-    const now = new Date();
     let shouldGiveBonus = false;
 
     // 첫 로그인이거나 마지막 로그인이 없으면 보너스 지급

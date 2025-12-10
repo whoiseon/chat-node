@@ -13,12 +13,12 @@ import {
   CardContent,
   CardFooter,
 } from '@/shared/components/ui/card';
-import FormInput from '@/shared/components/system/form-input';
+import { FormInput } from '@/shared/components/system/form-input';
 
 import { signupFormSchema, SignupFormSchema } from '../schemas/auth.schema';
 import { useSignUp } from '@/features/auth/hooks/use-sign-up';
 
-export default function SignupForm() {
+export function SignupForm() {
   const { mutate: signUp } = useSignUp();
 
   const {

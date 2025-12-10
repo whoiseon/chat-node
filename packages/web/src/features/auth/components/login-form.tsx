@@ -15,11 +15,11 @@ import {
   CardContent,
   CardFooter,
 } from '@/shared/components/ui/card';
-import FormInput from '@/shared/components/system/form-input';
+import { FormInput } from '@/shared/components/system/form-input';
 
 import { loginFormSchema, LoginFormSchema } from '../schemas/auth.schema';
 
-export default function LoginForm() {
+export function LoginForm() {
   const { mutate: logIn } = useLogIn();
 
   const {
