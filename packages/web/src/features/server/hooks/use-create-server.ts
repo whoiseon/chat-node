@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
 
-import { useToast } from '@/shared/hooks/useToast';
+import { useToast } from '@/shared/hooks/use-toast';
 
 import { createServer } from '../services/server-service';
 

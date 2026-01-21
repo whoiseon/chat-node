@@ -38,3 +38,7 @@ export const serverCreateSchema = z.object({
     }),
   joinType: z.enum(ServerJoinType).default(ServerJoinType.DIRECT),
 });
+
+export const serverFavoriteAddSchema = z.object({
+  serverId: z.string().min(1, { message: '서버 ID를 입력해주세요.' }),
+});

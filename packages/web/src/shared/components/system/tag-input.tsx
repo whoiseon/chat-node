@@ -64,7 +64,9 @@ export function TagInput({
     if (processed.charAt(0) === '#') {
       processed = processed.slice(1, processed.length);
     }
+
     const newTags = [...tags, processed];
+
     onChange(newTags);
   };
 

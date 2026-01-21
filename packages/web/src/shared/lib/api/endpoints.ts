@@ -1,3 +1,5 @@
+import { ServerListParams } from '@/features/server/types/server.types';
+
 export const API_ENDPOINTS = {
   AUTH: {
     LOGIN: '/auth/login',
@@ -10,6 +12,15 @@ export const API_ENDPOINTS = {
   },
   SERVER: {
     CREATE: '/server/create',
-    LIST: '/server/list',
+    LIST: (params: Partial<ServerListParams>) => {
+      return `/server/list?${new URLSearchParams(params)}`;
+    },
+    TAGS: '/server/tags',
+    MY_SERVERS: '/server/my-servers',
+  },
+  FAVORITE: {
+    LIST: '/favorites',
+    ADD: '/favorites',
+    REMOVE: (serverId: string) => `/favorites/${serverId}`,
   },
 };

@@ -10,16 +10,25 @@ import UserWithNodecon from '@/shared/components/system/user-with-nodecon';
 import { Badge } from '@/shared/components/ui/badge';
 import { Button } from '@/shared/components/ui/button';
 import { Icons } from '@/shared/components/ui/icon';
-
-import { ServerRow } from '../../server/types/server.types';
 import { Skeleton } from '@/shared/components/ui/skeleton';
 import { cn } from '@/shared/lib/utils';
 
+import { ServerRow } from '@/features/server/types/server.types';
+import { highlightText } from '@/shared/lib/component-utils';
+
 interface ServerCardProps {
   server: ServerRow;
+  visibleTags?: boolean;
+  search?: string;
+  searchTarget?: string;
 }
 
-export function ServerCard({ server }: ServerCardProps) {
+export function ServerCard({
+  server,
+  visibleTags = false,
+  search,
+  searchTarget,
+}: ServerCardProps) {
   const [hover, setHover] = useState(false);
 
   return (
@@ -31,12 +40,17 @@ export function ServerCard({ server }: ServerCardProps) {
       onMouseLeave={() => setHover(false)}
     >
       <div className="relative">
-        <Link href={`/server/${server.slug}`}>
+        <Link href={`/server/${server.id}`}>
           <div className="relative z-0 flex aspect-video items-center justify-center rounded-t overflow-hidden">
             <Image
-              src={server.imageUrl}
+              src={
+                server.imageUrl ??
+                'https://paopjanaxzvogcrxpdmq.supabase.co/storage/v1/object/public/images/server/server-default.png'
+              }
               alt={server.name}
               fill
+              sizes="(max-width: 1919px) 25vw, 20vw"
+              loading="eager"
               className="object-center"
             />
           </div>
@@ -59,7 +73,12 @@ export function ServerCard({ server }: ServerCardProps) {
             href={`/server/${server.slug}`}
             className="text-base font-semibold line-clamp-2 wrap-break-word"
           >
-            {server.name}
+            {search && searchTarget === 'name'
+              ? highlightText({
+                  text: server.name,
+                  keyword: search,
+                })
+              : server.name}
           </Link>
         </div>
       </div>
@@ -76,27 +95,39 @@ export function ServerCard({ server }: ServerCardProps) {
             <span className="font-medium">{server.favoriteCount}</span>
           </div>
         </TooltipHandler>
-        <TooltipHandler content="서버 생성 일">
-          <div className="flex items-center gap-x-1">
-            <Icons.Since className="size-3.5" />
-            <span className="font-medium">
-              {format(server.createdAt, 'yyyy-MM-dd')}
-            </span>
-          </div>
-        </TooltipHandler>
+        {server.createdAt && (
+          <TooltipHandler content="서버 생성 일">
+            <div className="flex items-center gap-x-1">
+              <Icons.Since className="size-3.5" />
+              <span className="font-medium">
+                {format(server.createdAt, 'yyyy-MM-dd')}
+              </span>
+            </div>
+          </TooltipHandler>
+        )}
       </div>
       <div className="px-3 pt-2.5 pb-5 text-xs text-muted-foreground">
         <p className="line-clamp-4 wrap-break-word h-16">
           {server.description}
         </p>
       </div>
+      {visibleTags && server.tags && (
+        <div className="px-3 py-2.5 text-xs text-muted-foreground border-t border-t-card-border flex items-center gap-x-1">
+          {server.tags.map((tag: string) => (
+            <Badge key={tag} variant="gray" className="text-xs">
+              <span className="text-xs">{tag}</span>
+            </Badge>
+          ))}
+        </div>
+      )}
       <div className="flex items-center justify-between border-t border-t-card-border rounded-b mt-auto px-3 py-2.5 text-xs">
         <UserWithNodecon
           tooltip="매니저"
-          nodeconId={server.manager.mainNodeConId}
-          username={server.manager.username}
+          nodeconId={server.manager?.mainNodeConId ?? ''}
+          username={server.manager?.username ?? ''}
           nodeconClassName="size-4"
           usernameClassName="text-xs font-medium"
+          search={search && searchTarget === 'manager' ? search : ''}
         />
         {/* <TooltipHandler content="현재 접속자">
           <div className="flex items-center gap-x-1.5 text-green-500 dark:text-green-400">

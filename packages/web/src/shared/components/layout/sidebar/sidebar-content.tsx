@@ -5,12 +5,16 @@ import { ScrollArea } from '@/shared/components/ui/scroll-area';
 import { cn } from '@/shared/lib/utils';
 
 import { useMe } from '@/features/user/hooks/use-me';
+import { useGetMyServerList } from '@/features/server/hooks/use-get-my-server-list';
 
 import SidebarGroup from './sidebar-group';
 import { useSidebarScroll } from './context/sidebar-scroll-context';
 
 export default function SidebarContent() {
   const { data: me } = useMe();
+  const { data: myServers, isLoading: isMyServersLoading } =
+    useGetMyServerList();
+
   const { setIsBottom, setIsTop, isTop } = useSidebarScroll();
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -44,47 +48,51 @@ export default function SidebarContent() {
             : 'border-b-0'
         )}
       >
-        <SidebarGroup.Item href="/" icon={<Icons.Home strokeWidth={2} />}>
+        <SidebarGroup.Item href="/" icon={<Icons.Home strokeWidth={1.5} />}>
           홈
         </SidebarGroup.Item>
         <SidebarGroup.Item
           href="/market/nodecon"
-          icon={<Icons.NodeconShop strokeWidth={2} />}
+          icon={<Icons.NodeconShop strokeWidth={1.5} />}
         >
           노드콘
         </SidebarGroup.Item>
         {me && (
           <SidebarGroup.Item
             href="/create-server"
-            icon={<Icons.Plus strokeWidth={2} />}
+            icon={<Icons.Plus strokeWidth={1.5} />}
           >
             서버 개설
           </SidebarGroup.Item>
         )}
       </SidebarGroup>
       <ScrollArea className="h-full min-h-0" onScrollCapture={handleScroll}>
-        <SidebarGroup title="즐겨찾기">
+        {/* <SidebarGroup title="즐겨찾기">
           {Array.from({ length: 10 }).map((_, index) => (
             <SidebarGroup.Item
               key={index}
               href={`/server/${index + 1}`}
-              icon={<Icons.LogoIcon strokeWidth={2} />}
+              icon={<Icons.Hash strokeWidth={1.5} />}
             >
               game {index + 1}
             </SidebarGroup.Item>
           ))}
-        </SidebarGroup>
-        <SidebarGroup title="내 서버">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <SidebarGroup.Item
-              key={index}
-              href={`/server/${index + 1}`}
-              icon={<Icons.LogoIcon strokeWidth={2} />}
-            >
-              ChatNode 고객센터 {index + 1}
-            </SidebarGroup.Item>
-          ))}
-        </SidebarGroup>
+        </SidebarGroup> */}
+        {me && <SidebarGroup title="내 서버">
+          {isMyServersLoading
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <SidebarGroup.ItemSkeleton key={index} index={index} />
+              ))
+            : myServers?.payload?.rows.map((server) => (
+                <SidebarGroup.Item
+                  key={server.id}
+                  href={`/server/${server.id}`}
+                  icon={<Icons.Hash strokeWidth={1.5} />}
+                >
+                  {server.name}
+                </SidebarGroup.Item>
+              ))}
+        </SidebarGroup>}
       </ScrollArea>
     </div>
   );

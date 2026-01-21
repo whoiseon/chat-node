@@ -1,3 +1,5 @@
+import { ServerListParams } from '@/features/server/types/server.types';
+
 export const queryKey = {
   auth: {
     all: ['auth'] as const,
@@ -8,6 +10,10 @@ export const queryKey = {
   },
   server: {
     all: ['server'] as const,
-    list: () => [...queryKey.server.all, 'list'] as const,
+    list: (params: Partial<ServerListParams>) =>
+      [...queryKey.server.all, 'list', params] as const,
+    tags: () => [...queryKey.server.all, 'tags'] as const,
+    myServers: () => [...queryKey.server.all, 'my-servers'] as const,
+    favoriteList: () => [...queryKey.server.all, 'favorite-list'] as const,
   },
 } as const;

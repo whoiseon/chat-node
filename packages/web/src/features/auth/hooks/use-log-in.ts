@@ -6,7 +6,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { login } from '@/features/auth/services/auth-service';
 
 import { queryKey } from '@/shared/hooks/query-key';
-import { useToast } from '@/shared/hooks/useToast';
+import { useToast } from '@/shared/hooks/use-toast';
 import { npMessage } from '@/shared/lib/constant/message/np';
 
 export function useLogIn() {

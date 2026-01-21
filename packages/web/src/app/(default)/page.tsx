@@ -1,5 +1,6 @@
 import { ServerCardGrid } from '@/features/home/components/server-card-grid';
 import { ServerFilterBlock } from '@/features/home/components/server-filter-block';
+import { ServerFilterProvider } from '@/features/home/contexts/server-filter-context';
 
 import { ResponsiveLayout } from '@/shared/components/layout/responsive-layout';
 import { ScrollArea } from '@/shared/components/ui/scroll-area';
@@ -16,14 +17,16 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="w-full mt-8">
-            <ServerFilterBlock />
-            <div className="w-full mt-6 mb-4">
-              <main className="w-full">
-                <ServerCardGrid />
-              </main>
+          <ServerFilterProvider>
+            <div className="w-full mt-8">
+              <ServerFilterBlock />
+              <div className="w-full mt-6 mb-4">
+                <main className="w-full">
+                  <ServerCardGrid />
+                </main>
+              </div>
             </div>
-          </div>
+          </ServerFilterProvider>
         </div>
       </ResponsiveLayout>
     </ScrollArea>

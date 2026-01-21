@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 import { cn } from '@/shared/lib/utils';
 import { usePathname } from 'next/navigation';
+import { Skeleton } from '../../ui/skeleton';
+import { useMemo } from 'react';
 
 type SidebarGroupProps = {
   children: React.ReactNode;
@@ -62,8 +64,35 @@ function SidebarGroupItem({
   );
 }
 
+function SidebarGroupItemSkeleton({ index }: { index: number }) {
+  // index를 기반으로 결정론적인 값을 생성하여 서버와 클라이언트에서 동일한 값 보장
+  const randomWidth = useMemo(() => {
+    // 간단한 해시 함수를 사용하여 index를 기반으로 40-100 사이의 값을 생성
+    const hash = (10 - index * 9301 + 49297) % 233280;
+    const normalized = hash / 233280;
+    const width = Math.floor(normalized * (100 - 40 + 1)) + 30;
+    return `${width}%`;
+  }, [index]);
+
+  return (
+    <div className="h-[30px] flex items-center px-2 py-1 rounded-md text-muted-foreground hover:bg-accent gap-x-2 [&_svg]:size-4.5 transition-all duration-100">
+      <Skeleton className="size-4.5" />
+      <Skeleton
+        className={cn('h-[16px]')}
+        style={{
+          width: randomWidth,
+        }}
+      />
+    </div>
+  );
+}
+
+SidebarGroupItemSkeleton.displayName = 'SidebarGroupItemSkeleton';
+
 SidebarGroupItem.displayName = 'SidebarGroupItem';
 
 SidebarGroup.Item = SidebarGroupItem;
+SidebarGroup.ItemSkeleton = SidebarGroupItemSkeleton;
 
 export default SidebarGroup;
+export { SidebarGroupItem, SidebarGroupItemSkeleton };

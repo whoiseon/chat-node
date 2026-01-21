@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
 import { queryKey } from '@/shared/hooks/query-key';
-import { useToast } from '@/shared/hooks/useToast';
+import { useToast } from '@/shared/hooks/use-toast';
 
 import { signUp } from '@/features/auth/services/auth-service';
 import { npMessage } from '@/shared/lib/constant/message/np';

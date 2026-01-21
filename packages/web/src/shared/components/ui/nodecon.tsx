@@ -22,6 +22,7 @@ export default function Nodecon({
         alt={nodeconId}
         width={size}
         height={size}
+        loading="eager"
         className={cn(className)}
       />
     </div>
