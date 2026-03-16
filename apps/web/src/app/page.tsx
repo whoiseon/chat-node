@@ -1,3 +1,9 @@
+import { Button } from '@repo/ui/components/ui/button';
+
 export default function Home() {
-  return <div className="text-red-500">web</div>;
+  return (
+    <div>
+      <Button>버튼</Button>
+    </div>
+  );
 }
