@@ -5,8 +5,12 @@
     "plugins": [{ "name": "next" }],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "declaration": false,
+    "declarationMap": false,
+    "incremental": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "jsx": "preserve",
     "noEmit": true
   }
 }
