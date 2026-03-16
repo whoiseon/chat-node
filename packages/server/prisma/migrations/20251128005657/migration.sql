@@ -1,2 +1,0 @@
--- AlterEnum
-ALTER TYPE "SystemSettingKey" ADD VALUE 'DAILY_LOGIN_BONUS_MAX_AMOUNT';

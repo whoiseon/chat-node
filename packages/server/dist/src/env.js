@@ -1,2 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:true});var _dotenv=/*#__PURE__*/_interop_require_default(require("dotenv"));var _path=/*#__PURE__*/_interop_require_default(require("path"));function _interop_require_default(obj){return obj&&obj.__esModule?obj:{default:obj}}var NODE_ENV=process.env.NODE_ENV;_dotenv.default.config({path:_path.default.resolve(process.cwd(),NODE_ENV==="development"?".env":".env")});
-//# sourceMappingURL=env.js.map
