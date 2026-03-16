@@ -1,6 +1,6 @@
 import { Context, Middleware, Next } from 'koa';
 import { verifyToken, setAuthCookies, clearAuthCookies } from '@/lib/token';
-import { AuthService } from '@/services/auth.service';
+import { AuthService } from '@/routes/api/v1/auth/auth.service';
 import { generateResponseBody } from '../utils';
 
 type AccessPayload = { type: 'access'; userId: string };

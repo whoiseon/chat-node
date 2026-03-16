@@ -21,7 +21,6 @@ export class UserService {
       return {
         userId: cachedUser.userId,
         username: cachedUser.username,
-        np: cachedUser.np,
         mainNodeConId: cachedUser.mainNodeConId,
         role: cachedUser.role,
       };
@@ -31,7 +30,6 @@ export class UserService {
     const user = await this.findUser(userId, 'userId', {
       id: true,
       username: true,
-      np: true,
       mainNodeConId: true,
     });
 
@@ -45,7 +43,6 @@ export class UserService {
     const userResponse: UserResponse = {
       userId: user.id,
       username: user.username,
-      np: user.np,
       mainNodeConId: user.mainNodeConId,
       role,
     };

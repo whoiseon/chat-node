@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { API_ENDPOINTS } from '@/shared/lib/api/endpoints';
 
 export async function proxy(request: NextRequest) {
-  // const response = NextResponse.next(); // Removed: response is created later
-
   const accessToken = request.cookies.get('access_token')?.value;
   const { pathname } = request.nextUrl;
 
@@ -45,7 +43,6 @@ export async function proxy(request: NextRequest) {
       // 하지만 보통 fetch의 Cookie 헤더는 하나로 합쳐져서 전송됨.
       // 여기서는 간단히 백엔드가 준 전체 Set-Cookie 값을 Cookie 헤더로 설정하여 다음 요청(Layout)에 전달.
       // 주의: Set-Cookie는 여러 개일 수 있음. fetch API에서는 getSetCookie() 사용 권장.
-
       const cookies = backendResponse.headers.getSetCookie
         ? backendResponse.headers.getSetCookie()
         : [setCookieHeader];
@@ -74,13 +71,6 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 };

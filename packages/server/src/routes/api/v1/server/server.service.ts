@@ -3,7 +3,7 @@ import { Prisma, ServerJoinType, ServerMemberRole } from 'generated/prisma';
 import { prisma } from '@/database';
 import { BusinessError } from '@/lib/middlewares/error';
 
-import { ServerCreateInput } from '@/routes/api/v1/server/server.types';
+import { ServerCreateInput } from './server.types';
 
 export class ServerService {
   /**

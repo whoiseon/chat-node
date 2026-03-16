@@ -96,7 +96,7 @@ export function ServerCard({
           </div>
         </TooltipHandler>
         {server.createdAt && (
-          <TooltipHandler content="서버 생성 일">
+          <TooltipHandler content="서버 생성일">
             <div className="flex items-center gap-x-1">
               <Icons.Since className="size-3.5" />
               <span className="font-medium">

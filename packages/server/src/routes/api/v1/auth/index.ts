@@ -4,9 +4,9 @@ import { clearAuthCookies, setAuthCookies } from '@/lib/token';
 import { generateResponseBody, validateBody } from '@/lib/utils';
 import { requireAuth } from '@/lib/middlewares/auth';
 
-import { AuthService } from '@/services/auth.service';
-import { NpService } from '@/services/np.service';
+import { NpService } from '@/routes/api/v1/np/np.service';
 
+import { AuthService } from './auth.service';
 import { AuthBody, SignUpInput, LogInInput, AuthResponse } from './auth.types';
 import { signUpSchema, logInSchema } from './auth.schema';
 

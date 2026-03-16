@@ -16,4 +16,8 @@ export const queryKey = {
     myServers: () => [...queryKey.server.all, 'my-servers'] as const,
     favoriteList: () => [...queryKey.server.all, 'favorite-list'] as const,
   },
+  np: {
+    all: ['np'] as const,
+    my_np: () => [...queryKey.np.all, 'my-np']
+  }
 } as const;

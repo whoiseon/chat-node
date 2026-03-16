@@ -17,18 +17,19 @@ import NPViewer from '@/shared/components/system/np-viewer';
 import UserWithNodecon from '@/shared/components/system/user-with-nodecon';
 
 import { useLogOut } from '@/features/auth/hooks/use-log-out';
+import { useUserNp } from '../hooks/use-user-np';
 
 interface UserProfileDropdownProps {
   nodeconId: string;
   username: string;
-  np: number;
 }
 
 export default function UserProfileDropdown({
   nodeconId,
   username,
-  np,
 }: UserProfileDropdownProps) {
+  const { data: myNp, isLoading } = useUserNp();
+
   const [isOpen, setIsOpen] = useState(false);
   const { mutate: logOut } = useLogOut();
 
@@ -59,7 +60,7 @@ export default function UserProfileDropdown({
         <DropdownMenuGroup className="p-1 gap-y-px">
           <DropdownMenuItem className="text-xs justify-between">
             <span className="text-muted-foreground">보유 NP</span>
-            <NPViewer np={np} />
+            <NPViewer np={myNp?.np || 0} />
           </DropdownMenuItem>
           <DropdownMenuItem className="text-xs justify-between">
             <span className="text-muted-foreground">설정</span>

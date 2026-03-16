@@ -8,6 +8,18 @@ import { DailyLoginBonus } from '@/routes/api/v1/auth/auth.types';
 
 export class NpService {
   /**
+   * 유저 NP 조회
+   */
+  async getNpByUser(userId: string): Promise<number | null> {
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { np: true }
+    });
+
+    return user?.np ?? null;
+  }
+
+  /**
    * 일일 로그인 보너스 지급
    */
   async checkAndGiveDailyLoginBonus(userId: string): Promise<DailyLoginBonus> {

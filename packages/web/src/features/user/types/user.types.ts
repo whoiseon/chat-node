@@ -4,9 +4,13 @@
 export interface UserResponse {
   userId: string;
   username: string;
-  np: number;
   mainNodeConId: string;
   role: UserRole;
 }
 
 export type UserRole = 'user' | 'admin';
+
+export interface UserNpResponse {
+  userId: string;
+  np: number;
+}

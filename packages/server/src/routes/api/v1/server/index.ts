@@ -3,7 +3,7 @@ import { Prisma, ServerJoinType } from 'generated/prisma';
 
 import { generateResponseBody, validateBody } from '@/lib/utils';
 
-import { ServerService } from '@/services/server.service';
+import { ServerService } from './server.service';
 
 import { serverCreateSchema, serverFavoriteAddSchema } from './server.schema';
 import {

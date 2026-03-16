@@ -23,4 +23,7 @@ export const API_ENDPOINTS = {
     ADD: '/favorites',
     REMOVE: (serverId: string) => `/favorites/${serverId}`,
   },
+  NP: {
+    MY_NP: '/np',
+  },
 };

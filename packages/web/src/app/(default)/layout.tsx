@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { Layout } from 'react-resizable-panels';
 
 import { AppLayout } from '@/shared/components/layout/app-layout';
 
@@ -9,17 +10,13 @@ export default async function DefaultLayout({
 }) {
   // 쿠키 가져오기
   const cookieStore = await cookies();
+  const groupId = 'main-panel-group';
 
   // 리사이즈 패널 레이아웃 데이터
-  const layout = cookieStore.get('react-resizable-panels:layout');
+  const defaultLayoutString = cookieStore.get(groupId)?.value;
 
   // 기본 레이아웃 데이터
-  let defaultLayout: number[] | undefined;
+  const defaultLayout = defaultLayoutString ? (JSON.parse(defaultLayoutString) as Layout) : undefined
 
-  // 리사이즈 패널 레이아웃 데이터가 있으면 파싱
-  if (layout) {
-    defaultLayout = JSON.parse(layout.value) as number[];
-  }
-
-  return <AppLayout defaultLayout={defaultLayout}>{children}</AppLayout>;
+  return <AppLayout defaultLayout={defaultLayout} groupId={groupId}>{children}</AppLayout>;
 }

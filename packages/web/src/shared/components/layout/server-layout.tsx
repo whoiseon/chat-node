@@ -1,29 +1,23 @@
 'use client';
 
+import { Layout } from 'react-resizable-panels';
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from '../ui/resizable';
-import { Layout } from 'react-resizable-panels';
-import Sidebar from './sidebar/sidebar';
 
-type AppLayoutProps = {
+type ServerLayoutProps = {
   children: React.ReactNode;
   defaultLayout: Layout | undefined;
   groupId: string;
 };
 
-export function AppLayout({
+export function ServerLayout({
   children,
   defaultLayout,
-  groupId,
-}: AppLayoutProps) {
-  const onLayout = (sizes: number[]) => {
-    // 리사이즈 패널 레이아웃 데이터 저장
-    document.cookie = `main-panel-group=${JSON.stringify(sizes)}`;
-  };
-
+  groupId
+}: ServerLayoutProps) {
   return (
     <ResizablePanelGroup
       id={groupId}
@@ -31,20 +25,20 @@ export function AppLayout({
       onLayoutChange={(layout) => {document.cookie = `${groupId}=${JSON.stringify(layout)}; path=/;`}}
     >
       <ResizablePanel
-        id="sidebar-panel"
-        minSize="15%"
-        maxSize="30%"
-        defaultSize="15%"
+        id="server-chat-panel"
+        minSize="65%"
+        maxSize="80%"
+        defaultSize="80%"
       >
-        <Sidebar />
-      </ResizablePanel>
-      <ResizableHandle
-        id="main-panel-resizable-handle"
-        className="cursor-col-resize bg-border hover:shadow-outline hover:bg-border-accent"
-      />
-      <ResizablePanel id="content-panel" minSize="70%" maxSize="85%" defaultSize="85%">
         {children}
       </ResizablePanel>
+      <ResizableHandle
+        id="server-panel-resizable-handle"
+        className="cursor-col-resize bg-border hover:shadow-outline hover:bg-border-accent"
+      />
+      <ResizablePanel id="server-member-panel" minSize="20%" maxSize="35%" defaultSize="20%" className='bg-sidebar'>
+        member
+      </ResizablePanel>
     </ResizablePanelGroup>
-  );
+  )
 }

@@ -29,7 +29,6 @@ export default function SidebarFooter() {
           <UserProfileDropdown
             nodeconId={me.mainNodeConId}
             username={me.username}
-            np={me.np}
           />
         ) : (
           <Button

@@ -4,8 +4,7 @@ import { generateResponseBody } from '@/lib/utils';
 import { requireAuth } from '@/lib/middlewares/auth';
 import { BusinessError } from '@/lib/middlewares/error';
 
-import { UserService } from '@/services/user.service';
-
+import { UserService } from './user.service';
 import { UserResponse } from './user.types';
 
 const user = new Router();
@@ -30,7 +29,6 @@ user.get('/me', requireAuth, async (ctx) => {
   ctx.body = generateResponseBody<UserResponse>(true, '', {
     userId: me.userId,
     username: me.username,
-    np: me.np,
     mainNodeConId: me.mainNodeConId,
     role: me.role,
   });
