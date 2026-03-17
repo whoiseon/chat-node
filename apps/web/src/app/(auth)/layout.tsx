@@ -2,12 +2,12 @@ import { Button } from '@repo/ui/components/ui/button';
 import { LogoText } from '@repo/ui/components/ui/logo';
 import { PropsWithChildren } from 'react';
 
-import TobBar from '@/components/systems/top-bar';
+import TopBar from '@/components/system/top-bar';
 
 export default function SessionLayout({ children }: PropsWithChildren) {
   return (
-    <div className="flex flex-col h-full">
-      <TobBar customTitle={<LogoText />} isCard={false} />
+    <div className="flex flex-col h-full w-full">
+      <TopBar customBackButton={<LogoText />} isCard={false} hasBackButton />
       <div className="flex flex-col flex-1 min-w-100 md:mx-auto px-4">
         {children}
       </div>

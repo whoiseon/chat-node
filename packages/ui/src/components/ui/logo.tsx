@@ -24,13 +24,13 @@ type LogoProps = {
 export function Logo({ className, size = 'md' }: LogoProps) {
   const sizeMap = {
     sm: '[&_svg]:size-3 p-1',
-    md: '[&_svg]:size-5 p-1.5',
+    md: '[&_svg]:size-4 p-1.5',
     lg: '[&_svg]:size-6 p-2',
   };
   return (
     <div
       className={cn(
-        'flex items-center justify-center bg-blue-500 dark:bg-blue-400 rounded-sm',
+        'flex items-center justify-center bg-violet-500 dark:bg-violet-500 rounded-sm',
         sizeMap[size],
         className,
       )}
@@ -42,26 +42,28 @@ export function Logo({ className, size = 'md' }: LogoProps) {
 
 type LogoWithTextProps = {
   className?: string;
+  logoClassName?: string;
   goHome?: boolean;
   size?: 'sm' | 'md' | 'lg';
 };
 
 export function LogoWithText({
   className,
+  logoClassName,
   goHome = true,
   size = 'md',
 }: LogoWithTextProps) {
   if (goHome) {
     return (
       <a href="/" className={cn('flex items-center gap-x-2', className)}>
-        <Logo size={size} />
+        <Logo size={size} className={logoClassName} />
         <LogoText />
       </a>
     );
   }
   return (
     <div className={cn('flex items-center gap-x-2', className)}>
-      <Logo size={size} />
+      <Logo size={size} className={logoClassName} />
       <LogoText className="text-sm" />
     </div>
   );

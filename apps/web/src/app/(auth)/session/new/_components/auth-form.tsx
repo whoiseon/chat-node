@@ -68,7 +68,7 @@ export default function AuthForm() {
     register,
     handleSubmit,
     trigger,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, isSubmitting },
     setFocus,
     getValues,
   } = form;
@@ -154,13 +154,7 @@ export default function AuthForm() {
           </Field>
 
           {stepIndex >= 1 && (
-            <Field
-              className={cn(
-                mode === 'signIn'
-                  ? 'animate-slide-up'
-                  : 'animate-slide-right-to-left',
-              )}
-            >
+            <Field className="animate-slide-right-to-left">
               <FieldContent className="flex flex-col gap-y-2">
                 <Input
                   {...register('password')}
