@@ -1,3 +1,5 @@
+import { ThemeProvider } from '@repo/ui/components/providers/theme-provider';
+
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
@@ -14,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <ThemeProvider>
+          <main className="max-w-150 mx-auto h-dvh w-full">{children}</main>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
