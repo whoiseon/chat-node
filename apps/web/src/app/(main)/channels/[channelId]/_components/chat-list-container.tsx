@@ -76,7 +76,7 @@ const MOCK_CHAT_GROUPS: ChatGroupProps[] = [
         createdAt: '2026-03-17T09:00:00',
       }),
       createMessage({
-        content: '네 좋습니다.',
+        content: '네\n좋습니다.',
         sender: SENDER_ME,
         createdAt: '2026-03-17T09:01:00',
       }),

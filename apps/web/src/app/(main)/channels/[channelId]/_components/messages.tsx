@@ -101,7 +101,9 @@ function SystemBubble({
           공지사항
         </Badge>
       )}
-      <span className="text-sm text-center">{children}</span>
+      <span className="text-sm text-center whitespace-pre-line">
+        {children}
+      </span>
     </div>
   );
 }
@@ -120,7 +122,7 @@ function MessageBubble({
     >
       <div
         className={cn(
-          'bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word',
+          'bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word whitespace-pre-line',
           isMe && 'bg-primary',
         )}
       >

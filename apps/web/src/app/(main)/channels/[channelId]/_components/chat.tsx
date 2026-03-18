@@ -1,7 +1,5 @@
 'use client';
 
-import { allowedDisplayValues } from 'next/dist/compiled/@next/font/dist/constants';
-
 import {
   DefaultMessage,
   NoticeMessage,
