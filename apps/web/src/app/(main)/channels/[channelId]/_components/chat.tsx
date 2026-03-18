@@ -1,0 +1,59 @@
+'use client';
+
+import { allowedDisplayValues } from 'next/dist/compiled/@next/font/dist/constants';
+
+import {
+  DefaultMessage,
+  NoticeMessage,
+  SystemMessage,
+} from '@/app/(main)/channels/[channelId]/_components/messages';
+
+export type ChatMessageType = 'message' | 'system' | 'notice';
+
+export interface ChatSender {
+  id: string;
+  username: string;
+  displayName: string;
+  profileImage?: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  content: string;
+  type: ChatMessageType;
+  sender: ChatSender;
+  createdAt: string;
+}
+
+export interface ChatGroupProps {
+  date: string;
+  messages: ChatMessage[];
+}
+
+export function ChatGroup({ date, messages }: ChatGroupProps) {
+  return (
+    <ul className="py-2">
+      <li className="flex items-center justify-center w-full py-4">
+        <div className="h-px w-full bg-border" />
+        <span className="rounded-full border border-border bg-background px-4 py-1 text-sm text-muted-foreground whitespace-nowrap">
+          {date}
+        </span>
+        <div className="h-px w-full bg-border" />
+      </li>
+      {messages.map((message) => (
+        <ChatItem key={message.id} message={message} />
+      ))}
+    </ul>
+  );
+}
+
+export function ChatItem({ message }: { message: ChatMessage }) {
+  switch (message.type) {
+    case 'system':
+      return <SystemMessage message={message} />;
+    case 'notice':
+      return <NoticeMessage message={message} />;
+    default:
+      return <DefaultMessage message={message} />;
+  }
+}

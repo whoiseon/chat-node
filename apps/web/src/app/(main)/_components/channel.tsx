@@ -1,6 +1,6 @@
 'use client';
 
-import { ChannelThumbnail } from '@repo/ui/components/system/channel-thumbnail';
+import { Thumbnail } from '@repo/ui/components/system/thumbnail';
 import { Button } from '@repo/ui/components/ui/button';
 import {
   DropdownMenu,
@@ -35,15 +35,15 @@ function ChannelCard() {
       <Link
         href="/channels/1"
         className={cn(
-          'relative z-0 flex items-center justify-center overflow-hidden aspect-square rounded-xl w-18',
+          'relative z-0 flex items-center justify-center overflow-hidden aspect-square rounded-xl w-14',
         )}
       >
-        <ChannelThumbnail src="" alt="thumbnail" />
+        <Thumbnail src="" alt="thumbnail" />
       </Link>
       <div className="flex-1 flex justify-between">
         <Link
           href="/channels/cmj6wozcv0000ris4z2t4xen0"
-          className="flex flex-col max-w-sm"
+          className="flex flex-col flex-1"
         >
           <h3 className="font-semibold mb-1 line-clamp-2">공지사항 전달방</h3>
           <p className="text-sm text-muted-foreground line-clamp-1 max-h-10">

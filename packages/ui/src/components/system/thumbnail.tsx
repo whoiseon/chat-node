@@ -11,7 +11,7 @@ interface ThumbnailProps {
   loading?: 'eager' | 'lazy';
 }
 
-export function ChannelThumbnail({
+export function Thumbnail({
   src,
   alt,
   fill = true,

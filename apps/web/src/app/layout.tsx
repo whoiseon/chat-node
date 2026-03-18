@@ -16,9 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body className="font-sans antialiased bg-background text-foreground h-dvh">
         <ThemeProvider>
-          <main className="max-w-150 mx-auto h-dvh w-full">{children}</main>
+          <main className="flex flex-col max-w-150 mx-auto w-full min-h-screen">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

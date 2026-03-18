@@ -12,6 +12,7 @@ import {
   User,
   Users,
   CircleAlert,
+  Megaphone,
   Sun,
   Moon,
   Menu,
@@ -21,6 +22,7 @@ import {
   Search,
   ChevronUp,
   ChevronDown,
+  SendHorizontal,
   ChevronLeft,
   LogOut,
   CircleStar,
@@ -55,7 +57,9 @@ export const Icons = {
   SunForTheme: Sun,
   MoonForTheme: Moon,
   SystemForTheme: LaptopMinimal,
+  SendHorizontal,
   ChevronUp,
+  Megaphone,
   ChevronLeft,
   DoubleCheck: CheckCheck,
   ChevronDown,
@@ -67,7 +71,6 @@ export const Icons = {
   ArrowLeft,
   Since: CalendarClock,
   MessageSquareDot,
-  NodeconShop: CircleStar,
   FillCircle: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"

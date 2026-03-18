@@ -1,5 +1,7 @@
-import ChannelTopBarTools from '@/app/(main)/channels/[channelId]/_components/channel-top-bar-tools';
-import TopBar from '@/components/system/top-bar';
+import { ChannelTopBarContainer } from '@/app/(main)/channels/[channelId]/_components/channel-top-bar-container';
+import { ChatListContainer } from '@/app/(main)/channels/[channelId]/_components/chat-list-container';
+import { ChatMessageEditor } from '@/app/(main)/channels/[channelId]/_components/chat-message-editor';
+import { ChannelSearchProvider } from '@/app/(main)/channels/[channelId]/_context/channel-search.context';
 
 type Params = {
   channelId: string;
@@ -13,12 +15,12 @@ export default async function Page({ params }: Props) {
   const { channelId } = await params;
 
   return (
-    <div className="flex flex-col h-full">
-      <TopBar
-        title="공지사항 전달방"
-        right={<ChannelTopBarTools />}
-        hasBackButton
-      />
+    <div className="flex flex-col flex-1">
+      <ChannelSearchProvider>
+        <ChannelTopBarContainer />
+        <ChatListContainer />
+        <ChatMessageEditor />
+      </ChannelSearchProvider>
     </div>
   );
 }

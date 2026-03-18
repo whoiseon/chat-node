@@ -2,7 +2,7 @@ import { Button } from '@repo/ui/components/ui/button';
 import { LogoText } from '@repo/ui/components/ui/logo';
 import { PropsWithChildren } from 'react';
 
-import TopBar from '@/components/system/top-bar';
+import { TopBar } from '@/components/system/top-bar';
 
 export default function SessionLayout({ children }: PropsWithChildren) {
   return (
