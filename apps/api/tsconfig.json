@@ -4,7 +4,10 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "sourceMap": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test"]

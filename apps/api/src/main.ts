@@ -1,9 +1,25 @@
 import { NestFactory } from '@nestjs/core';
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from '@nestjs/platform-fastify';
+
+import { winstonLogger } from '@/common/configs';
 
 import { AppModule } from './app.module';
+import { bootstrap } from './bootstrap';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 4003);
-}
-bootstrap();
+const main = async (): Promise<void> => {
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+    { bufferLogs: true, logger: winstonLogger },
+  );
+
+  await bootstrap(app);
+};
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
