@@ -5,6 +5,7 @@ import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { ThrottleModule } from '@/common/modules';
 import { validateEnv } from '@/common/utils';
+import { DatabaseModule } from '@/database';
 
 @Module({
   providers: [
@@ -20,6 +21,7 @@ import { validateEnv } from '@/common/utils';
       envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
     }),
     ThrottleModule,
+    DatabaseModule,
   ],
 })
 export class AppModule {}

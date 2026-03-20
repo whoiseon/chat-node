@@ -7,6 +7,7 @@ const envSchema = z.object({
     .enum(['development', 'production', 'test'])
     .default('development'),
   ALLOWED_ORIGINS: z.string(),
+  DATABASE_URL: z.string(),
 });
 
 export type Env = z.infer<typeof envSchema>;

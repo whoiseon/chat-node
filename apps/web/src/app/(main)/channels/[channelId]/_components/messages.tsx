@@ -92,7 +92,7 @@ function SystemBubble({
   return (
     <div
       className={cn(
-        'flex flex-col justify-center items-center w-full border border-border border-dashed gap-y-3 rounded-lg py-6',
+        'flex flex-col justify-center items-center w-full border border-border border-dashed gap-y-3 rounded-lg px-x py-6',
         className,
       )}
     >
