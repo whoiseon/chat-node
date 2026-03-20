@@ -78,14 +78,11 @@ export const adminUserTable = pgTable(
 // =========================
 
 export const userRelations = relations(userTable, ({ many, one }) => ({
-  // Prisma: User -> AuthToken[]
   authTokens: many(authTokenTable),
-  // Prisma: User -> AdminUser? (0/1)
   adminUser: one(adminUserTable),
 }));
 
 export const authTokenRelations = relations(authTokenTable, ({ one }) => ({
-  // Prisma: AuthToken -> User
   user: one(userTable, {
     fields: [authTokenTable.userId],
     references: [userTable.id],
@@ -93,7 +90,6 @@ export const authTokenRelations = relations(authTokenTable, ({ one }) => ({
 }));
 
 export const adminUserRelations = relations(adminUserTable, ({ one }) => ({
-  // Prisma: AdminUser -> User
   user: one(userTable, {
     fields: [adminUserTable.userId],
     references: [userTable.id],
