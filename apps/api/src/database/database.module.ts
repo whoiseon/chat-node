@@ -1,24 +1,24 @@
 import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { drizzle } from 'drizzle-orm/node-postgres';
 
 import { Env } from '@/common/utils';
+
+import { createDrizzleClient, DB_TOKEN } from './database.port';
 
 @Global()
 @Module({
   providers: [
     {
       inject: [ConfigService],
-      provide: 'DATABASE',
+      provide: DB_TOKEN,
       useFactory: (configService: ConfigService<Env>) => {
-        drizzle({
-          connection: {
-            connectionString: configService.get('DATABASE_URL'),
-          },
-        });
+        const url = configService.get('DATABASE_URL', { infer: true })!;
+        const isDev =
+          configService.get('NODE_ENV', { infer: true }) === 'development';
+        return createDrizzleClient(url, isDev);
       },
     },
   ],
-  exports: ['DATABASE'],
+  exports: [DB_TOKEN],
 })
 export class DatabaseModule {}
