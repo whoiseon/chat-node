@@ -14,6 +14,7 @@ export function useMe() {
   });
 
   const user: MeUser | null = data?.payload?.user ?? null;
+  const isAuthenticated = !!user;
 
-  return { user, ...rest };
+  return { user, isAuthenticated, ...rest };
 }

@@ -116,30 +116,18 @@ export default function AuthForm() {
     setStepIndex((prev) => prev + 1);
   };
 
-  const onFinalSubmit = handleSubmit(async (data) => {
-    try {
-      if (mode === 'signIn') {
-        await signInMutation.mutateAsync({
-          username: data.username,
-          password: data.password,
-        });
-      } else {
-        await signUpMutation.mutateAsync({
-          username: data.username,
-          password: data.password,
-          displayName: data.displayName || '',
-        });
-      }
-    } catch (error: any) {
-      const message =
-        error?.response?.data?.error?.message ??
-        '요청 처리 중 오류가 발생했습니다.';
-
-      if (mode === 'signIn') {
-        setError('password', { message });
-      } else {
-        setError('username', { message });
-      }
+  const onFinalSubmit = handleSubmit((data) => {
+    if (mode === 'signIn') {
+      signInMutation.mutate({
+        username: data.username,
+        password: data.password,
+      });
+    } else {
+      signUpMutation.mutate({
+        username: data.username,
+        password: data.password,
+        displayName: data.displayName || '',
+      });
     }
   });
 
@@ -175,6 +163,7 @@ export default function AuthForm() {
                 className="h-12.5 px-4 text-base placeholder:text-base"
                 placeholder="아이디"
                 autoComplete="username"
+                disabled={isPending}
               />
               <FieldError>{errors.username?.message}</FieldError>
             </FieldContent>
@@ -188,6 +177,7 @@ export default function AuthForm() {
                   type="password"
                   className="h-12.5 px-4 text-base placeholder:text-base"
                   placeholder="비밀번호"
+                  disabled={isPending}
                   autoComplete={
                     lastStep && mode === 'signIn'
                       ? 'current-password'
@@ -208,6 +198,7 @@ export default function AuthForm() {
                   className="h-12.5 px-4 text-base placeholder:text-base"
                   placeholder="비밀번호 확인"
                   autoComplete="new-password"
+                  disabled={isPending}
                 />
                 <FieldError>{errors.confirmPassword?.message}</FieldError>
               </FieldContent>
@@ -223,6 +214,7 @@ export default function AuthForm() {
                   className="h-12.5 px-4 text-base placeholder:text-base"
                   placeholder="닉네임"
                   autoComplete="nickname"
+                  disabled={isPending}
                 />
                 <FieldError>{errors.displayName?.message}</FieldError>
               </FieldContent>

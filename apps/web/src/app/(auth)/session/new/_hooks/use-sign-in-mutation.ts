@@ -18,9 +18,5 @@ export function useSignInMutation() {
       await queryClient.invalidateQueries({ queryKey: authKeys.me });
       router.refresh();
     },
-    onError: (error) => {
-      const apiError = extractError(error);
-      console.error('[signIn]', apiError.error?.message);
-    },
   });
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { Suspense } from 'react';
 import { ThemeProvider } from '@repo/ui/components/providers/theme-provider';
+import { Toaster } from '@repo/ui/components/ui/sonner';
+import { Suspense } from 'react';
 
 export default function UiProvider({
   children,
@@ -13,6 +14,7 @@ export default function UiProvider({
       <Suspense fallback={null}>
         {children}
         {/*<ModalContainer />*/}
+        <Toaster />
       </Suspense>
     </ThemeProvider>
   );

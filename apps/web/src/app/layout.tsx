@@ -35,10 +35,10 @@ export default async function RootLayout({
 
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background text-foreground h-dvh">
+      <body className="font-sans antialiased bg-background text-foreground h-dvh max-w-150 mx-auto w-full">
         <Providers>
           <HydrationBoundary state={dehydratedState}>
-            <main className="flex flex-col max-w-150 mx-auto w-full min-h-screen h-full">
+            <main className="flex flex-col min-h-screen h-full">
               {children}
             </main>
           </HydrationBoundary>

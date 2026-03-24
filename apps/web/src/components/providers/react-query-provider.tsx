@@ -1,5 +1,6 @@
 'use client';
 
+import { getToast } from '@repo/ui/lib/toast';
 import {
   isServer,
   MutationCache,
@@ -12,6 +13,7 @@ import { ReactNode } from 'react';
 // import { toast } from 'sonner';
 
 import { extractError } from '@/lib/api';
+
 // import { TOAST_DEFAULT_OPTIONS } from '@/lib/constants/toast.constants';
 
 function makeQueryClient() {
@@ -25,16 +27,23 @@ function makeQueryClient() {
     },
     queryCache: new QueryCache({
       onError: (error) => {
+        const toast = getToast();
         const errorResponse = extractError(error);
-        console.log('[errorResponse]', errorResponse);
-        // toast.error(errorResponse!.error?.message, TOAST_DEFAULT_OPTIONS);
+
+        toast({
+          type: 'error',
+          message: errorResponse!.error?.message,
+        });
       },
     }),
     mutationCache: new MutationCache({
       onError: (error) => {
+        const toast = getToast();
         const errorResponse = extractError(error);
-        console.log('[errorResponse]', errorResponse);
-        // toast.error(errorResponse!.error?.message, TOAST_DEFAULT_OPTIONS);
+        toast({
+          type: 'error',
+          message: errorResponse!.error?.message,
+        });
       },
     }),
   });

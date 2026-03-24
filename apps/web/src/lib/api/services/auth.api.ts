@@ -55,9 +55,12 @@ export const authApi = {
   },
 
   checkUsername: (username: string) => {
-    return api.post<ApiResponse<CheckUsernameResponse>>('/auth/check-username', {
-      username,
-    });
+    return api.post<ApiResponse<CheckUsernameResponse>>(
+      '/auth/check-username',
+      {
+        username,
+      },
+    );
   },
 
   signIn: (data: SignInRequest) => {
@@ -66,6 +69,10 @@ export const authApi = {
 
   signUp: (data: SignUpRequest) => {
     return api.post<ApiResponse<null>>('/auth/sign-up', data);
+  },
+
+  signOut: () => {
+    return api.post<ApiResponse<null>>('/auth/sign-out');
   },
 
   refresh: () => {
