@@ -15,9 +15,13 @@ import { cn } from '@repo/ui/lib/utils';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
+import { useMe } from '@/components/hooks/use-me';
+
 export function ChannelList() {
+  const { user } = useMe();
   return (
     <div className="flex-1 flex flex-col pt-6">
+      {user?.displayName || '없음'}
       <div className="relative px-4 mb-4">
         <Icons.Search className="absolute size-4 text-muted-foreground -translate-y-1/2 top-1/2 left-7" />
         <Input className="bg-background! h-10 pl-9" placeholder="채널 이름" />

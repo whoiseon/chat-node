@@ -1,3 +1,4 @@
+import cookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -15,6 +16,9 @@ export const bootstrap = async (app: NestFastifyApplication): Promise<void> => {
 
   // 전역 prefix
   app.setGlobalPrefix('api/v1');
+
+  // 쿠키 파서 등록
+  await app.register(cookie);
 
   // 보안 헤더 설정
   await app.register(helmet, {

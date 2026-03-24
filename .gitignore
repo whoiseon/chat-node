@@ -38,3 +38,5 @@ yarn-error.log*
 .idea
 .cursor
 *.pem
+CLAUDE.md
+.claude

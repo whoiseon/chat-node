@@ -1,12 +1,18 @@
 import { z } from 'zod';
 
 const envSchema = z.object({
-  HOST: z.string(),
-  PORT: z.coerce.number().default(4003),
   NODE_ENV: z
     .enum(['development', 'production', 'test'])
     .default('development'),
+  HOST: z.string(),
+  PORT: z.coerce.number().default(4003),
   ALLOWED_ORIGINS: z.string(),
+
+  ACCESS_TOKEN_SECRET: z.string(),
+  ACCESS_TOKEN_EXPIRATION: z.string(),
+  REFRESH_TOKEN_SECRET: z.string(),
+  REFRESH_TOKEN_EXPIRATION: z.string(),
+
   DATABASE_URL: z.string(),
 });
 

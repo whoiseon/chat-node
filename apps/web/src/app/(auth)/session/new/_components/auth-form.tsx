@@ -6,6 +6,9 @@ import { Input } from '@repo/ui/components/ui/input';
 import { cn } from '@repo/ui/lib/utils';
 import { useEffect, useMemo, useState } from 'react';
 
+import { useCheckUsername } from '../_hooks/use-check-username';
+import { useSignInMutation } from '../_hooks/use-sign-in-mutation';
+import { useSignUpMutation } from '../_hooks/use-sign-up-mutation';
 import { useUnifiedAuthForm } from '../_hooks/use-unified-auth-form';
 
 import type { FormValues } from '../_schemas/session.schema';
@@ -48,13 +51,6 @@ const STEP_FIELDS: Record<Step, (keyof FormValues)[]> = {
   displayName: ['displayName'],
 };
 
-const mockUsers = [
-  {
-    username: 'admin',
-    password: 'password',
-  },
-];
-
 export default function AuthForm() {
   const [mode, setMode] = useState<Mode>('signIn');
   const [stepIndex, setStepIndex] = useState<number>(0);
@@ -71,7 +67,12 @@ export default function AuthForm() {
     formState: { errors, isSubmitting },
     setFocus,
     getValues,
+    setError,
   } = form;
+
+  const checkUsername = useCheckUsername();
+  const signInMutation = useSignInMutation();
+  const signUpMutation = useSignUpMutation();
 
   const { heading, description } = useMemo(() => TEXT_BY_STEP[step], [step]);
 
@@ -84,42 +85,62 @@ export default function AuthForm() {
     [step, setFocus],
   );
 
-  const findUser = (username: string) =>
-    mockUsers.find((user) => user.username === username);
-
   const onNext = async () => {
-    // 현재 스텝 필드만 검증
     const fields = STEP_FIELDS[step];
     const valid = await trigger(fields as (keyof FormValues)[], {
       shouldFocus: true,
     });
     if (!valid) return;
 
-    // 사용자 조회
-    const currentUsername = getValues('username');
-    const user = findUser(currentUsername || '');
-    if (!user && mode === 'signIn') {
-      setMode('signUp');
+    // username 스텝에서 사용자 존재 여부 확인
+    if (step === 'username') {
+      const currentUsername = getValues('username');
 
-      // 아이디 재검증
-      const confirmValid = await trigger(['confirmPassword'], {
-        shouldFocus: true,
-      });
-      if (!confirmValid) return;
+      try {
+        const result = await checkUsername.mutateAsync(currentUsername || '');
+        const exists = result.payload?.exists ?? false;
 
-      // 회원가입 플로우로 전환 시 스텝 인덱스를 유지해 계속 이어감
+        if (!exists && mode === 'signIn') {
+          setMode('signUp');
+        } else if (exists && mode === 'signUp') {
+          setMode('signIn');
+        }
+      } catch {
+        setError('username', {
+          message: '사용자 확인 중 오류가 발생했습니다.',
+        });
+        return;
+      }
     }
 
-    // 다음 스텝
     setStepIndex((prev) => prev + 1);
   };
 
   const onFinalSubmit = handleSubmit(async (data) => {
-    // TODO: 실제 로그인/회원가입 API 호출
-    console.log(
-      mode === 'signIn' ? 'sign in payload' : 'sign up payload',
-      data,
-    );
+    try {
+      if (mode === 'signIn') {
+        await signInMutation.mutateAsync({
+          username: data.username,
+          password: data.password,
+        });
+      } else {
+        await signUpMutation.mutateAsync({
+          username: data.username,
+          password: data.password,
+          displayName: data.displayName || '',
+        });
+      }
+    } catch (error: any) {
+      const message =
+        error?.response?.data?.error?.message ??
+        '요청 처리 중 오류가 발생했습니다.';
+
+      if (mode === 'signIn') {
+        setError('password', { message });
+      } else {
+        setError('username', { message });
+      }
+    }
   });
 
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -130,6 +151,12 @@ export default function AuthForm() {
     }
     void onFinalSubmit(event);
   };
+
+  const isPending =
+    isSubmitting ||
+    checkUsername.isPending ||
+    signInMutation.isPending ||
+    signUpMutation.isPending;
 
   return (
     <div className="flex flex-col gap-y-6 w-full pt-6 md:pt-20">
@@ -205,8 +232,9 @@ export default function AuthForm() {
 
         <Button
           type="submit"
+          variant="default"
           className="h-12.5 font-bold"
-          disabled={isSubmitting}
+          disabled={isPending}
         >
           {lastStep ? (mode === 'signIn' ? '로그인' : '가입완료') : '다음'}
         </Button>

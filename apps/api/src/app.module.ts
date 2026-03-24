@@ -10,9 +10,15 @@ import { DatabaseModule } from '@/database';
 
 import { AuthModule } from './features/auth/auth.module';
 import { HealthModule } from './features/health/health.module';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtAuthGuard } from '@/common/guards/jwt-auth.guard';
 
 @Module({
   providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
@@ -23,6 +29,9 @@ import { HealthModule } from './features/health/health.module';
     },
   ],
   imports: [
+    JwtModule.register({
+      global: true,
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
       validate: validateEnv,

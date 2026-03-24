@@ -46,6 +46,8 @@ export function TopBar({
     searchInputRef.current?.focus();
   }, [searchMode]);
 
+  const hasTitle = title || customTitle;
+
   return (
     <header className="sticky top-0 z-10" ref={ref}>
       <div
@@ -113,7 +115,7 @@ export function TopBar({
               {hasBackButton && (
                 <Button
                   variant="ghost"
-                  size="icon"
+                  size={!hasTitle ? 'default' : 'icon'}
                   onClick={() => router.back()}
                   className="-ml-2"
                 >

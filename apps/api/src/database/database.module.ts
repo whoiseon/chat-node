@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 
 import { Env } from '@/common/utils';
 
-import { createDrizzleClient, DB_TOKEN } from './database.port';
+import { createDrizzleClient, DB_TOKEN } from './database.client';
 
 @Global()
 @Module({

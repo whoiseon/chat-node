@@ -25,6 +25,6 @@ export function useUnifiedAuthForm(mode: 'signIn' | 'signUp') {
       confirmPassword: '',
       displayName: '',
     },
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 }
