@@ -4,6 +4,7 @@ import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerGuard } from '@nestjs/throttler';
 
+import { CacheModule } from '@/common/cache';
 import { ApiExceptionFilter } from '@/common/filters';
 import { JwtAuthGuard } from '@/common/guards/jwt-auth.guard';
 import { ThrottleModule } from '@/common/modules';
@@ -11,8 +12,8 @@ import { validateEnv } from '@/common/utils';
 import { DatabaseModule } from '@/database';
 
 import { AuthModule } from './features/auth/auth.module';
-import { HealthModule } from './features/health/health.module';
 import { ChannelModule } from './features/channel/channel.module';
+import { HealthModule } from './features/health/health.module';
 
 @Module({
   providers: [
@@ -40,6 +41,7 @@ import { ChannelModule } from './features/channel/channel.module';
     }),
     ThrottleModule,
     DatabaseModule,
+    CacheModule,
     AuthModule,
     HealthModule,
     ChannelModule,

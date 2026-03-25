@@ -12,7 +12,7 @@ import {
 /**
  * 로그인/회원가입 통합 폼.
  * - signIn: username → password (각 스텝에서 해당 필드만 검증)
- * - signUp: username → password → confirmPassword → displayName
+ * - signUp: username → password → confirmPassword
  */
 export function useUnifiedAuthForm(mode: 'signIn' | 'signUp') {
   const schema = mode === 'signIn' ? signInSchema : signUpSchema;
@@ -23,7 +23,6 @@ export function useUnifiedAuthForm(mode: 'signIn' | 'signUp') {
       username: '',
       password: '',
       confirmPassword: '',
-      displayName: '',
     },
     mode: 'onChange',
   });

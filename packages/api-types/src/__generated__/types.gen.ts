@@ -46,10 +46,6 @@ export type SignUpDto = {
      * 비밀번호 (8자 이상)
      */
     password: string;
-    /**
-     * 닉네임 (2자 이상)
-     */
-    displayName: string;
 };
 
 export type AuthTokensPayload = {
@@ -71,7 +67,6 @@ export type RefreshResponseDto = {
 export type MeUser = {
     id: string;
     username: string;
-    displayName: string;
     role: 'USER' | 'ADMIN';
     createdAt: string;
     updatedAt?: string | null;
@@ -114,6 +109,69 @@ export type HealthCheckErrorPayload = {
 export type HealthCheckErrorResponseDto = {
     error: ApiErrorDto;
     payload: HealthCheckErrorPayload;
+};
+
+export type GetChannelsQueryDto = {
+    /**
+     * 마지막으로 조회한 채널 ID (커서)
+     */
+    cursor?: string;
+    /**
+     * 조회할 항목 수
+     */
+    limit?: number;
+};
+
+export type LastMessageDto = {
+    content: string;
+    senderName: string;
+    createdAt: string;
+};
+
+export type ChannelItemDto = {
+    id: string;
+    name: string;
+    description: string;
+    profileImageUrl?: string | null;
+    isPrivate: boolean;
+    lastMessage?: LastMessageDto | null;
+    unreadCount: number;
+    createdAt: string;
+};
+
+export type GetChannelsPayload = {
+    channels: Array<ChannelItemDto>;
+    /**
+     * 다음 페이지 커서 (null이면 마지막 페이지)
+     */
+    nextCursor?: string | null;
+};
+
+export type GetChannelsResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: GetChannelsPayload;
+};
+
+export type JoinChannelDto = {
+    /**
+     * 닉네임 (미입력 시 아이디로 설정)
+     */
+    displayName?: string;
+    /**
+     * 채널 비밀번호 (비밀방인 경우 필수)
+     */
+    password?: string;
+};
+
+export type JoinChannelPayload = {
+    channelId: string;
+    role: string;
+    displayName: string;
+};
+
+export type JoinChannelResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: JoinChannelPayload;
 };
 
 export type CreateChannelDto = {
@@ -345,6 +403,31 @@ export type HealthControllerCheckResponses = {
 
 export type HealthControllerCheckResponse = HealthControllerCheckResponses[keyof HealthControllerCheckResponses];
 
+export type ChannelControllerGetChannelsData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 마지막으로 조회한 채널 ID (커서)
+         */
+        cursor?: string;
+        /**
+         * 조회할 항목 수
+         */
+        limit?: number;
+    };
+    url: '/api/v1/channel';
+};
+
+export type ChannelControllerGetChannelsResponses = {
+    /**
+     * 조회 성공
+     */
+    200: GetChannelsResponseDto;
+};
+
+export type ChannelControllerGetChannelsResponse = ChannelControllerGetChannelsResponses[keyof ChannelControllerGetChannelsResponses];
+
 export type ChannelControllerCreateChannelData = {
     body: CreateChannelDto;
     path?: never;
@@ -369,6 +452,45 @@ export type ChannelControllerCreateChannelResponses = {
 };
 
 export type ChannelControllerCreateChannelResponse = ChannelControllerCreateChannelResponses[keyof ChannelControllerCreateChannelResponses];
+
+export type ChannelControllerJoinChannelData = {
+    body: JoinChannelDto;
+    path: {
+        channelId: string;
+    };
+    query?: never;
+    url: '/api/v1/channel/{channelId}/join';
+};
+
+export type ChannelControllerJoinChannelErrors = {
+    /**
+     * 비밀번호 미입력
+     */
+    400: NullPayloadResponseDto;
+    /**
+     * 비밀번호 불일치
+     */
+    401: NullPayloadResponseDto;
+    /**
+     * 채널을 찾을 수 없음
+     */
+    404: NullPayloadResponseDto;
+    /**
+     * 이미 사용 중인 닉네임
+     */
+    409: NullPayloadResponseDto;
+};
+
+export type ChannelControllerJoinChannelError = ChannelControllerJoinChannelErrors[keyof ChannelControllerJoinChannelErrors];
+
+export type ChannelControllerJoinChannelResponses = {
+    /**
+     * 입장 성공
+     */
+    200: JoinChannelResponseDto;
+};
+
+export type ChannelControllerJoinChannelResponse = ChannelControllerJoinChannelResponses[keyof ChannelControllerJoinChannelResponses];
 
 export type ChannelControllerCreateDmData = {
     body: CreateDmDto;

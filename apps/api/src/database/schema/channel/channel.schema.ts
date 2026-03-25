@@ -8,10 +8,9 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { userTable } from '../identity/user.schema';
-
-import { channelStaffTable } from './channel-staff.schema';
-import { dmParticipantTable } from './dm-participant.schema';
+import { channelReadStatusTable } from '../chat/channel-read-status.schema';
+import { messageTable } from '../chat/message.schema';
+import { channelMemberTable } from './channel-member.schema';
 
 export const channelTypeEnum = pgEnum('channel_type', ['CHANNEL', 'DM']);
 
@@ -24,10 +23,6 @@ export const channelTable = pgTable(
     description: varchar('description', { length: 255 }).notNull(),
     profileImageUrl: varchar('profile_image_url', { length: 255 }),
     password: varchar('password', { length: 255 }),
-
-    managerId: uuid('fk_manager_id').references(() => userTable.id, {
-      onDelete: 'cascade',
-    }),
 
     createdAt: timestamp('created_at', {
       precision: 6,
@@ -51,13 +46,10 @@ export const channelTable = pgTable(
   ],
 );
 
-export const channelRelations = relations(channelTable, ({ one, many }) => ({
-  manager: one(userTable, {
-    fields: [channelTable.managerId],
-    references: [userTable.id],
-  }),
-  staffs: many(channelStaffTable),
-  dmParticipants: many(dmParticipantTable),
+export const channelRelations = relations(channelTable, ({ many }) => ({
+  members: many(channelMemberTable),
+  messages: many(messageTable),
+  readStatuses: many(channelReadStatusTable),
 }));
 
 export type ChannelDatabase = typeof channelTable.$inferSelect;

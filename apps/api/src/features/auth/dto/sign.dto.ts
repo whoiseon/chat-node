@@ -35,14 +35,4 @@ export class SignUpDto {
   @IsNotEmpty()
   @MinLength(8)
   password!: string;
-
-  @ApiProperty({
-    description: '닉네임 (2자 이상)',
-    example: '사용자',
-    minLength: 2,
-  })
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(2)
-  displayName!: string;
 }

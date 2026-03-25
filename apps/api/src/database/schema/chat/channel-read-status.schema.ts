@@ -1,18 +1,11 @@
 import { relations } from 'drizzle-orm';
-import {
-  index,
-  pgTable,
-  primaryKey,
-  timestamp,
-  uuid,
-} from 'drizzle-orm/pg-core';
+import { index, pgTable, primaryKey, timestamp, uuid } from 'drizzle-orm/pg-core';
 
+import { channelTable } from '../channel/channel.schema';
 import { userTable } from '../identity/user.schema';
 
-import { channelTable } from './channel.schema';
-
-export const channelStaffTable = pgTable(
-  'channel_staff',
+export const channelReadStatusTable = pgTable(
+  'channel_read_status',
   {
     channelId: uuid('fk_channel_id')
       .notNull()
@@ -20,7 +13,7 @@ export const channelStaffTable = pgTable(
     userId: uuid('fk_user_id')
       .notNull()
       .references(() => userTable.id, { onDelete: 'cascade' }),
-    assignedAt: timestamp('assigned_at', {
+    lastReadAt: timestamp('last_read_at', {
       precision: 6,
       mode: 'date',
     })
@@ -29,24 +22,25 @@ export const channelStaffTable = pgTable(
   },
   (table) => [
     primaryKey({ columns: [table.channelId, table.userId] }),
-    index('channel_staff_channel_id_idx').on(table.channelId),
-    index('channel_staff_user_id_idx').on(table.userId),
+    index('channel_read_status_user_id_idx').on(table.userId),
   ],
 );
 
-export const channelStaffRelations = relations(
-  channelStaffTable,
+export const channelReadStatusRelations = relations(
+  channelReadStatusTable,
   ({ one }) => ({
     channel: one(channelTable, {
-      fields: [channelStaffTable.channelId],
+      fields: [channelReadStatusTable.channelId],
       references: [channelTable.id],
     }),
     user: one(userTable, {
-      fields: [channelStaffTable.userId],
+      fields: [channelReadStatusTable.userId],
       references: [userTable.id],
     }),
   }),
 );
 
-export type ChannelStaffDatabase = typeof channelStaffTable.$inferSelect;
-export type ChannelStaffDatabaseInsert = typeof channelStaffTable.$inferInsert;
+export type ChannelReadStatusDatabase =
+  typeof channelReadStatusTable.$inferSelect;
+export type ChannelReadStatusDatabaseInsert =
+  typeof channelReadStatusTable.$inferInsert;

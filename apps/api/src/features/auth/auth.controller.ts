@@ -99,11 +99,7 @@ export class AuthController {
     @Body() dto: SignUpDto,
     @Res({ passthrough: true }) res: FastifyReply,
   ) {
-    const tokens = await this.authService.signUp(
-      dto.username,
-      dto.password,
-      dto.displayName,
-    );
+    const tokens = await this.authService.signUp(dto.username, dto.password);
     this.setAuthCookies(res, tokens);
     return new ApiResponseDto(null);
   }

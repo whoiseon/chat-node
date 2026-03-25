@@ -8,12 +8,11 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { eq } from 'drizzle-orm';
 import { FastifyRequest } from 'fastify';
 
+import { AppCache, CACHE_TOKEN } from '@/common/cache';
 import { RefreshTokenPayload } from '@/common/interfaces';
 import { Env } from '@/common/utils';
-import { AppDatabase, DB_TOKEN, sessionTable } from '@/database';
 
 @Injectable()
 export class JwtRefreshGuard implements CanActivate {
@@ -22,7 +21,7 @@ export class JwtRefreshGuard implements CanActivate {
   constructor(
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService<Env, true>,
-    @Inject(DB_TOKEN) private readonly db: AppDatabase,
+    @Inject(CACHE_TOKEN) private readonly redis: AppCache,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -48,7 +47,7 @@ export class JwtRefreshGuard implements CanActivate {
       request.userId = payload.userId;
       request.tokenId = payload.tokenId;
     } catch {
-      await this.blockExpiredSession(token);
+      await this.deleteExpiredSession(token);
 
       throw new UnauthorizedException({
         message: '만료된 리프레시 토큰입니다.',
@@ -59,19 +58,16 @@ export class JwtRefreshGuard implements CanActivate {
     return true;
   }
 
-  private async blockExpiredSession(token: string): Promise<void> {
+  private async deleteExpiredSession(token: string): Promise<void> {
     try {
       const decoded = this.jwtService.decode<RefreshTokenPayload>(token);
 
       if (!decoded?.tokenId) return;
 
-      await this.db
-        .update(sessionTable)
-        .set({ blocked: true })
-        .where(eq(sessionTable.id, decoded.tokenId));
+      await this.redis.del(`session:${decoded.tokenId}`);
 
       this.logger.log(
-        `[blockExpiredSession] 만료된 세션 차단 — tokenId: ${decoded.tokenId}`,
+        `[deleteExpiredSession] 만료된 세션 삭제 — tokenId: ${decoded.tokenId}`,
       );
     } catch {
       // decode 실패 시 무시

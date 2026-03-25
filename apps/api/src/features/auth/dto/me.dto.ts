@@ -9,9 +9,6 @@ class MeUser {
   @ApiProperty({ example: 'chatnode' })
   username!: string;
 
-  @ApiProperty({ example: '사용자' })
-  displayName!: string;
-
   @ApiProperty({ enum: ['USER', 'ADMIN'], example: 'USER' })
   role!: string;
 

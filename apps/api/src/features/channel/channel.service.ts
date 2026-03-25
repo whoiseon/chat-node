@@ -5,14 +5,30 @@ import {
   Injectable,
   Logger,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
-import { and, count, eq, or } from 'drizzle-orm';
+import * as bcrypt from 'bcrypt';
+import {
+  and,
+  asc,
+  count,
+  desc,
+  eq,
+  gt,
+  inArray,
+  isNull,
+  lt,
+  or,
+  sql,
+} from 'drizzle-orm';
 
 import {
   AppDatabase,
+  channelMemberTable,
+  channelReadStatusTable,
   channelTable,
   DB_TOKEN,
-  dmParticipantTable,
+  messageTable,
   userTable,
 } from '@/database';
 import {
@@ -20,6 +36,8 @@ import {
   CreateChannelPayload,
   CreateDmDto,
   CreateDmPayload,
+  GetChannelsQueryDto,
+  JoinChannelDto,
 } from '@/features/channel/dto';
 
 @Injectable()
@@ -28,27 +46,298 @@ export class ChannelService {
 
   constructor(@Inject(DB_TOKEN) private readonly db: AppDatabase) {}
 
+  async getChannels(query: GetChannelsQueryDto, userId?: string) {
+    const { cursor, limit = 20 } = query;
+
+    // 채널별 최근 메시지 시각 서브쿼리
+    const lastMessageSq = this.db
+      .select({
+        channelId: messageTable.channelId,
+        lastMessageAt: sql<Date>`max(${messageTable.createdAt})`.as(
+          'last_message_at',
+        ),
+      })
+      .from(messageTable)
+      .groupBy(messageTable.channelId)
+      .as('last_msg');
+
+    // 정렬 기준: lastMessage가 있으면 그 시각, 없으면 channel.createdAt
+    const sortKey = sql<Date>`coalesce(${lastMessageSq.lastMessageAt}, ${channelTable.createdAt})`;
+
+    const conditions = [
+      eq(channelTable.type, 'CHANNEL'),
+      isNull(channelTable.deletedAt),
+    ];
+
+    // 커서 처리
+    if (cursor) {
+      const [cursorRow] = await this.db
+        .select({
+          sortValue: sql<Date>`coalesce(${lastMessageSq.lastMessageAt}, ${channelTable.createdAt})`,
+        })
+        .from(channelTable)
+        .leftJoin(lastMessageSq, eq(channelTable.id, lastMessageSq.channelId))
+        .where(eq(channelTable.id, cursor))
+        .limit(1);
+
+      if (cursorRow) {
+        conditions.push(lt(sortKey, cursorRow.sortValue));
+      }
+    }
+
+    // limit + 1로 조회하여 다음 페이지 존재 여부 판단
+    const rows = await this.db
+      .select({
+        id: channelTable.id,
+        name: channelTable.name,
+        description: channelTable.description,
+        profileImageUrl: channelTable.profileImageUrl,
+        password: channelTable.password,
+        createdAt: channelTable.createdAt,
+      })
+      .from(channelTable)
+      .leftJoin(lastMessageSq, eq(channelTable.id, lastMessageSq.channelId))
+      .where(and(...conditions))
+      .orderBy(desc(sortKey))
+      .limit(limit + 1);
+
+    const hasMore = rows.length > limit;
+    const channels = rows.slice(0, limit);
+    const lastItem = channels[channels.length - 1];
+    const channelIds = channels.map((ch) => ch.id);
+
+    // 최근 메시지 상세 + 안 읽은 수 조회
+    const [lastMessages, unreadCounts] = await Promise.all([
+      this.getLastMessages(channelIds),
+      userId ? this.getUnreadCounts(channelIds, userId) : new Map(),
+    ]);
+
+    return {
+      channels: channels.map((ch) => ({
+        id: ch.id,
+        name: ch.name,
+        description: ch.description,
+        profileImageUrl: ch.profileImageUrl ?? null,
+        isPrivate: ch.password !== null,
+        lastMessage: lastMessages.get(ch.id) ?? null,
+        unreadCount: unreadCounts.get(ch.id) ?? 0,
+        createdAt: ch.createdAt.toISOString(),
+      })),
+      nextCursor: hasMore && lastItem ? lastItem.id : null,
+    };
+  }
+
+  private async getLastMessages(channelIds: string[]) {
+    if (channelIds.length === 0) return new Map();
+
+    // 채널별 최근 메시지 1건 (DISTINCT ON)
+    const latestIds = this.db
+      .select({
+        id: sql<string>`DISTINCT ON (${messageTable.channelId}) ${messageTable.id}`,
+      })
+      .from(messageTable)
+      .where(
+        and(
+          inArray(messageTable.channelId, channelIds),
+          eq(messageTable.type, 'message'),
+        ),
+      )
+      .orderBy(messageTable.channelId, desc(messageTable.createdAt));
+
+    const rows = await this.db
+      .select({
+        channelId: messageTable.channelId,
+        content: messageTable.content,
+        senderName: channelMemberTable.displayName,
+        createdAt: messageTable.createdAt,
+      })
+      .from(messageTable)
+      .leftJoin(
+        channelMemberTable,
+        and(
+          eq(messageTable.channelId, channelMemberTable.channelId),
+          eq(messageTable.userId, channelMemberTable.userId),
+        ),
+      )
+      .where(inArray(messageTable.id, latestIds));
+
+    const map = new Map<
+      string,
+      { content: string; senderName: string; createdAt: string }
+    >();
+
+    for (const row of rows) {
+      map.set(row.channelId, {
+        content: row.content,
+        senderName: row.senderName ?? '시스템',
+        createdAt: row.createdAt.toISOString(),
+      });
+    }
+
+    return map;
+  }
+
+  private async getUnreadCounts(channelIds: string[], userId: string) {
+    if (channelIds.length === 0) return new Map();
+
+    const rows = await this.db
+      .select({
+        channelId: messageTable.channelId,
+        count: sql<number>`cast(count(*) as int)`,
+      })
+      .from(messageTable)
+      .leftJoin(
+        channelReadStatusTable,
+        and(
+          eq(messageTable.channelId, channelReadStatusTable.channelId),
+          eq(channelReadStatusTable.userId, userId),
+        ),
+      )
+      .where(
+        and(
+          inArray(messageTable.channelId, channelIds),
+          or(
+            isNull(channelReadStatusTable.lastReadAt),
+            gt(messageTable.createdAt, channelReadStatusTable.lastReadAt),
+          ),
+        ),
+      )
+      .groupBy(messageTable.channelId);
+
+    const map = new Map<string, number>();
+    for (const row of rows) {
+      map.set(row.channelId, row.count);
+    }
+
+    return map;
+  }
+
+  async joinChannel(channelId: string, userId: string, body: JoinChannelDto) {
+    const [channel] = await this.db
+      .select({
+        id: channelTable.id,
+        password: channelTable.password,
+      })
+      .from(channelTable)
+      .where(
+        and(
+          eq(channelTable.id, channelId),
+          eq(channelTable.type, 'CHANNEL'),
+          isNull(channelTable.deletedAt),
+        ),
+      )
+      .limit(1);
+
+    if (!channel) {
+      throw new NotFoundException({ message: '채널을 찾을 수 없습니다' });
+    }
+
+    // 비밀방 비밀번호 검증
+    if (channel.password) {
+      if (!body.password) {
+        throw new BadRequestException({
+          message: '비밀번호를 입력해주세요',
+        });
+      }
+
+      const valid = await bcrypt.compare(body.password, channel.password);
+      if (!valid) {
+        throw new UnauthorizedException({
+          message: '비밀번호가 올바르지 않습니다',
+        });
+      }
+    }
+
+    // 이미 멤버인지 확인
+    const [existing] = await this.db
+      .select({ role: channelMemberTable.role })
+      .from(channelMemberTable)
+      .where(
+        and(
+          eq(channelMemberTable.channelId, channelId),
+          eq(channelMemberTable.userId, userId),
+        ),
+      )
+      .limit(1);
+
+    if (existing) {
+      return {
+        channelId,
+        role: existing.role,
+        displayName: body.displayName ?? (await this.getUsername(userId)),
+      };
+    }
+
+    // 닉네임: 입력값 또는 아이디
+    const displayName = body.displayName ?? (await this.getUsername(userId));
+
+    // 닉네임 중복 확인
+    const [duplicate] = await this.db
+      .select({ userId: channelMemberTable.userId })
+      .from(channelMemberTable)
+      .where(
+        and(
+          eq(channelMemberTable.channelId, channelId),
+          eq(channelMemberTable.displayName, displayName),
+        ),
+      )
+      .limit(1);
+
+    if (duplicate) {
+      throw new ConflictException({
+        message: '이미 사용 중인 닉네임입니다',
+      });
+    }
+
+    await this.db.insert(channelMemberTable).values({
+      channelId,
+      userId,
+      role: 'USER',
+      displayName,
+    });
+
+    return { channelId, role: 'USER' as const, displayName };
+  }
+
+  private async getUsername(userId: string): Promise<string> {
+    const [user] = await this.db
+      .select({ username: userTable.username })
+      .from(userTable)
+      .where(eq(userTable.id, userId))
+      .limit(1);
+
+    return user?.username ?? 'unknown';
+  }
+
   async createChannel(
     body: CreateChannelDto,
     userId: string,
   ): Promise<CreateChannelPayload> {
     const { name, description, password, profileImageUrl } = body;
 
-    const [channel] = await this.db
-      .insert(channelTable)
-      .values({
-        name,
-        description,
-        managerId: userId,
-        password: password ? password : null,
-        profileImageUrl: profileImageUrl ? profileImageUrl : null,
-        type: 'CHANNEL',
-      })
-      .returning({
-        channelId: channelTable.id,
+    const channelId = await this.db.transaction(async (tx) => {
+      const [channel] = await tx
+        .insert(channelTable)
+        .values({
+          name,
+          description,
+          password: password ? await bcrypt.hash(password, 10) : null,
+          profileImageUrl: profileImageUrl ? profileImageUrl : null,
+          type: 'CHANNEL',
+        })
+        .returning({ id: channelTable.id });
+
+      await tx.insert(channelMemberTable).values({
+        channelId: channel!.id,
+        userId,
+        role: 'MANAGER',
+        displayName: '매니저',
       });
 
-    return { channelId: channel!.channelId };
+      return channel!.id;
+    });
+
+    return { channelId };
   }
 
   async createDm(body: CreateDmDto, userId: string): Promise<CreateDmPayload> {
@@ -91,9 +380,24 @@ export class ChannelService {
         })
         .returning({ id: channelTable.id });
 
-      await tx.insert(dmParticipantTable).values([
-        { channelId: channel!.id, userId },
-        { channelId: channel!.id, userId: targetUserId },
+      const [myName, targetName] = await Promise.all([
+        this.getUsername(userId),
+        this.getUsername(targetUserId),
+      ]);
+
+      await tx.insert(channelMemberTable).values([
+        {
+          channelId: channel!.id,
+          userId,
+          role: 'USER' as const,
+          displayName: myName,
+        },
+        {
+          channelId: channel!.id,
+          userId: targetUserId,
+          role: 'USER' as const,
+          displayName: targetName,
+        },
       ]);
 
       return channel!.id;
@@ -107,23 +411,23 @@ export class ChannelService {
     userIdB: string,
   ): Promise<string | null> {
     const result = await this.db
-      .select({ channelId: dmParticipantTable.channelId })
-      .from(dmParticipantTable)
+      .select({ channelId: channelMemberTable.channelId })
+      .from(channelMemberTable)
       .innerJoin(
         channelTable,
         and(
-          eq(dmParticipantTable.channelId, channelTable.id),
+          eq(channelMemberTable.channelId, channelTable.id),
           eq(channelTable.type, 'DM'),
         ),
       )
       .where(
         or(
-          eq(dmParticipantTable.userId, userIdA),
-          eq(dmParticipantTable.userId, userIdB),
+          eq(channelMemberTable.userId, userIdA),
+          eq(channelMemberTable.userId, userIdB),
         ),
       )
-      .groupBy(dmParticipantTable.channelId)
-      .having(eq(count(dmParticipantTable.userId), 2));
+      .groupBy(channelMemberTable.channelId)
+      .having(eq(count(channelMemberTable.userId), 2));
 
     return result[0]?.channelId ?? null;
   }

@@ -15,15 +15,10 @@ import type { FormValues } from '../_schemas/session.schema';
 import type { FormEvent } from 'react';
 
 type Mode = 'signIn' | 'signUp';
-type Step = 'username' | 'password' | 'confirmPassword' | 'displayName';
+type Step = 'username' | 'password' | 'confirmPassword';
 
 const SIGN_IN_STEPS: Step[] = ['username', 'password'];
-const SIGN_UP_STEPS: Step[] = [
-  'username',
-  'password',
-  'confirmPassword',
-  'displayName',
-];
+const SIGN_UP_STEPS: Step[] = ['username', 'password', 'confirmPassword'];
 
 const TEXT_BY_STEP: Record<Step, { heading: string; description: string }> = {
   username: {
@@ -38,17 +33,12 @@ const TEXT_BY_STEP: Record<Step, { heading: string; description: string }> = {
     heading: '비밀번호 확인',
     description: '비밀번호를 다시 입력해주세요.',
   },
-  displayName: {
-    heading: '닉네임 입력',
-    description: '사용하실 닉네임을 입력해주세요.',
-  },
 };
 
 const STEP_FIELDS: Record<Step, (keyof FormValues)[]> = {
   username: ['username'],
   password: ['password'],
   confirmPassword: ['confirmPassword'],
-  displayName: ['displayName'],
 };
 
 export default function AuthForm() {
@@ -126,7 +116,6 @@ export default function AuthForm() {
       signUpMutation.mutate({
         username: data.username,
         password: data.password,
-        displayName: data.displayName || '',
       });
     }
   });
@@ -205,21 +194,6 @@ export default function AuthForm() {
             </Field>
           )}
 
-          {mode === 'signUp' && stepIndex >= 3 && (
-            <Field className="animate-slide-right-to-left">
-              <FieldContent className="flex flex-col gap-y-2">
-                <Input
-                  {...register('displayName')}
-                  type="text"
-                  className="h-12.5 px-4 text-base placeholder:text-base"
-                  placeholder="닉네임"
-                  autoComplete="nickname"
-                  disabled={isPending}
-                />
-                <FieldError>{errors.displayName?.message}</FieldError>
-              </FieldContent>
-            </Field>
-          )}
         </div>
 
         <Button

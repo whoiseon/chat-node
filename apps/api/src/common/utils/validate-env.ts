@@ -14,6 +14,11 @@ const envSchema = z.object({
   REFRESH_TOKEN_EXPIRATION: z.string(),
 
   DATABASE_URL: z.string(),
+
+  REDIS_HOST: z.string().default('localhost'),
+  REDIS_PORT: z.coerce.number().default(6379),
+  REDIS_PASSWORD: z.string().optional(),
+  REDIS_DB: z.coerce.number().default(0),
 });
 
 export type Env = z.infer<typeof envSchema>;

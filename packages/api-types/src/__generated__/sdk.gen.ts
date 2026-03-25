@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelControllerCreateChannelData, ChannelControllerCreateChannelErrors, ChannelControllerCreateChannelResponses, ChannelControllerCreateDmData, ChannelControllerCreateDmErrors, ChannelControllerCreateDmResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses } from './types.gen';
+import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelControllerCreateChannelData, ChannelControllerCreateChannelErrors, ChannelControllerCreateChannelResponses, ChannelControllerCreateDmData, ChannelControllerCreateDmErrors, ChannelControllerCreateDmResponses, ChannelControllerGetChannelsData, ChannelControllerGetChannelsResponses, ChannelControllerJoinChannelData, ChannelControllerJoinChannelErrors, ChannelControllerJoinChannelResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -89,10 +89,29 @@ export const authControllerForceLogout = <ThrowOnError extends boolean = false>(
 export const healthControllerCheck = <ThrowOnError extends boolean = false>(options?: Options<HealthControllerCheckData, ThrowOnError>) => (options?.client ?? client).get<HealthControllerCheckResponses, HealthControllerCheckErrors, ThrowOnError>({ url: '/api/v1/health', ...options });
 
 /**
+ * 채널 목록 조회
+ */
+export const channelControllerGetChannels = <ThrowOnError extends boolean = false>(options?: Options<ChannelControllerGetChannelsData, ThrowOnError>) => (options?.client ?? client).get<ChannelControllerGetChannelsResponses, unknown, ThrowOnError>({ url: '/api/v1/channel', ...options });
+
+/**
  * 채널 생성
  */
 export const channelControllerCreateChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerCreateChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerCreateChannelResponses, ChannelControllerCreateChannelErrors, ThrowOnError>({
     url: '/api/v1/channel',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 채널 입장
+ *
+ * 채널에 입장합니다. 닉네임 미입력 시 아이디가 닉네임으로 설정됩니다. 비밀방인 경우 비밀번호 필수
+ */
+export const channelControllerJoinChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerJoinChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerJoinChannelResponses, ChannelControllerJoinChannelErrors, ThrowOnError>({
+    url: '/api/v1/channel/{channelId}/join',
     ...options,
     headers: {
         'Content-Type': 'application/json',

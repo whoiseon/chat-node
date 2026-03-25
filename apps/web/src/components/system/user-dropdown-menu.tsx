@@ -33,9 +33,6 @@ export function UserDropdownMenu({ children }: UserDropdownMenuProps) {
               <UserProfile profileUrl="" username={user?.username || ''} />
               <div className="flex flex-col">
                 <span className="text-sm font-semibold">
-                  {user?.displayName}
-                </span>
-                <span className="text-muted-foreground text-xs">
                   {user?.username}
                 </span>
               </div>

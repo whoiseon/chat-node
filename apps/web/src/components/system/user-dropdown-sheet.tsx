@@ -31,8 +31,7 @@ export function UserDropdownSheet({ children }: PropsWithChildren) {
               size="lg"
             />
             <div className="flex flex-col">
-              <SheetTitle>{user?.displayName}</SheetTitle>
-              <SheetDescription>{user?.username}</SheetDescription>
+              <SheetTitle>{user?.username}</SheetTitle>
             </div>
           </div>
         </SheetHeader>

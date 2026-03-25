@@ -56,9 +56,8 @@ export function CreateChannelSheet({ children }: PropsWithChildren) {
   const isPrivate = watched.isPrivate;
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
-    // const { isPrivate: _, ...payload } = data;
-    // mutate(payload);
+    const { isPrivate: _, ...payload } = data;
+    mutate(payload);
   });
 
   return (
