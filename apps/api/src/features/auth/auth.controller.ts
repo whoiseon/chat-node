@@ -124,6 +124,7 @@ export class AuthController {
   @ApiResponse({
     status: 401,
     description: '유효하지 않거나 만료된 refresh_token / 탈취 감지',
+    type: NullPayloadResponseDto,
   })
   async refresh(
     @UserId() userId: string,

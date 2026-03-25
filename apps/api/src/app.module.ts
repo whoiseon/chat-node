@@ -12,6 +12,7 @@ import { DatabaseModule } from '@/database';
 
 import { AuthModule } from './features/auth/auth.module';
 import { HealthModule } from './features/health/health.module';
+import { ChannelModule } from './features/channel/channel.module';
 
 @Module({
   providers: [
@@ -41,6 +42,7 @@ import { HealthModule } from './features/health/health.module';
     DatabaseModule,
     AuthModule,
     HealthModule,
+    ChannelModule,
   ],
 })
 export class AppModule {}

@@ -124,7 +124,14 @@
             }
           },
           "401": {
-            "description": "유효하지 않거나 만료된 refresh_token / 탈취 감지"
+            "description": "유효하지 않거나 만료된 refresh_token / 탈취 감지",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
           }
         },
         "summary": "토큰 갱신 (Refresh Token Rotation)",
@@ -250,6 +257,111 @@
         "summary": "전체 상태 확인",
         "tags": [
           "health"
+        ]
+      }
+    },
+    "/api/v1/channel": {
+      "post": {
+        "operationId": "ChannelController_createChannel",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateChannelDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "채널 생성 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateChannelResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "잘못된 채널 정보",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "채널 생성",
+        "tags": [
+          "channel"
+        ]
+      }
+    },
+    "/api/v1/channel/dm": {
+      "post": {
+        "description": "대상 유저와 1:1 DM 채널을 생성합니다",
+        "operationId": "ChannelController_createDm",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDmDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "DM 생성 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDmResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "자기 자신과 DM 생성 불가",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "대상 유저를 찾을 수 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "이미 해당 유저와의 DM이 존재",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "DM 생성",
+        "tags": [
+          "channel"
         ]
       }
     }
@@ -658,6 +770,114 @@
         },
         "required": [
           "error",
+          "payload"
+        ]
+      },
+      "CreateChannelDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "채널 이름 (2~50자)",
+            "example": "테스트 채널",
+            "minLength": 2,
+            "maxLength": 50
+          },
+          "description": {
+            "type": "string",
+            "description": "채널 설명 (2~200자)",
+            "example": "테스트를 위한 채널입니다.",
+            "minLength": 2,
+            "maxLength": 200
+          },
+          "password": {
+            "type": "string",
+            "description": "비밀번호 (optional)",
+            "example": "123456"
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "description": "채널 프로필 이미지 (optional)",
+            "example": "https://example.com/image.jpg"
+          }
+        },
+        "required": [
+          "name",
+          "description"
+        ]
+      },
+      "CreateChannelPayload": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "channelId"
+        ]
+      },
+      "CreateChannelResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "example": null,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CreateChannelPayload"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "CreateDmDto": {
+        "type": "object",
+        "properties": {
+          "targetUserId": {
+            "type": "string",
+            "description": "대화 상대 유저 ID",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          }
+        },
+        "required": [
+          "targetUserId"
+        ]
+      },
+      "CreateDmPayload": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "channelId"
+        ]
+      },
+      "CreateDmResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "example": null,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CreateDmPayload"
+          }
+        },
+        "required": [
           "payload"
         ]
       }

@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses } from './types.gen';
+import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelControllerCreateChannelData, ChannelControllerCreateChannelErrors, ChannelControllerCreateChannelResponses, ChannelControllerCreateDmData, ChannelControllerCreateDmErrors, ChannelControllerCreateDmResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -87,3 +87,29 @@ export const authControllerForceLogout = <ThrowOnError extends boolean = false>(
  * 모니터링을 위해 데이터베이스, 메모리 그리고 디스크의 상태를 확인
  */
 export const healthControllerCheck = <ThrowOnError extends boolean = false>(options?: Options<HealthControllerCheckData, ThrowOnError>) => (options?.client ?? client).get<HealthControllerCheckResponses, HealthControllerCheckErrors, ThrowOnError>({ url: '/api/v1/health', ...options });
+
+/**
+ * 채널 생성
+ */
+export const channelControllerCreateChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerCreateChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerCreateChannelResponses, ChannelControllerCreateChannelErrors, ThrowOnError>({
+    url: '/api/v1/channel',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * DM 생성
+ *
+ * 대상 유저와 1:1 DM 채널을 생성합니다
+ */
+export const channelControllerCreateDm = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerCreateDmData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerCreateDmResponses, ChannelControllerCreateDmErrors, ThrowOnError>({
+    url: '/api/v1/channel/dm',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});

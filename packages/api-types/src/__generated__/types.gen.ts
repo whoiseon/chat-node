@@ -116,6 +116,50 @@ export type HealthCheckErrorResponseDto = {
     payload: HealthCheckErrorPayload;
 };
 
+export type CreateChannelDto = {
+    /**
+     * 채널 이름 (2~50자)
+     */
+    name: string;
+    /**
+     * 채널 설명 (2~200자)
+     */
+    description: string;
+    /**
+     * 비밀번호 (optional)
+     */
+    password?: string;
+    /**
+     * 채널 프로필 이미지 (optional)
+     */
+    profileImageUrl?: string;
+};
+
+export type CreateChannelPayload = {
+    channelId: string;
+};
+
+export type CreateChannelResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: CreateChannelPayload;
+};
+
+export type CreateDmDto = {
+    /**
+     * 대화 상대 유저 ID
+     */
+    targetUserId: string;
+};
+
+export type CreateDmPayload = {
+    channelId: string;
+};
+
+export type CreateDmResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: CreateDmPayload;
+};
+
 export type AuthControllerCheckUsernameData = {
     body?: never;
     path?: never;
@@ -194,8 +238,10 @@ export type AuthControllerRefreshErrors = {
     /**
      * 유효하지 않거나 만료된 refresh_token / 탈취 감지
      */
-    401: unknown;
+    401: NullPayloadResponseDto;
 };
+
+export type AuthControllerRefreshError = AuthControllerRefreshErrors[keyof AuthControllerRefreshErrors];
 
 export type AuthControllerRefreshResponses = {
     /**
@@ -298,3 +344,61 @@ export type HealthControllerCheckResponses = {
 };
 
 export type HealthControllerCheckResponse = HealthControllerCheckResponses[keyof HealthControllerCheckResponses];
+
+export type ChannelControllerCreateChannelData = {
+    body: CreateChannelDto;
+    path?: never;
+    query?: never;
+    url: '/api/v1/channel';
+};
+
+export type ChannelControllerCreateChannelErrors = {
+    /**
+     * 잘못된 채널 정보
+     */
+    400: NullPayloadResponseDto;
+};
+
+export type ChannelControllerCreateChannelError = ChannelControllerCreateChannelErrors[keyof ChannelControllerCreateChannelErrors];
+
+export type ChannelControllerCreateChannelResponses = {
+    /**
+     * 채널 생성 성공
+     */
+    200: CreateChannelResponseDto;
+};
+
+export type ChannelControllerCreateChannelResponse = ChannelControllerCreateChannelResponses[keyof ChannelControllerCreateChannelResponses];
+
+export type ChannelControllerCreateDmData = {
+    body: CreateDmDto;
+    path?: never;
+    query?: never;
+    url: '/api/v1/channel/dm';
+};
+
+export type ChannelControllerCreateDmErrors = {
+    /**
+     * 자기 자신과 DM 생성 불가
+     */
+    400: NullPayloadResponseDto;
+    /**
+     * 대상 유저를 찾을 수 없음
+     */
+    404: NullPayloadResponseDto;
+    /**
+     * 이미 해당 유저와의 DM이 존재
+     */
+    409: NullPayloadResponseDto;
+};
+
+export type ChannelControllerCreateDmError = ChannelControllerCreateDmErrors[keyof ChannelControllerCreateDmErrors];
+
+export type ChannelControllerCreateDmResponses = {
+    /**
+     * DM 생성 성공
+     */
+    200: CreateDmResponseDto;
+};
+
+export type ChannelControllerCreateDmResponse = ChannelControllerCreateDmResponses[keyof ChannelControllerCreateDmResponses];

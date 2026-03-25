@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm';
 import {
   boolean,
   index,
@@ -30,6 +31,14 @@ export const sessionTable = pgTable(
     uniqueIndex('session_session_idx').on(table.id),
   ],
 );
+
+export const sessionRelations = relations(sessionTable, ({ one }) => ({
+  // [one-to-many] userId relation
+  user: one(userTable, {
+    fields: [sessionTable.userId],
+    references: [userTable.id],
+  }),
+}));
 
 export type SessionDatabase = typeof sessionTable.$inferSelect;
 export type SessionDatabaseInsert = typeof sessionTable.$inferInsert;
