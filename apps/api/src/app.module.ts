@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
+import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerGuard } from '@nestjs/throttler';
 
 import { ApiExceptionFilter } from '@/common/filters';
+import { JwtAuthGuard } from '@/common/guards/jwt-auth.guard';
 import { ThrottleModule } from '@/common/modules';
 import { validateEnv } from '@/common/utils';
 import { DatabaseModule } from '@/database';
 
 import { AuthModule } from './features/auth/auth.module';
 import { HealthModule } from './features/health/health.module';
-import { JwtModule } from '@nestjs/jwt';
-import { JwtAuthGuard } from '@/common/guards/jwt-auth.guard';
 
 @Module({
   providers: [

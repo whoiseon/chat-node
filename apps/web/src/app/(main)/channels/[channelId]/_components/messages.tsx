@@ -61,7 +61,10 @@ export function DefaultMessage({ message }: MessageProps) {
 export function SystemMessage({ message }: MessageProps) {
   return (
     <Message className="justify-center items-center py-4">
-      <SystemBubble type={message.type} className="text-muted-foreground py-4">
+      <SystemBubble
+        type={message.type}
+        className="text-muted-foreground py-4 font-semibold "
+      >
         {message.content}
       </SystemBubble>
     </Message>
@@ -92,7 +95,7 @@ function SystemBubble({
   return (
     <div
       className={cn(
-        'flex flex-col justify-center items-center w-full border border-border border-dashed gap-y-3 rounded-lg px-x py-6',
+        'flex flex-col justify-center items-center w-full border border-stone-400 dark:border-border border-dashed gap-y-3 rounded-lg px-x py-6',
         className,
       )}
     >
@@ -122,8 +125,8 @@ function MessageBubble({
     >
       <div
         className={cn(
-          'bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word whitespace-pre-line',
-          isMe && 'bg-primary',
+          'bg-stone-200/50 dark:bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word whitespace-pre-line',
+          isMe && 'bg-primary text-stone-50',
         )}
       >
         {children}

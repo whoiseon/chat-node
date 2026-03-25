@@ -1,5 +1,5 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
+import { Test, TestingModule } from '@nestjs/testing';
 
 import { JwtRefreshGuard } from '@/common/guards/jwt-refresh.guard';
 import { RolesGuard } from '@/common/guards/roles.guard';

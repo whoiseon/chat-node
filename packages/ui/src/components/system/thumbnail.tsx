@@ -1,7 +1,9 @@
 'use client';
 
+import { Icons } from '@repo/ui/components/ui/icons';
 import { cn } from '@repo/ui/lib/utils';
 import Image from 'next/image';
+import * as React from 'react';
 
 interface ThumbnailProps {
   src: string;
@@ -20,13 +22,9 @@ export function Thumbnail({
 }: ThumbnailProps) {
   if (!src) {
     return (
-      <Image
-        src="/images/no-image.svg"
-        alt={alt || 'no-image'}
-        fill
-        className="object-cover"
-        loading="eager"
-      />
+      <div className="flex size-full items-center justify-center rounded-sm bg-stone-200 dark:bg-stone-800 text-sm text-muted-foreground">
+        <Icons.LogoIcon className="size-6" />
+      </div>
     );
   }
 

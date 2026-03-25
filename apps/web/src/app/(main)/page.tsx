@@ -2,6 +2,7 @@ import { LogoWithText } from '@repo/ui/components/ui/logo';
 
 import { ChannelList } from '@/app/(main)/_components/channel';
 import TopBarRight from '@/app/(main)/_components/top-bar-right';
+import { Footer } from '@/components/layout/footer';
 import { TopBar } from '@/components/system/top-bar';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         right={<TopBarRight />}
       />
       <ChannelList />
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { extractError } from '@repo/api-types';
 import { getToast } from '@repo/ui/lib/toast';
 import {
   isServer,
@@ -10,11 +11,6 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactNode } from 'react';
-// import { toast } from 'sonner';
-
-import { extractError } from '@/lib/api';
-
-// import { TOAST_DEFAULT_OPTIONS } from '@/lib/constants/toast.constants';
 
 function makeQueryClient() {
   return new QueryClient({

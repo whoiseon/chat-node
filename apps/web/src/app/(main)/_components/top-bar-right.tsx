@@ -5,6 +5,7 @@ import { Icons } from '@repo/ui/components/ui/icons';
 import Link from 'next/link';
 
 import { UserDropdownMenu } from '@/components/system/user-dropdown-menu';
+import { UserDropdownSheet } from '@/components/system/user-dropdown-sheet';
 import { useMe } from '@/lib/hooks/use-me';
 
 export default function TopBarRight() {

@@ -26,7 +26,7 @@ export function UserDropdownMenu({ children }: UserDropdownMenuProps) {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-42 bg-background">
+      <DropdownMenuContent align="end" className="w-42 bg-card">
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <div className="flex items-center gap-x-2">
@@ -44,7 +44,9 @@ export function UserDropdownMenu({ children }: UserDropdownMenuProps) {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuLabel>테마</DropdownMenuLabel>
+          <DropdownMenuLabel className="text-stone-400 dark:text-stone-600">
+            테마
+          </DropdownMenuLabel>
           <ThemeDropdownMenuItem themeType="dark">다크</ThemeDropdownMenuItem>
           <ThemeDropdownMenuItem themeType="light">
             라이트

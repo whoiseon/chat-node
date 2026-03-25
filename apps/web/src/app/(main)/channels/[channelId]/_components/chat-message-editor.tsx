@@ -6,8 +6,11 @@ import { Textarea } from '@repo/ui/components/ui/textarea';
 
 export function ChatMessageEditor() {
   return (
-    <div className="bg-background px-2 pb-2 md:pb-4 sticky bottom-0">
-      <form className="flex flex-col bg-card rounded-md min-h-25 z-10">
+    <div className="bg-background px-2 pb-2 md:pb-4 sticky bottom-0 shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-none">
+      <form
+        className="flex flex-col bg-card rounded-md min-h-25 z-10"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <Textarea
           className="bg-transparent! border-none focus-visible:ring-0 resize-none max-h-100 p-4 flex-1"
           placeholder="오늘은 어떤 이야기를 해볼까요..."

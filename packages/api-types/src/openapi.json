@@ -1,0 +1,670 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/auth/check-username": {
+      "get": {
+        "description": "로그인/회원가입 전 해당 아이디의 가입 여부를 확인",
+        "operationId": "AuthController_checkUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "required": true,
+            "in": "query",
+            "description": "확인할 아이디",
+            "schema": {
+              "example": "chatnode",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "확인 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckUsernameResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "아이디 중복 확인",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/sign-in": {
+      "post": {
+        "description": "아이디와 비밀번호로 로그인. 기존 활성 세션을 모두 차단 후 새 세션 생성. httpOnly 쿠키로 access_token, refresh_token 발급",
+        "operationId": "AuthController_signIn",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignInDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "로그인 성공 (쿠키에 토큰 설정)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "아이디 또는 비밀번호 불일치"
+          }
+        },
+        "summary": "로그인",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/sign-up": {
+      "post": {
+        "description": "새 계정 생성 후 자동 로그인. httpOnly 쿠키로 access_token, refresh_token 발급",
+        "operationId": "AuthController_signUp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "회원가입 성공 (쿠키에 토큰 설정)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "이미 사용 중인 아이디"
+          }
+        },
+        "summary": "회원가입",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/refresh": {
+      "post": {
+        "description": "refresh_token으로 새 access_token과 refresh_token을 발급. 기존 세션은 차단되고 새 세션 생성. 차단된 세션의 토큰으로 요청 시 탈취로 간주하여 해당 유저의 전체 세션 차단",
+        "operationId": "AuthController_refresh",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "토큰 갱신 성공 (쿠키 + body에 토큰 반환)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "유효하지 않거나 만료된 refresh_token / 탈취 감지"
+          }
+        },
+        "summary": "토큰 갱신 (Refresh Token Rotation)",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/sign-out": {
+      "delete": {
+        "description": "현재 유저의 모든 활성 세션을 차단하고 인증 쿠키 삭제. 인증 필요",
+        "operationId": "AuthController_signOut",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "로그아웃 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증되지 않은 요청"
+          }
+        },
+        "summary": "로그아웃",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/me": {
+      "get": {
+        "description": "인증된 경우 유저 정보 반환, 비인증 시 { user: null } 반환 (401 아님)",
+        "operationId": "AuthController_getMe",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "조회 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "현재 유저 정보 조회",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/auth/force-logout/{targetUserId}": {
+      "delete": {
+        "description": "대상 유저의 모든 활성 세션을 차단. ADMIN 권한 필요",
+        "operationId": "AuthController_forceLogout",
+        "parameters": [
+          {
+            "name": "targetUserId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "강제 로그아웃 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "인증되지 않은 요청"
+          },
+          "403": {
+            "description": "ADMIN 권한 필요"
+          }
+        },
+        "summary": "관리자 강제 로그아웃",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/api/v1/health": {
+      "get": {
+        "description": "모니터링을 위해 데이터베이스, 메모리 그리고 디스크의 상태를 확인",
+        "operationId": "HealthController_check",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "모든 요소 정상",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckResponseDto"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "하나 이상의 구성 요소의 상태가 비정상",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthCheckErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "전체 상태 확인",
+        "tags": [
+          "health"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "chat node api docs",
+    "description": "",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "chat node",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "ApiErrorDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "에러 메시지"
+          },
+          "status": {
+            "type": "number",
+            "example": "401"
+          }
+        },
+        "required": [
+          "message",
+          "status"
+        ]
+      },
+      "CheckUsernamePayload": {
+        "type": "object",
+        "properties": {
+          "exists": {
+            "type": "boolean",
+            "description": "아이디 존재 여부",
+            "example": true
+          }
+        },
+        "required": [
+          "exists"
+        ]
+      },
+      "CheckUsernameResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CheckUsernamePayload"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "SignInDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "아이디",
+            "example": "chatnode"
+          },
+          "password": {
+            "type": "string",
+            "description": "비밀번호",
+            "example": "password123"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "NullPayloadResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "type": "string",
+            "nullable": true,
+            "example": null
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "SignUpDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "아이디 (5~20자)",
+            "example": "chatnode",
+            "minLength": 5,
+            "maxLength": 20
+          },
+          "password": {
+            "type": "string",
+            "description": "비밀번호 (8자 이상)",
+            "example": "password123",
+            "minLength": 8
+          },
+          "displayName": {
+            "type": "string",
+            "description": "닉네임 (2자 이상)",
+            "example": "사용자",
+            "minLength": 2
+          }
+        },
+        "required": [
+          "username",
+          "password",
+          "displayName"
+        ]
+      },
+      "AuthTokensPayload": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "JWT access token",
+            "example": "eyJhbGciOiJIUzI1NiIs..."
+          },
+          "refresh_token": {
+            "type": "string",
+            "description": "JWT refresh token",
+            "example": "eyJhbGciOiJIUzI1NiIs..."
+          }
+        },
+        "required": [
+          "access_token",
+          "refresh_token"
+        ]
+      },
+      "RefreshResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/AuthTokensPayload"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "MeUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          },
+          "username": {
+            "type": "string",
+            "example": "chatnode"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "사용자"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "USER",
+              "ADMIN"
+            ],
+            "example": "USER"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2026-03-24T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "nullable": true,
+            "example": null
+          },
+          "lastLoginAt": {
+            "type": "string",
+            "nullable": true,
+            "example": "2026-03-24T12:00:00.000Z"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "displayName",
+          "role",
+          "createdAt"
+        ]
+      },
+      "MePayload": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MeUser"
+              }
+            ]
+          }
+        }
+      },
+      "MeResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/MePayload"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "HealthData": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down"
+            ],
+            "example": "up"
+          },
+          "message": {
+            "type": "string",
+            "example": "데이터베이스 연결 성공"
+          }
+        },
+        "required": [
+          "status",
+          "message"
+        ]
+      },
+      "HealthPayload": {
+        "type": "object",
+        "properties": {
+          "environment": {
+            "type": "string",
+            "example": "development"
+          },
+          "database": {
+            "$ref": "#/components/schemas/HealthData"
+          },
+          "redis": {
+            "example": {
+              "status": "up",
+              "message": "Redis 연결 성공"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HealthData"
+              }
+            ]
+          },
+          "memory_heap": {
+            "example": {
+              "status": "up",
+              "message": "heap 메모리 사용량 정상"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HealthData"
+              }
+            ]
+          },
+          "memory_rss": {
+            "example": {
+              "status": "up",
+              "message": "RSS 메모리 사용량 정상"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HealthData"
+              }
+            ]
+          },
+          "storage": {
+            "example": {
+              "status": "up",
+              "message": "디스크 사용량 정상"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HealthData"
+              }
+            ]
+          }
+        },
+        "required": [
+          "environment",
+          "database",
+          "redis",
+          "memory_heap",
+          "memory_rss",
+          "storage"
+        ]
+      },
+      "HealthCheckResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/HealthPayload"
+          }
+        },
+        "required": [
+          "error",
+          "payload"
+        ]
+      },
+      "HealthCheckErrorPayload": {
+        "type": "object",
+        "properties": {
+          "checks": {
+            "example": {
+              "database": {
+                "status": "down",
+                "message": "연결 실패"
+              }
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/HealthData"
+              }
+            ]
+          },
+          "failedChecks": {
+            "example": [
+              "database"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "checks",
+          "failedChecks"
+        ]
+      },
+      "HealthCheckErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ApiErrorDto"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/HealthCheckErrorPayload"
+          }
+        },
+        "required": [
+          "error",
+          "payload"
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Open API",
+    "url": "http://localhost:4003/swagger-json"
+  }
+}

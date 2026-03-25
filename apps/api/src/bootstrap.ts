@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
 
 import { Env } from '@/common/utils';
-import { swagger } from '@/swagger';
+import { generateOpenApiJson, swagger } from '@/swagger';
 
 export const bootstrap = async (app: NestFastifyApplication): Promise<void> => {
   // 애플리케이션 이벤트 로깅을 위한 로거 인스턴스 설정
@@ -47,8 +47,13 @@ export const bootstrap = async (app: NestFastifyApplication): Promise<void> => {
     }),
   );
 
-  // 프로덕션 모드가 아닌 경우 스웨거 문서 설정
-  if (configService.get('NODE_ENV') !== 'production') swagger(app);
+  const isProduction = configService.get('NODE_ENV') === 'production';
+
+  if (!isProduction) {
+    swagger(app);
+  } else {
+    generateOpenApiJson(app);
+  }
 
   await app.listen(configService.get('PORT')!, '0.0.0.0', () => {
     logger.log(`env : .env.${configService.get('NODE_ENV')}`);

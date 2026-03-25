@@ -6,7 +6,7 @@ export type ApiResponseErrorOptions<P = unknown> = {
   payload?: P | null;
 };
 
-export interface ApiResponseDto<T = unknown> {
+export interface ApiResponseInterface<T = unknown> {
   error: {
     message: string;
     status: number;
@@ -14,7 +14,7 @@ export interface ApiResponseDto<T = unknown> {
   payload: T | null;
 }
 
-export class ApiResponseDto<T = unknown> implements ApiResponseDto<T> {
+export class ApiResponseDto<T = unknown> implements ApiResponseInterface<T> {
   error: { message: string; status: number } | null = null;
 
   payload: T | null;

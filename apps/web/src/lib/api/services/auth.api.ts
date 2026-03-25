@@ -1,82 +1,52 @@
+import {
+  CheckUsernameResponseDto,
+  MeResponseDto,
+  NullPayloadResponseDto,
+  RefreshResponseDto,
+  SignInDto,
+  SignUpDto,
+} from '@repo/api-types';
+
 import { api } from '../client';
 import { serverApi } from '../server-client';
 
-import type { ApiResponse } from '../types';
-
-export interface MeUser {
-  id: string;
-  username: string;
-  displayName: string;
-  role: 'USER' | 'ADMIN';
-  createdAt: string;
-  updatedAt: string | null;
-  lastLoginAt: string | null;
-}
-
-export interface MeResponse {
-  user: MeUser | null;
-}
-
-export interface CheckUsernameResponse {
-  exists: boolean;
-}
-
-export interface SignInRequest {
-  username: string;
-  password: string;
-}
-
-export interface SignUpRequest {
-  username: string;
-  password: string;
-  displayName: string;
-}
-
-export interface AuthTokens {
-  access_token: string;
-  refresh_token: string;
-}
-
-const ME_FALLBACK: ApiResponse<MeResponse> = {
+const ME_FALLBACK: MeResponseDto = {
   error: null,
   payload: { user: null },
 };
 
 export const authApi = {
-  getMe: async (cookie?: string): Promise<ApiResponse<MeResponse>> => {
+  getMe: async (cookie?: string): Promise<MeResponseDto> => {
     try {
       if (cookie) {
-        return await serverApi.get<ApiResponse<MeResponse>>('/auth/me', cookie);
+        return await serverApi.get<MeResponseDto>('/auth/me', cookie);
       }
-      return await api.get<ApiResponse<MeResponse>>('/auth/me');
+      return await api.get<MeResponseDto>('/auth/me');
     } catch {
       return ME_FALLBACK;
     }
   },
 
   checkUsername: (username: string) => {
-    return api.post<ApiResponse<CheckUsernameResponse>>(
-      '/auth/check-username',
-      {
-        username,
-      },
+    return api.get<CheckUsernameResponseDto>(
+      `/auth/check-username?username=${encodeURIComponent(username)}`,
     );
   },
 
-  signIn: (data: SignInRequest) => {
-    return api.post<ApiResponse<null>>('/auth/sign-in', data);
+  signIn: (data: SignInDto) => {
+    return api.post<NullPayloadResponseDto>('/auth/sign-in', data);
   },
 
-  signUp: (data: SignUpRequest) => {
-    return api.post<ApiResponse<null>>('/auth/sign-up', data);
+  signUp: (data: SignUpDto) => {
+    return api.post<NullPayloadResponseDto>('/auth/sign-up', data);
   },
 
   signOut: () => {
-    return api.post<ApiResponse<null>>('/auth/sign-out');
+    return api.delete<NullPayloadResponseDto>('/auth/sign-out');
   },
 
   refresh: () => {
-    return api.post<ApiResponse<AuthTokens>>('/auth/refresh');
+    return api.post<RefreshResponseDto>('/auth/refresh');
   },
 };
 

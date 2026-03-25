@@ -19,7 +19,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "db:push": "NODE_ENV=development drizzle-kit push",
-    "db:seed": "NODE_ENV=development drizzle-kit seed"
+    "db:seed": "NODE_ENV=development drizzle-kit seed",
+    "openapi-ts": "openapi-ts --config ../../packages/api-types/openapi-ts.config.ts"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
@@ -43,6 +44,7 @@
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
     "@fastify/static": "^9.0.0",
+    "@hey-api/openapi-ts": "0.94.4",
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/swagger": "^11.2.6",

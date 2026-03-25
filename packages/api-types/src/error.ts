@@ -1,6 +1,11 @@
 import { AxiosError } from 'axios';
 
-import { ApiError } from './types';
+import { ApiErrorDto } from './__generated__';
+
+export interface ApiError<T = null> {
+  error: ApiErrorDto;
+  payload: T;
+}
 
 export function extractError<T = null>(error: unknown): ApiError<T> {
   if (error instanceof AxiosError) {
@@ -9,7 +14,7 @@ export function extractError<T = null>(error: unknown): ApiError<T> {
 
   return {
     error: {
-      message: '서버 에러 발생.',
+      message: '서버 에러 발생',
       status: 500,
     },
     payload: null as T,

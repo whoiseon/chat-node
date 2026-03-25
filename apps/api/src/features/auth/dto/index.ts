@@ -1,4 +1,4 @@
 export * from './check-username.dto';
-export * from './sign-in.dto';
-export * from './sign-up.dto';
-export * from './refresh-token.dto';
+export * from './sign.dto';
+export * from './me.dto';
+export * from './token.dto';

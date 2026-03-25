@@ -32,7 +32,7 @@ export function ChannelList() {
 
 function ChannelCard() {
   return (
-    <div className="p-4 flex items-center gap-4 hover:bg-stone-200 dark:hover:bg-stone-800/50 rounded-xl transition-colors">
+    <div className="p-4 flex items-center gap-4 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-colors">
       <Link
         href="/channels/1"
         className={cn(
@@ -71,12 +71,12 @@ function ChannelMoreDropdown() {
         <Button
           variant="ghost"
           size="icon"
-          className="text-muted-foreground focus:ring-0 focus:outline-none"
+          className="text-muted-foreground focus:ring-0 focus:outline-none hover:bg-transparent"
         >
           <Icons.More />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" side="left" className="bg-background">
+      <DropdownMenuContent align="start" side="left" className="bg-card">
         <DropdownMenuGroup>
           <ChannelMoreItem>읽음</ChannelMoreItem>
           <ChannelMoreItem>나가기</ChannelMoreItem>

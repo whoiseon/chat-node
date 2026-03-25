@@ -1,17 +1,14 @@
-import { ThemeProvider } from '@repo/ui/components/providers/theme-provider';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import { cookies } from 'next/headers';
 
+import { getCookieString } from '@/app/_actions/get-cookie-string';
 import { authApi, authKeys } from '@/lib/api/services/auth.api';
+import getQueryClient from '@/lib/get-query-client';
 
 import Providers from './providers';
 
 import '@/styles/globals.css';
 
 import type { Metadata } from 'next';
-
-import { getCookieString } from '@/app/_actions/get-cookie-string';
-import getQueryClient from '@/lib/get-query-client';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -35,10 +32,13 @@ export default async function RootLayout({
 
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background text-foreground h-dvh max-w-150 mx-auto w-full">
+      <body className="font-sans antialiased bg-background text-foreground h-dvh">
         <Providers>
           <HydrationBoundary state={dehydratedState}>
-            <main className="flex flex-col min-h-screen h-full">
+            <main
+              id="app-container"
+              className="relative flex flex-col min-h-screen h-full max-w-150 mx-auto w-full"
+            >
               {children}
             </main>
           </HydrationBoundary>

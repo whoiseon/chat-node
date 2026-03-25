@@ -14,6 +14,7 @@ interface TopBarProps {
   className?: string;
   hasBackArrow?: boolean;
   hasBackButton?: boolean;
+  backUrl?: string;
   customBackButton?: React.ReactNode;
   right?: React.ReactNode;
   isCard?: boolean;
@@ -30,6 +31,7 @@ export function TopBar({
   className,
   hasBackArrow = true,
   hasBackButton = false,
+  backUrl = '/',
   customBackButton,
   right,
   isCard = true,
@@ -52,7 +54,7 @@ export function TopBar({
     <header className="sticky top-0 z-10" ref={ref}>
       <div
         className={cn(
-          'h-15 px-4 flex items-center justify-between',
+          'h-15 px-4 flex items-center justify-between shadow-[0_2px_20px_rgba(0,0,0,0.05)] dark:shadow-none',
           className,
           isCard && 'bg-card rounded-b-xl',
         )}
@@ -116,7 +118,9 @@ export function TopBar({
                 <Button
                   variant="ghost"
                   size={!hasTitle ? 'default' : 'icon'}
-                  onClick={() => router.back()}
+                  onClick={() =>
+                    backUrl ? router.push(backUrl) : router.back()
+                  }
                   className="-ml-2"
                 >
                   <div className="flex items-center gap-x-2">

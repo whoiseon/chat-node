@@ -1,17 +1,22 @@
 import { Controller, Get, ServiceUnavailableException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {
   DiskHealthIndicator,
   HealthCheck,
   HealthCheckService,
   MemoryHealthIndicator,
 } from '@nestjs/terminus';
-import { DatabaseHealthIndicator } from '@/features/health/indicators/database.indicator';
-import { ConfigService } from '@nestjs/config';
-import { Public } from '@/common/decorators';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SkipThrottle } from '@nestjs/throttler';
-import { Env } from '@/common/utils';
+
+import { Public } from '@/common/decorators';
 import { ApiResponseDto } from '@/common/dto';
+import { Env } from '@/common/utils';
+import {
+  HealthCheckErrorResponseDto,
+  HealthCheckResponseDto,
+} from '@/features/health/dto';
+import { DatabaseHealthIndicator } from '@/features/health/indicators/database.indicator';
 
 type HealthEntry = { status: 'up' | 'down'; message: string };
 
@@ -44,32 +49,12 @@ export class HealthController {
   @ApiResponse({
     status: 200,
     description: '모든 요소 정상',
-    schema: {
-      example: new ApiResponseDto({
-        environment: 'development',
-        database: { status: 'up', message: '데이터베이스 연결 성공' },
-        redis: { status: 'up', message: 'Redis 연결 성공' },
-        memory_heap: { status: 'up', message: 'heap 메모리 사용량 정상' },
-        memory_rss: { status: 'up', message: 'RSS 메모리 사용량 정상' },
-        storage: { status: 'up', message: '디스크 사용량 정상' },
-      }),
-    },
+    type: HealthCheckResponseDto,
   })
   @ApiResponse({
     status: 503,
     description: '하나 이상의 구성 요소의 상태가 비정상',
-    schema: {
-      example: ApiResponseDto.error({
-        message: 'database: 연결 실패',
-        status: 503,
-        payload: {
-          checks: {
-            database: { status: 'down', message: '연결 실패' },
-          },
-          failedChecks: ['database'],
-        },
-      }),
-    },
+    type: HealthCheckErrorResponseDto,
   })
   async check() {
     try {

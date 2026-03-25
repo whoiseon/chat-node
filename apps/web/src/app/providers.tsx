@@ -1,7 +1,7 @@
 'use client';
 
-import ReactQueryProvider from '@/components/providers/react-query-provider';
-import UiProvider from '@/components/providers/ui-provider';
+import ReactQueryProvider from '@/components/provider/react-query-provider';
+import UiProvider from '@/components/provider/ui-provider';
 
 import type { PropsWithChildren } from 'react';
 

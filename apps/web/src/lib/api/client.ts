@@ -1,10 +1,9 @@
+import { extractError } from '@repo/api-types';
 import axios, {
   AxiosInstance,
   AxiosRequestConfig,
   InternalAxiosRequestConfig,
 } from 'axios';
-
-import { extractError } from '@/lib/api/error';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
