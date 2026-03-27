@@ -120,12 +120,26 @@ export type GetChannelsQueryDto = {
      * 조회할 항목 수
      */
     limit?: number;
+    /**
+     * 내가 가입한 채널만 조회 (로그인 필요)
+     */
+    joined?: boolean;
+    /**
+     * 채널 이름 검색
+     */
+    search?: string;
 };
 
 export type LastMessageDto = {
     content: string;
     senderName: string;
     createdAt: string;
+};
+
+export type ChannelManagerDto = {
+    managerId: string;
+    username: string;
+    displayName: string;
 };
 
 export type ChannelItemDto = {
@@ -137,6 +151,15 @@ export type ChannelItemDto = {
     lastMessage?: LastMessageDto | null;
     unreadCount: number;
     createdAt: string;
+    /**
+     * 가입 일시 (미가입 시 null)
+     */
+    joinedAt?: string | null;
+    /**
+     * 채널 멤버 수
+     */
+    memberCount: number;
+    manager: ChannelManagerDto;
 };
 
 export type GetChannelsPayload = {
@@ -150,6 +173,29 @@ export type GetChannelsPayload = {
 export type GetChannelsResponseDto = {
     error?: ApiErrorDto | null;
     payload: GetChannelsPayload;
+};
+
+export type GetChannelPayload = {
+    id: string;
+    name: string;
+    description: string;
+    profileImageUrl?: string | null;
+    isPrivate: boolean;
+    createdAt: string;
+    /**
+     * 가입 일시 (미가입 시 null)
+     */
+    joinedAt?: string | null;
+    /**
+     * 채널 멤버 수
+     */
+    memberCount: number;
+    manager: ChannelManagerDto;
+};
+
+export type GetChannelResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: GetChannelPayload;
 };
 
 export type JoinChannelDto = {
@@ -415,6 +461,14 @@ export type ChannelControllerGetChannelsData = {
          * 조회할 항목 수
          */
         limit?: number;
+        /**
+         * 내가 가입한 채널만 조회 (로그인 필요)
+         */
+        joined?: boolean;
+        /**
+         * 채널 이름 검색
+         */
+        search?: string;
     };
     url: '/api/v1/channel';
 };
@@ -452,6 +506,33 @@ export type ChannelControllerCreateChannelResponses = {
 };
 
 export type ChannelControllerCreateChannelResponse = ChannelControllerCreateChannelResponses[keyof ChannelControllerCreateChannelResponses];
+
+export type ChannelControllerGetChannelData = {
+    body?: never;
+    path: {
+        channelId: string;
+    };
+    query?: never;
+    url: '/api/v1/channel/{channelId}';
+};
+
+export type ChannelControllerGetChannelErrors = {
+    /**
+     * 채널을 찾을 수 없음
+     */
+    404: NullPayloadResponseDto;
+};
+
+export type ChannelControllerGetChannelError = ChannelControllerGetChannelErrors[keyof ChannelControllerGetChannelErrors];
+
+export type ChannelControllerGetChannelResponses = {
+    /**
+     * 조회 성공
+     */
+    200: GetChannelResponseDto;
+};
+
+export type ChannelControllerGetChannelResponse = ChannelControllerGetChannelResponses[keyof ChannelControllerGetChannelResponses];
 
 export type ChannelControllerJoinChannelData = {
     body: JoinChannelDto;

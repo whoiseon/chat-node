@@ -284,6 +284,27 @@
               "example": 20,
               "type": "number"
             }
+          },
+          {
+            "name": "joined",
+            "required": false,
+            "in": "query",
+            "description": "내가 가입한 채널만 조회 (로그인 필요)",
+            "schema": {
+              "default": false,
+              "example": true,
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "채널 이름 검색",
+            "schema": {
+              "example": "테스트",
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -339,6 +360,47 @@
           }
         },
         "summary": "채널 생성",
+        "tags": [
+          "channel"
+        ]
+      }
+    },
+    "/api/v1/channel/{channelId}": {
+      "get": {
+        "operationId": "ChannelController_getChannel",
+        "parameters": [
+          {
+            "name": "channelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "조회 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "채널을 찾을 수 없음",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "채널 상세 조회",
         "tags": [
           "channel"
         ]
@@ -898,6 +960,17 @@
             "description": "조회할 항목 수",
             "example": 20,
             "default": 20
+          },
+          "joined": {
+            "type": "boolean",
+            "description": "내가 가입한 채널만 조회 (로그인 필요)",
+            "example": true,
+            "default": false
+          },
+          "search": {
+            "type": "string",
+            "description": "채널 이름 검색",
+            "example": "테스트"
           }
         }
       },
@@ -921,6 +994,28 @@
           "content",
           "senderName",
           "createdAt"
+        ]
+      },
+      "ChannelManagerDto": {
+        "type": "object",
+        "properties": {
+          "managerId": {
+            "type": "string",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          },
+          "username": {
+            "type": "string",
+            "example": "admin"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "매니저"
+          }
+        },
+        "required": [
+          "managerId",
+          "username",
+          "displayName"
         ]
       },
       "ChannelItemDto": {
@@ -962,6 +1057,20 @@
           "createdAt": {
             "type": "string",
             "example": "2026-03-25T00:00:00.000Z"
+          },
+          "joinedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "가입 일시 (미가입 시 null)",
+            "example": "2026-03-25T00:00:00.000Z"
+          },
+          "memberCount": {
+            "type": "number",
+            "example": 5,
+            "description": "채널 멤버 수"
+          },
+          "manager": {
+            "$ref": "#/components/schemas/ChannelManagerDto"
           }
         },
         "required": [
@@ -970,7 +1079,9 @@
           "description",
           "isPrivate",
           "unreadCount",
-          "createdAt"
+          "createdAt",
+          "memberCount",
+          "manager"
         ]
       },
       "GetChannelsPayload": {
@@ -1007,6 +1118,79 @@
           },
           "payload": {
             "$ref": "#/components/schemas/GetChannelsPayload"
+          }
+        },
+        "required": [
+          "payload"
+        ]
+      },
+      "GetChannelPayload": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          },
+          "name": {
+            "type": "string",
+            "example": "테스트 채널"
+          },
+          "description": {
+            "type": "string",
+            "example": "테스트를 위한 채널입니다."
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": null
+          },
+          "isPrivate": {
+            "type": "boolean",
+            "example": false
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2026-03-25T00:00:00.000Z"
+          },
+          "joinedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "가입 일시 (미가입 시 null)",
+            "example": "2026-03-25T00:00:00.000Z"
+          },
+          "memberCount": {
+            "type": "number",
+            "example": 5,
+            "description": "채널 멤버 수"
+          },
+          "manager": {
+            "$ref": "#/components/schemas/ChannelManagerDto"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "isPrivate",
+          "createdAt",
+          "memberCount",
+          "manager"
+        ]
+      },
+      "GetChannelResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "example": null,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/GetChannelPayload"
           }
         },
         "required": [

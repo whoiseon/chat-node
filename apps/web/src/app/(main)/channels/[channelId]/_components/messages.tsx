@@ -126,7 +126,7 @@ function MessageBubble({
       <div
         className={cn(
           'bg-stone-200/50 dark:bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word whitespace-pre-line',
-          isMe && 'bg-primary text-stone-50',
+          isMe && 'bg-primary dark:bg-primary',
         )}
       >
         {children}

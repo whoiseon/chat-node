@@ -1,19 +1,29 @@
 import { LogoWithText } from '@repo/ui/components/ui/logo';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
-import { ChannelList } from '@/app/(main)/_components/channel';
+import { ChannelTabs } from '@/app/(main)/_components/channel';
 import TopBarRight from '@/app/(main)/_components/top-bar-right';
+import { getCookieString } from '@/app/_actions/get-cookie-string';
 import { Footer } from '@/components/layout/footer';
 import { TopBar } from '@/components/system/top-bar';
 import { channelApi, channelKeys } from '@/lib/api/services/channel.api';
 import getQueryClient from '@/lib/get-query-client';
 
-export default async function Home() {
+type Props = {
+  searchParams: Promise<{ tab?: string }>;
+};
+
+export default async function Home({ searchParams }: Props) {
+  const { tab } = await searchParams;
+
   const queryClient = getQueryClient();
+  const cookieString = await getCookieString();
+
+  const query = tab && tab === 'my' ? { joined: true } : {};
 
   await queryClient.prefetchInfiniteQuery({
-    queryKey: channelKeys.list({}),
-    queryFn: () => channelApi.getChannels({}),
+    queryKey: channelKeys.list(query),
+    queryFn: () => channelApi.getChannels(query, cookieString),
     initialPageParam: undefined,
   });
 
@@ -27,7 +37,7 @@ export default async function Home() {
         right={<TopBarRight />}
       />
       <HydrationBoundary state={dehydratedState}>
-        <ChannelList />
+        <ChannelTabs />
       </HydrationBoundary>
       <Footer />
     </div>

@@ -3,11 +3,14 @@ import {
   CreateChannelResponseDto,
   CreateDmDto,
   CreateDmResponseDto,
+  GetChannelResponseDto,
   GetChannelsQueryDto,
   GetChannelsResponseDto,
+  JoinChannelDto,
+  JoinChannelResponseDto,
 } from '@repo/api-types';
 
-import { api } from '@/lib/api';
+import { api, serverApi } from '@/lib/api';
 
 export const channelApi = {
   createChannel: (
@@ -20,10 +23,31 @@ export const channelApi = {
     return api.post('/channel/dm', params);
   },
 
+  joinChannel: (
+    params: JoinChannelDto & { channelId: string },
+  ): Promise<JoinChannelResponseDto> => {
+    const { channelId, ...rest } = params;
+    return api.post(`/channel/${channelId}/join`, rest);
+  },
+
   getChannels: (
     query: GetChannelsQueryDto,
+    cookie?: string,
   ): Promise<GetChannelsResponseDto> => {
+    if (cookie) {
+      return serverApi.get('/channel', cookie, { params: query });
+    }
     return api.get('/channel', { params: query });
+  },
+
+  getChannel: (
+    channelId: string,
+    cookie?: string,
+  ): Promise<GetChannelResponseDto> => {
+    if (cookie) {
+      return serverApi.get(`/channel/${channelId}`, cookie);
+    }
+    return api.get(`/channel/${channelId}`);
   },
 };
 
@@ -32,4 +56,5 @@ export const channelKeys = {
   listAll: ['channel', 'list'] as const,
   list: (query: GetChannelsQueryDto) =>
     ['channel', 'list', 'query', query] as const,
+  detail: (channelId: string) => ['channel', 'detail', channelId] as const,
 };

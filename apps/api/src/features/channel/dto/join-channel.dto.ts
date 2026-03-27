@@ -10,8 +10,6 @@ export class JoinChannelDto {
   })
   @IsOptional()
   @IsString()
-  @MinLength(2)
-  @MaxLength(30)
   displayName?: string;
 
   @ApiPropertyOptional({

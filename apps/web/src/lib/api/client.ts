@@ -72,11 +72,17 @@ const createApiClient = (): AxiosInstance => {
       const errorField = errorResponse?.payload?.field;
 
       // access_token 만료로 인한 401만 refresh 시도
+      // /auth/me는 refresh 후 재요청 허용 (로그인 상태 확인용)
+      // /auth/refresh, /auth/sign-in 등은 제외 (무한 루프 방지)
+      const isAuthEndpoint =
+        originalRequest.url?.includes('/auth/') &&
+        !originalRequest.url?.includes('/auth/me');
+
       if (
         error.response?.status !== 401 ||
         errorField !== 'access_token' ||
         originalRequest._retry ||
-        originalRequest.url?.includes('/auth/')
+        isAuthEndpoint
       ) {
         return Promise.reject(error);
       }

@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Query,
+} from '@nestjs/common';
 import {
   ApiExtraModels,
   ApiOperation,
@@ -14,6 +23,7 @@ import {
   CreateChannelResponseDto,
   CreateDmDto,
   CreateDmResponseDto,
+  GetChannelResponseDto,
   GetChannelsQueryDto,
   GetChannelsResponseDto,
   JoinChannelDto,
@@ -41,6 +51,29 @@ export class ChannelController {
     @UserId() userId: string | undefined,
   ) {
     const result = await this.channelService.getChannels(query, userId);
+    return new ApiResponseDto(result);
+  }
+
+  @OptionalAuth()
+  @Get(':channelId')
+  @ApiOperation({
+    summary: '채널 상세 조회',
+  })
+  @ApiResponse({
+    status: 200,
+    description: '조회 성공',
+    type: GetChannelResponseDto,
+  })
+  @ApiResponse({
+    status: 404,
+    description: '채널을 찾을 수 없음',
+    type: NullPayloadResponseDto,
+  })
+  async getChannel(
+    @Param('channelId', new ParseUUIDPipe({ exceptionFactory: () => new NotFoundException({ message: '채널을 찾을 수 없습니다' }) })) channelId: string,
+    @UserId() userId: string | undefined,
+  ) {
+    const result = await this.channelService.getChannel(channelId, userId);
     return new ApiResponseDto(result);
   }
 
@@ -76,7 +109,7 @@ export class ChannelController {
     type: NullPayloadResponseDto,
   })
   async joinChannel(
-    @Param('channelId') channelId: string,
+    @Param('channelId', new ParseUUIDPipe({ exceptionFactory: () => new NotFoundException({ message: '채널을 찾을 수 없습니다' }) })) channelId: string,
     @Body() body: JoinChannelDto,
     @UserId() userId: string,
   ) {

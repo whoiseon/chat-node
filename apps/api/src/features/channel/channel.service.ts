@@ -10,11 +10,11 @@ import {
 import * as bcrypt from 'bcrypt';
 import {
   and,
-  asc,
   count,
   desc,
   eq,
   gt,
+  ilike,
   inArray,
   isNull,
   lt,
@@ -46,8 +46,70 @@ export class ChannelService {
 
   constructor(@Inject(DB_TOKEN) private readonly db: AppDatabase) {}
 
+  async getChannel(channelId: string, userId?: string) {
+    const [channel] = await this.db
+      .select({
+        id: channelTable.id,
+        name: channelTable.name,
+        description: channelTable.description,
+        profileImageUrl: channelTable.profileImageUrl,
+        password: channelTable.password,
+        createdAt: channelTable.createdAt,
+      })
+      .from(channelTable)
+      .where(
+        and(
+          eq(channelTable.id, channelId),
+          eq(channelTable.type, 'CHANNEL'),
+          isNull(channelTable.deletedAt),
+        ),
+      )
+      .limit(1);
+
+    if (!channel) {
+      throw new NotFoundException({ message: '채널을 찾을 수 없습니다' });
+    }
+
+    const ids = [channel.id];
+
+    // 가입 여부 조회
+    let joinedAt: string | null = null;
+
+    if (userId) {
+      const [member] = await this.db
+        .select({ joinedAt: channelMemberTable.joinedAt })
+        .from(channelMemberTable)
+        .where(
+          and(
+            eq(channelMemberTable.channelId, channelId),
+            eq(channelMemberTable.userId, userId),
+          ),
+        )
+        .limit(1);
+
+      joinedAt = member ? member.joinedAt.toISOString() : null;
+    }
+
+    const [managers, memberCounts] = await Promise.all([
+      this.getChannelManagers(ids),
+      this.getMemberCounts(ids),
+    ]);
+
+    return {
+      id: channel.id,
+      name: channel.name,
+      description: channel.description,
+      profileImageUrl: channel.profileImageUrl ?? null,
+      isPrivate: channel.password !== null,
+      createdAt: channel.createdAt.toISOString(),
+      joinedAt,
+      memberCount: memberCounts.get(channel.id) ?? 0,
+      manager: managers.get(channel.id) ?? null,
+    };
+  }
+
   async getChannels(query: GetChannelsQueryDto, userId?: string) {
-    const { cursor, limit = 20 } = query;
+    const { cursor, limit = 20, joined = false, search } = query;
 
     // 채널별 최근 메시지 시각 서브쿼리
     const lastMessageSq = this.db
@@ -68,6 +130,24 @@ export class ChannelService {
       eq(channelTable.type, 'CHANNEL'),
       isNull(channelTable.deletedAt),
     ];
+
+    // 채널 이름 검색
+    if (search) {
+      conditions.push(ilike(channelTable.name, `%${search}%`));
+    }
+
+    // 가입한 채널만 필터링
+    if (joined && userId) {
+      conditions.push(
+        inArray(
+          channelTable.id,
+          this.db
+            .select({ channelId: channelMemberTable.channelId })
+            .from(channelMemberTable)
+            .where(eq(channelMemberTable.userId, userId)),
+        ),
+      );
+    }
 
     // 커서 처리
     if (cursor) {
@@ -106,11 +186,37 @@ export class ChannelService {
     const lastItem = channels[channels.length - 1];
     const channelIds = channels.map((ch) => ch.id);
 
-    // 최근 메시지 상세 + 안 읽은 수 조회
-    const [lastMessages, unreadCounts] = await Promise.all([
-      this.getLastMessages(channelIds),
-      userId ? this.getUnreadCounts(channelIds, userId) : new Map(),
-    ]);
+    // 가입한 채널만 lastMessage, unreadCount 조회
+    let joinedChannelIds: string[] = [];
+    const joinedAtMap = new Map<string, string>();
+
+    if (userId && channelIds.length > 0) {
+      const memberRows = await this.db
+        .select({
+          channelId: channelMemberTable.channelId,
+          joinedAt: channelMemberTable.joinedAt,
+        })
+        .from(channelMemberTable)
+        .where(
+          and(
+            inArray(channelMemberTable.channelId, channelIds),
+            eq(channelMemberTable.userId, userId),
+          ),
+        );
+
+      joinedChannelIds = memberRows.map((r) => r.channelId);
+      for (const r of memberRows) {
+        joinedAtMap.set(r.channelId, r.joinedAt.toISOString());
+      }
+    }
+
+    const [lastMessages, unreadCounts, managers, memberCounts] =
+      await Promise.all([
+        this.getLastMessages(joinedChannelIds),
+        this.getUnreadCounts(joinedChannelIds, userId ?? ''),
+        this.getChannelManagers(channelIds),
+        this.getMemberCounts(channelIds),
+      ]);
 
     return {
       channels: channels.map((ch) => ({
@@ -122,9 +228,71 @@ export class ChannelService {
         lastMessage: lastMessages.get(ch.id) ?? null,
         unreadCount: unreadCounts.get(ch.id) ?? 0,
         createdAt: ch.createdAt.toISOString(),
+        joinedAt: joinedAtMap.get(ch.id) ?? null,
+        memberCount: memberCounts.get(ch.id) ?? 0,
+        manager: managers.get(ch.id) ?? null,
       })),
       nextCursor: hasMore && lastItem ? lastItem.id : null,
     };
+  }
+
+  private async getMemberCounts(channelIds: string[]) {
+    if (channelIds.length === 0) return new Map();
+
+    const rows = await this.db
+      .select({
+        channelId: channelMemberTable.channelId,
+        count: sql<number>`cast(count(*) as int)`,
+      })
+      .from(channelMemberTable)
+      .where(inArray(channelMemberTable.channelId, channelIds))
+      .groupBy(channelMemberTable.channelId);
+
+    const map = new Map<string, number>();
+    for (const row of rows) {
+      map.set(row.channelId, row.count);
+    }
+
+    return map;
+  }
+
+  private async getChannelManagers(channelIds: string[]) {
+    if (channelIds.length === 0) return new Map();
+
+    const rows = await this.db
+      .select({
+        channelId: channelMemberTable.channelId,
+        managerId: channelMemberTable.userId,
+        username: userTable.username,
+        displayName: channelMemberTable.displayName,
+      })
+      .from(channelMemberTable)
+      .leftJoin(userTable, eq(channelMemberTable.userId, userTable.id))
+      .where(
+        and(
+          inArray(channelMemberTable.channelId, channelIds),
+          eq(channelMemberTable.role, 'MANAGER'),
+        ),
+      );
+
+    const map = new Map<
+      string,
+      {
+        managerId: string;
+        username: string;
+        displayName: string;
+      }
+    >();
+
+    for (const row of rows) {
+      map.set(row.channelId, {
+        managerId: row.managerId,
+        username: row.username ?? 'unknown',
+        displayName: row.displayName,
+      });
+    }
+
+    return map;
   }
 
   private async getLastMessages(channelIds: string[]) {
