@@ -57,6 +57,7 @@ import {
   JoinChannelFormValues,
   joinChannelSchema,
 } from '@/app/(main)/_schema/join-channel.schema';
+import { ManagerViewer } from '@/components/system/manager-viewer';
 import { useDebounce } from '@/lib/hooks/use-debounce';
 import { useMe } from '@/lib/hooks/use-me';
 
@@ -345,12 +346,10 @@ function ChannelJoinDialog({
               <DialogTitle className="text-base font-semibold">
                 {channel.name}
               </DialogTitle>
-              <div className="flex items-center gap-x-1 text-muted-foreground mt-0.5">
-                <Icons.Crown className="size-3.5" />
-                <span>
-                  {channel.manager.displayName}({channel.manager.username})
-                </span>
-              </div>
+              <ManagerViewer
+                displayName={channel.manager.displayName}
+                username={channel.manager.username}
+              />
             </div>
           </div>
           <DialogDescription className="px-3 py-2.5 bg-background/30 border border-border rounded-lg text-foreground whitespace-pre-line">

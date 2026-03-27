@@ -11,6 +11,8 @@ interface ThumbnailProps {
   fill?: boolean;
   className?: string;
   loading?: 'eager' | 'lazy';
+  fallback?: React.ReactNode;
+  fallbackClassName?: string;
 }
 
 export function Thumbnail({
@@ -19,11 +21,18 @@ export function Thumbnail({
   fill = true,
   className,
   loading = 'eager',
+  fallback,
+  fallbackClassName,
 }: ThumbnailProps) {
   if (!src) {
     return (
-      <div className="flex size-full items-center justify-center rounded-sm bg-stone-200 dark:bg-stone-800 text-sm text-muted-foreground">
-        <Icons.LogoIcon className="size-6" />
+      <div
+        className={cn(
+          'flex size-full items-center justify-center bg-stone-200 dark:bg-stone-800 text-sm text-muted-foreground',
+          fallbackClassName,
+        )}
+      >
+        {fallback || <Icons.LogoIcon className="size-6" />}
       </div>
     );
   }

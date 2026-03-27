@@ -14,6 +14,7 @@ import {
   CircleAlert,
   Megaphone,
   Sun,
+  Calendar,
   Moon,
   Menu,
   ArrowLeft,
@@ -85,6 +86,7 @@ export const Icons = {
       <circle cx="12" cy="12" r="12" className="fill-currentColor" />
     </svg>
   ),
+  Calendar,
   NP: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       viewBox="0 0 24 24"

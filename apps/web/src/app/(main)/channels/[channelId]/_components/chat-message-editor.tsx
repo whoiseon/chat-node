@@ -6,9 +6,9 @@ import { Textarea } from '@repo/ui/components/ui/textarea';
 
 export function ChatMessageEditor() {
   return (
-    <div className="bg-background px-2 pb-2 md:pb-4 sticky bottom-0 shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-none">
+    <div className="bg-background px-2 pb-2 md:pb-4 sticky bottom-0">
       <form
-        className="flex flex-col bg-card rounded-md min-h-25 z-10"
+        className="flex flex-col bg-card rounded-md min-h-25 z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-none"
         onSubmit={(e) => e.preventDefault()}
       >
         <Textarea

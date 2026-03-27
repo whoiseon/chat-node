@@ -1,6 +1,7 @@
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 import { ChannelGate } from '@/app/(main)/channels/[channelId]/_components/channel-gate';
+import { ChannelIdProvider } from '@/app/(main)/channels/[channelId]/_context/channel-id.context';
 import { getCookieString } from '@/app/_actions/get-cookie-string';
 import { channelApi, channelKeys } from '@/lib/api/services/channel.api';
 import getQueryClient from '@/lib/get-query-client';
@@ -27,7 +28,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <ChannelGate channelId={channelId} />
+      <ChannelIdProvider channelId={channelId}>
+        <ChannelGate />
+      </ChannelIdProvider>
     </HydrationBoundary>
   );
 }

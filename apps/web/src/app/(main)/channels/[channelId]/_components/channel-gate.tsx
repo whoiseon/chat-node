@@ -9,7 +9,6 @@ import {
   FieldError,
   FieldLabel,
 } from '@repo/ui/components/ui/field';
-import { Icons } from '@repo/ui/components/ui/icons';
 import { Input } from '@repo/ui/components/ui/input';
 import { RequiredLabelSymbol } from '@repo/ui/components/ui/required-label-symbol';
 import { cn } from '@repo/ui/lib/utils';
@@ -25,16 +24,15 @@ import {
 import { ChannelTopBarContainer } from '@/app/(main)/channels/[channelId]/_components/channel-top-bar-container';
 import { ChatListContainer } from '@/app/(main)/channels/[channelId]/_components/chat-list-container';
 import { ChatMessageEditor } from '@/app/(main)/channels/[channelId]/_components/chat-message-editor';
+import { useChannelId } from '@/app/(main)/channels/[channelId]/_context/channel-id.context';
 import { ChannelSearchProvider } from '@/app/(main)/channels/[channelId]/_context/channel-search.context';
 import { useChannel } from '@/app/(main)/channels/[channelId]/_hooks/use-channel';
+import { ManagerViewer } from '@/components/system/manager-viewer';
 import { TopBar } from '@/components/system/top-bar';
 import { useMe } from '@/lib/hooks/use-me';
 
-interface ChannelGateProps {
-  channelId: string;
-}
-
-export function ChannelGate({ channelId }: ChannelGateProps) {
+export function ChannelGate() {
+  const { channelId } = useChannelId();
   const { channel, isLoading } = useChannel(channelId);
   const { isAuthenticated } = useMe();
 
@@ -146,12 +144,10 @@ function ChannelJoinForm({ channelId }: { channelId: string }) {
             <div className="text-center">
               <h2 className="text-lg font-semibold">{channel.name}</h2>
               {channel.manager && (
-                <div className="flex items-center justify-center gap-x-1 text-muted-foreground mt-1">
-                  <Icons.Crown className="size-3.5" />
-                  <span className="text-sm">
-                    {channel.manager.displayName}({channel.manager.username})
-                  </span>
-                </div>
+                <ManagerViewer
+                  displayName={channel.manager.displayName}
+                  username={channel.manager.username}
+                />
               )}
             </div>
             <p className="text-sm text-muted-foreground text-center whitespace-pre-line">
