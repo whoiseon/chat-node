@@ -52,6 +52,7 @@ export class AuthService {
         createdAt: userTable.createdAt,
         updatedAt: userTable.updatedAt,
         lastLoginAt: userTable.lastLoginAt,
+        profileImageUrl: userTable.profileImageUrl,
       })
       .from(userTable)
       .where(eq(userTable.id, userId))

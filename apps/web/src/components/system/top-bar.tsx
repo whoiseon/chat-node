@@ -43,6 +43,10 @@ export function TopBar({
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  const handleBack = () => {
+    router.replace('/');
+  };
+
   useEffect(() => {
     if (!searchMode) return;
     searchInputRef.current?.focus();
@@ -121,7 +125,7 @@ export function TopBar({
                     <Button
                       variant="ghost"
                       size={!hasTitle ? 'default' : 'icon'}
-                      onClick={() => router.back()}
+                      onClick={handleBack}
                       className="-ml-2"
                     >
                       <div className="flex items-center gap-x-2">

@@ -6,6 +6,7 @@ import {
   channelMemberTable,
   DB_TOKEN,
   messageTable,
+  userTable,
 } from '@/database';
 import { GetMessagesQueryDto } from '@/features/messages/dto';
 
@@ -39,8 +40,11 @@ export class MessagesService {
         type: messageTable.type,
         content: messageTable.content,
         userId: messageTable.userId,
+        username: userTable.username,
         displayName: channelMemberTable.displayName,
+        profileImageUrl: userTable.profileImageUrl,
         createdAt: messageTable.createdAt,
+        deletedAt: messageTable.deletedAt,
       })
       .from(messageTable)
       .leftJoin(
@@ -50,6 +54,7 @@ export class MessagesService {
           eq(messageTable.userId, channelMemberTable.userId),
         ),
       )
+      .leftJoin(userTable, eq(messageTable.userId, userTable.id))
       .where(and(...conditions))
       .orderBy(desc(messageTable.createdAt))
       .limit(limit + 1);
@@ -67,9 +72,12 @@ export class MessagesService {
         content: string;
         sender: {
           userId: string;
+          username: string;
           displayName: string;
+          profileImageUrl: string | null;
         } | null;
         createdAt: string;
+        deletedAt: string | null;
       }[]
     >();
 
@@ -85,10 +93,13 @@ export class MessagesService {
         sender: row.userId
           ? {
               userId: row.userId,
+              username: row.username ?? '알 수 없음',
               displayName: row.displayName ?? '알 수 없음',
+              profileImageUrl: row.profileImageUrl ?? null,
             }
           : null,
         createdAt: row.createdAt.toISOString(),
+        deletedAt: row.deletedAt?.toISOString() || null,
       });
     }
 

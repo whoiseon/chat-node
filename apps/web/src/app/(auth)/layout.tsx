@@ -27,7 +27,7 @@ export default async function SessionLayout({ children }: PropsWithChildren) {
   return (
     <div className="flex flex-col h-full w-full">
       <TopBar customBackButton={<LogoText />} isCard={false} hasBackButton />
-      <div className="flex flex-col flex-1 min-w-100 md:mx-auto px-4">
+      <div className="flex flex-col flex-1 md:min-w-100 md:mx-auto px-4">
         {children}
       </div>
       <div className="flex items-center justify-center min-h-20">

@@ -46,6 +46,30 @@ export class ChannelsService {
 
   constructor(@Inject(DB_TOKEN) private readonly db: AppDatabase) {}
 
+  async getChannelMember(channelId: string, userId: string) {
+    const [member] = await this.db
+      .select({
+        channelId: channelMemberTable.channelId,
+        userId: channelMemberTable.userId,
+        username: userTable.username,
+        displayName: channelMemberTable.displayName,
+        role: channelMemberTable.role,
+        joinedAt: channelMemberTable.joinedAt,
+        profileImageUrl: userTable.profileImageUrl,
+      })
+      .from(channelMemberTable)
+      .leftJoin(userTable, eq(channelMemberTable.userId, userTable.id))
+      .where(
+        and(
+          eq(channelMemberTable.channelId, channelId),
+          eq(channelMemberTable.userId, userId),
+        ),
+      )
+      .limit(1);
+
+    return member ?? null;
+  }
+
   async getChannel(channelId: string, userId?: string) {
     const [channel] = await this.db
       .select({

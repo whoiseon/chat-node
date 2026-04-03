@@ -1,15 +1,30 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 export function useScroll() {
+  const isBottomRef = useRef(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = 1;
+      isBottomRef.current =
+        window.innerHeight + window.scrollY >=
+        document.body.scrollHeight - threshold;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToBottom = useCallback((behavior: ScrollBehavior = 'auto') => {
-    if (!document.body || window === undefined) return;
     window.scrollTo({
       top: document.body.scrollHeight,
-      behavior: behavior,
+      behavior,
     });
   }, []);
 
-  return { scrollToBottom };
+  const isAtBottom = useCallback(() => isBottomRef.current, []);
+
+  return { scrollToBottom, isAtBottom };
 }

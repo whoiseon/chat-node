@@ -260,6 +260,37 @@
         ]
       }
     },
+    "/api/v1/channels/{channelId}/me": {
+      "get": {
+        "operationId": "ChannelsController_getChannelMe",
+        "parameters": [
+          {
+            "name": "channelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "조회 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetChannelMeResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "속한 채널의 내 정보 조회",
+        "tags": [
+          "channels"
+        ]
+      }
+    },
     "/api/v1/channels": {
       "get": {
         "operationId": "ChannelsController_getChannels",
@@ -798,6 +829,11 @@
             "type": "string",
             "nullable": true,
             "example": "2026-03-24T12:00:00.000Z"
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": null
           }
         },
         "required": [
@@ -1016,6 +1052,90 @@
             "example": "테스트"
           }
         }
+      },
+      "ChannelMe": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          },
+          "userId": {
+            "type": "string",
+            "example": "e6f436e9-7f4f-4b52-95e3-ed43c07ad97b"
+          },
+          "username": {
+            "type": "string",
+            "example": "chatnode"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "매니저"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "USER",
+              "STAFF",
+              "MANAGER"
+            ],
+            "example": "USER"
+          },
+          "joinedAt": {
+            "type": "string",
+            "example": "2026-03-24T00:00:00.000Z"
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": null
+          }
+        },
+        "required": [
+          "channelId",
+          "userId",
+          "username",
+          "displayName",
+          "role",
+          "joinedAt"
+        ]
+      },
+      "GetChannelMePayload": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ChannelMe"
+              }
+            ]
+          }
+        },
+        "required": [
+          "user"
+        ]
+      },
+      "GetChannelMeResponseDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "nullable": true,
+            "example": null,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiErrorDto"
+              }
+            ]
+          },
+          "payload": {
+            "$ref": "#/components/schemas/GetChannelMePayload"
+          }
+        },
+        "required": [
+          "error",
+          "payload"
+        ]
       },
       "LastMessageDto": {
         "type": "object",

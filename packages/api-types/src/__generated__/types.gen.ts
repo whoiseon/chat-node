@@ -71,6 +71,7 @@ export type MeUser = {
     createdAt: string;
     updatedAt?: string | null;
     lastLoginAt?: string | null;
+    profileImageUrl?: string | null;
 };
 
 export type MePayload = {
@@ -128,6 +129,25 @@ export type GetChannelsQueryDto = {
      * 채널 이름 검색
      */
     search?: string;
+};
+
+export type ChannelMe = {
+    channelId: string;
+    userId: string;
+    username: string;
+    displayName: string;
+    role: 'USER' | 'STAFF' | 'MANAGER';
+    joinedAt: string;
+    profileImageUrl?: string | null;
+};
+
+export type GetChannelMePayload = {
+    user: ChannelMe | null;
+};
+
+export type GetChannelMeResponseDto = {
+    error: ApiErrorDto | null;
+    payload: GetChannelMePayload;
 };
 
 export type LastMessageDto = {
@@ -493,6 +513,24 @@ export type HealthControllerCheckResponses = {
 };
 
 export type HealthControllerCheckResponse = HealthControllerCheckResponses[keyof HealthControllerCheckResponses];
+
+export type ChannelsControllerGetChannelMeData = {
+    body?: never;
+    path: {
+        channelId: string;
+    };
+    query?: never;
+    url: '/api/v1/channels/{channelId}/me';
+};
+
+export type ChannelsControllerGetChannelMeResponses = {
+    /**
+     * 조회 성공
+     */
+    200: GetChannelMeResponseDto;
+};
+
+export type ChannelsControllerGetChannelMeResponse = ChannelsControllerGetChannelMeResponses[keyof ChannelsControllerGetChannelMeResponses];
 
 export type ChannelsControllerGetChannelsData = {
     body?: never;

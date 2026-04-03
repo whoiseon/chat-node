@@ -32,6 +32,11 @@ export default async function Page({ params }: Props) {
     initialPageParam: undefined,
   });
 
+  await queryClient.prefetchQuery({
+    queryKey: channelKeys.me(channelId),
+    queryFn: () => channelsApi.getChannelMe(channelId, cookieString),
+  });
+
   const dehydratedState = dehydrate(queryClient);
 
   return (

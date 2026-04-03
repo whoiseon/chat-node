@@ -1,0 +1,835 @@
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T01:51:07.535Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T01:55:01.457Z"}
+{"level":"info","message":"enviroment path: .env.development","timestamp":"2026-04-03T01:56:24.392Z"}
+{"level":"info","message":"Server is running on port 4003","timestamp":"2026-04-03T01:56:24.393Z"}
+{"level":"info","message":"enviroment path: .env.development","timestamp":"2026-04-03T01:58:22.647Z"}
+{"level":"info","message":"Server is running on port 4003","timestamp":"2026-04-03T01:58:22.647Z"}
+{"level":"info","message":"enviroment path: .env.development","timestamp":"2026-04-03T02:01:08.484Z"}
+{"level":"info","message":"Server is running on port 4003","timestamp":"2026-04-03T02:01:08.484Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:05:58.553Z"}
+{"level":"info","message":"Server is running on port 4003","timestamp":"2026-04-03T02:05:58.553Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:06:31.691Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:06:31.691Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:08:30.422Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:08:30.423Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:10:29.129Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:10:29.129Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:13:33.751Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:13:33.751Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:13:37.189Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:13:37.189Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:13:45.279Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:13:45.280Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:13:47.161Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:13:47.161Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:44:35.680Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:44:35.680Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:44:43.859Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:44:43.860Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:45:24.399Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:45:24.399Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:48:08.662Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:48:08.662Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:49:03.250Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:49:03.250Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:49:54.716Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:49:54.716Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:51:10.057Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:51:10.058Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:51:42.593Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:51:42.594Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:52:12.672Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:52:12.673Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:52:18.866Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:52:18.866Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T02:54:22.313Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T02:54:22.313Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T03:04:36.070Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T03:04:36.070Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T03:10:45.891Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T03:10:45.891Z"}
+{"level":"info","message":"Client connected: aH8AwPDjKVNLevxoAAAB","timestamp":"2026-04-03T03:10:49.120Z"}
+{"level":"info","message":"Client connected: sYlGBq66DonUoyLAAAAD","timestamp":"2026-04-03T03:10:53.573Z"}
+{"level":"info","message":"Client connected: Wn9FPNPB9ecWSCN3AAAF","timestamp":"2026-04-03T03:11:39.148Z"}
+{"level":"info","message":"Client connected: 6wb-UCG6YFAEAo9HAAAH","timestamp":"2026-04-03T03:15:31.845Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:17:02.450Z"}
+{"level":"info","message":"ws:leave_channel [object Object]","timestamp":"2026-04-03T03:17:36.929Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:17:45.740Z"}
+{"level":"info","message":"ws:leave_channel [object Object]","timestamp":"2026-04-03T03:17:45.783Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:17:45.784Z"}
+{"level":"info","message":"ws:leave_channel [object Object]","timestamp":"2026-04-03T03:17:49.711Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:17:52.186Z"}
+{"level":"info","message":"ws:leave_channel [object Object]","timestamp":"2026-04-03T03:17:52.236Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:17:52.238Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T03:18:49.953Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T03:18:49.953Z"}
+{"level":"info","message":"Client connected: RuN27mwpmJAawjYIAAAB","timestamp":"2026-04-03T03:18:54.237Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:18:54.392Z"}
+{"level":"info","message":"Client connected: R1qyyWTY6BbG4OjGAAAD","timestamp":"2026-04-03T03:19:00.896Z"}
+{"level":"info","message":"Client connected: iNq1bMAD1supZz4bAAAF","timestamp":"2026-04-03T03:19:04.603Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:19:08.196Z"}
+{"level":"info","message":"ws:leave_channel [object Object]","timestamp":"2026-04-03T03:19:10.787Z"}
+{"level":"info","message":"Client connected: 8jHBmVrGrCM18ZQyAAAH","timestamp":"2026-04-03T03:19:13.636Z"}
+{"level":"info","message":"ws:join_channel [object Object]","timestamp":"2026-04-03T03:20:16.807Z"}
+{"level":"info","message":"Client connected: OJcSB5KqRY-5NnLSAAAJ","timestamp":"2026-04-03T03:20:31.944Z"}
+{"level":"info","message":"Client connected: Yh16qwFTSMU5a6VLAAAL","timestamp":"2026-04-03T03:20:35.650Z"}
+{"level":"info","message":"Client connected: 9qrrIWB11petyeajAAAN","timestamp":"2026-04-03T03:20:36.552Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T03:21:06.996Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T03:21:06.996Z"}
+{"level":"info","message":"Client connected: -w9DhK1EwthBlk0QAAAB","timestamp":"2026-04-03T03:21:07.760Z"}
+{"level":"info","message":"Client connected: RsotxhM1X3Ks7zUBAAAD","timestamp":"2026-04-03T03:21:08.236Z"}
+{"level":"info","message":"Client connected: BbbpP-DS8MNHMCBxAAAF","timestamp":"2026-04-03T03:21:10.334Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:21:12.254Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:21:54.812Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:21:57.137Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:23:31.718Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:23:31.720Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:23:42.893Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:23:42.900Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:24:09.839Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T03:24:09.854Z"}
+{"level":"info","message":"Client connected: ptAJm8JTvPzR-lCnAAAH","timestamp":"2026-04-03T03:24:29.049Z"}
+{"level":"info","message":"Client connected: zXGWmcfxEs65f9A6AAAJ","timestamp":"2026-04-03T03:26:49.241Z"}
+{"level":"info","message":"Client connected: 0x-Xp91nBoRDv7M6AAAL","timestamp":"2026-04-03T04:45:24.622Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T04:45:27.098Z"}
+{"level":"info","message":"Client connected: qtjhaOA9yjFP2t4IAAAN","timestamp":"2026-04-03T05:15:54.830Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:34:42.188Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:34:42.233Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:34:42.315Z"}
+{"level":"info","message":"Client connected: EkP1L2bPyug9LcD5AAAP","timestamp":"2026-04-03T05:44:17.600Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T05:45:17.728Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T05:45:17.728Z"}
+{"level":"info","message":"Client connected: 7SHU4uU_VS0GSDnaAAAB","timestamp":"2026-04-03T05:45:21.746Z"}
+{"level":"info","message":"Client connected: sQWLefKa4SEA19mfAAAD","timestamp":"2026-04-03T05:45:23.016Z"}
+{"level":"info","message":"Client connected: cWtokFtvNetYKdh1AAAF","timestamp":"2026-04-03T05:45:24.896Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:45:26.695Z"}
+{"level":"info","message":"Client connected: A45bJDFkMpTPKTZCAAAH","timestamp":"2026-04-03T05:45:28.749Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:45:28.763Z"}
+{"level":"info","message":"Client connected: mvqnZzqbgtlOM9_vAAAJ","timestamp":"2026-04-03T05:47:02.150Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:47:02.191Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:47:03.822Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:47:11.246Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:47:13.125Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:49:42.964Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:49:43.818Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:49:51.117Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T05:57:15.891Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T05:57:15.891Z"}
+{"level":"info","message":"Client connected: 2W9Bhrh3zFKv_3ahAAAB","timestamp":"2026-04-03T05:57:17.689Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T05:57:19.849Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T05:57:19.849Z"}
+{"level":"info","message":"Client connected: P7xqdqfGLQumVUimAAAB","timestamp":"2026-04-03T05:57:20.715Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T05:59:43.019Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T05:59:43.019Z"}
+{"level":"info","message":"Client connected: sAZFPqXcQbtTkazSAAAB","timestamp":"2026-04-03T05:59:44.706Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:59:58.235Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T05:59:58.266Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:01:11.114Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:01:11.114Z"}
+{"level":"info","message":"Client connected: e50IVpfMmbwhhJF_AAAB","timestamp":"2026-04-03T06:01:11.693Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:03:33.688Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:03:33.688Z"}
+{"level":"info","message":"Client connected: Ij62h6JxzzrxIyJEAAAB","timestamp":"2026-04-03T06:03:37.793Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:03:48.652Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:03:48.652Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:03:48.930Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:03:48.932Z"}
+{"level":"info","message":"Client connected: ANMbZ1CxpzsF_c0KAAAB","timestamp":"2026-04-03T06:03:49.694Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:03:54.490Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:03:54.490Z"}
+{"level":"info","message":"Client connected: MYFMu8ugCUh0Ni7iAAAB","timestamp":"2026-04-03T06:03:56.700Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:04:03.000Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:124","timestamp":"2026-04-03T06:07:22.513Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:07:24.445Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:07:35.172Z"}
+{"level":"info","message":"Client connected: bHIBieognnXwa2QyAAAD","timestamp":"2026-04-03T06:08:22.119Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:08:22.133Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:하이","timestamp":"2026-04-03T06:08:24.220Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:이","timestamp":"2026-04-03T06:08:24.221Z"}
+{"level":"info","message":"Client connected: BpXH1moAG7kvleKGAAAF","timestamp":"2026-04-03T06:08:28.896Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:08:28.947Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:08:36.894Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:하이","timestamp":"2026-04-03T06:10:12.036Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:크크","timestamp":"2026-04-03T06:10:18.772Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:10:42.879Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:10:42.903Z"}
+{"level":"info","message":"Client connected: naeajUSFtWIurUkpAAAH","timestamp":"2026-04-03T06:11:17.623Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:11:18.343Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:11:21.979Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:11:23.830Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:11:25.074Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:11:26.045Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:11:28.054Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:12:19.953Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:23123","timestamp":"2026-04-03T06:12:20.941Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:zzz","timestamp":"2026-04-03T06:12:47.881Z"}
+{"level":"info","message":"Client connected: cbnPropQRmoMhm-gAAAJ","timestamp":"2026-04-03T06:12:51.754Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:12:51.819Z"}
+{"level":"info","message":"Client connected: qwhR3WllMV5pwaCqAAAL","timestamp":"2026-04-03T06:12:55.381Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:12:55.555Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:12:56.301Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:음","timestamp":"2026-04-03T06:12:57.952Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:13:28.784Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:13:28.804Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:13:37.738Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:13:37.755Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:14:28.365Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:14:28.379Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:14:28.447Z"}
+{"level":"info","message":"Client connected: cmhELNUBpv_0vC0nAAAN","timestamp":"2026-04-03T06:16:32.352Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:16:32.455Z"}
+{"level":"info","message":"Client connected: bB2th1eSUclRQYovAAAP","timestamp":"2026-04-03T06:16:33.988Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:16:34.019Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:16:51.634Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:16:51.635Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:17:38.195Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:17:38.211Z"}
+{"level":"info","message":"Client connected: O9o9XvA_2uZpIXtKAAAR","timestamp":"2026-04-03T06:17:41.972Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:17:42.452Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:06.469Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:06.489Z"}
+{"level":"info","message":"Client connected: p2DOBB1taA1hx-1uAAAT","timestamp":"2026-04-03T06:19:18.761Z"}
+{"level":"info","message":"Client connected: CREJaTzid57mZl8zAAAV","timestamp":"2026-04-03T06:19:22.287Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:40.225Z"}
+{"level":"info","message":"Client connected: 2nl6NbR3zrhLbxlTAAAX","timestamp":"2026-04-03T06:19:42.651Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:42.722Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:19:44.425Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅋㅋ","timestamp":"2026-04-03T06:19:47.638Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:음 이게","timestamp":"2026-04-03T06:19:50.871Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:근데","timestamp":"2026-04-03T06:19:51.263Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:유지가 안되는거지 아직","timestamp":"2026-04-03T06:19:54.158Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅇㅋ","timestamp":"2026-04-03T06:19:54.836Z"}
+{"level":"info","message":"Client connected: T9gpqibzi3LQXUz3AAAZ","timestamp":"2026-04-03T06:19:56.655Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:56.669Z"}
+{"level":"info","message":"Client connected: Zd4pB_PzwYs1iwkyAAAb","timestamp":"2026-04-03T06:19:58.486Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:19:58.656Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:20:23.136Z"}
+{"level":"info","message":"Client connected: niMDOxI881OlLpvlAAAf","timestamp":"2026-04-03T06:20:31.264Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:20:31.391Z"}
+{"level":"info","message":"Client connected: QwancY070SVXSuBfAAAh","timestamp":"2026-04-03T06:20:34.646Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:20:34.776Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅎ","timestamp":"2026-04-03T06:20:36.944Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:안녕","timestamp":"2026-04-03T06:20:41.035Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:반가워요","timestamp":"2026-04-03T06:20:42.471Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:네 안녕하세요","timestamp":"2026-04-03T06:20:46.137Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄷㄷ","timestamp":"2026-04-03T06:20:50.739Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:잘 되네요","timestamp":"2026-04-03T06:20:51.734Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅇㅇ 잘 됌","timestamp":"2026-04-03T06:20:54.431Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:저장만 되면 될듯","timestamp":"2026-04-03T06:21:05.413Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅇㅇ 글듯","timestamp":"2026-04-03T06:21:09.072Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅈㄷㄹ\nㅋㅋ","timestamp":"2026-04-03T06:21:13.620Z"}
+{"level":"info","message":"Client connected: OZT-gUDFfbIZtaiVAAAj","timestamp":"2026-04-03T06:21:35.070Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:21:35.248Z"}
+{"level":"info","message":"Client connected: ak6XtfJFabGmLkJJAAAl","timestamp":"2026-04-03T06:21:36.047Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:21:36.067Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:22:04.652Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:22:04.652Z"}
+{"level":"info","message":"Client connected: 8YUDycbj5JXxBhYbAAAB","timestamp":"2026-04-03T06:22:04.853Z"}
+{"level":"info","message":"Client connected: mKLh7tHn5HCAaRnBAAAD","timestamp":"2026-04-03T06:22:07.271Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:22:09.615Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:22:48.440Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:22:48.440Z"}
+{"level":"info","message":"Client connected: Ao-qz9MNSdsoGepNAAAC","timestamp":"2026-04-03T06:22:48.982Z"}
+{"level":"info","message":"Client connected: 5TZX9omsAdiIdxpmAAAD","timestamp":"2026-04-03T06:22:48.991Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:22:50.596Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:23:09.577Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:23:09.577Z"}
+{"level":"info","message":"Client connected: QEoeMGahaf5ugVTRAAAB","timestamp":"2026-04-03T06:23:10.089Z"}
+{"level":"info","message":"Client connected: jm_wvdQiW8x7vBvAAAAD","timestamp":"2026-04-03T06:23:10.684Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:23:12.325Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:26:22.229Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:26:22.230Z"}
+{"level":"info","message":"Client connected: n9DNysxEntaWjDehAAAD","timestamp":"2026-04-03T06:26:25.404Z"}
+{"level":"info","message":"Client connected: zGrUs6gQCZSd1CXwAAAF","timestamp":"2026-04-03T06:26:26.851Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:26:26.922Z"}
+{"level":"info","message":"Client connected: cKMyg8318EFwmXQ0AAAH","timestamp":"2026-04-03T06:26:29.256Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:27:18.692Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:27:29.237Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:27:29.237Z"}
+{"level":"info","message":"Client connected: zN2Yu17YnkB_d0B6AAAB","timestamp":"2026-04-03T06:27:29.757Z"}
+{"level":"info","message":"Client connected: KNN3pCclOZ1XxaChAAAD","timestamp":"2026-04-03T06:27:29.950Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:27:30.018Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:27:31.127Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:29:02.765Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:29:02.766Z"}
+{"level":"info","message":"Client connected: gOwxok8tVsowf6MOAAAB","timestamp":"2026-04-03T06:29:03.636Z"}
+{"level":"info","message":"Client connected: zNRI2lv0Pm64F5muAAAD","timestamp":"2026-04-03T06:29:03.715Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:29:13.959Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:29:13.959Z"}
+{"level":"info","message":"Client connected: Dy3fd7HcV5rB5Ty5AAAB","timestamp":"2026-04-03T06:29:14.252Z"}
+{"level":"info","message":"Client connected: mrP9bA4IsQ4qtwHZAAAD","timestamp":"2026-04-03T06:29:15.695Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:29:27.968Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:29:27.968Z"}
+{"level":"info","message":"Client connected: hHv2oA1LKW-36fO4AAAB","timestamp":"2026-04-03T06:29:28.283Z"}
+{"level":"info","message":"Client connected: 2Ytw51NrnmzodAvTAAAD","timestamp":"2026-04-03T06:29:28.692Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:31:04.738Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:31:04.738Z"}
+{"level":"info","message":"Client connected: 5NgqN5yAhiyUnoIrAAAB","timestamp":"2026-04-03T06:31:05.587Z"}
+{"level":"info","message":"Client connected: n8qhFFCsGHIExPosAAAD","timestamp":"2026-04-03T06:31:05.689Z"}
+{"level":"info","message":"Client connected: KoUIS65PyHng_BxnAAAF","timestamp":"2026-04-03T06:31:06.776Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:07.026Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:31:08.394Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:08.395Z"}
+{"level":"info","message":"Client connected: czYaI4wyqPVmtbX3AAAH","timestamp":"2026-04-03T06:31:16.773Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:16.915Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:31:19.300Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:19.300Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:2","timestamp":"2026-04-03T06:31:20.097Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:20.098Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:3","timestamp":"2026-04-03T06:31:20.438Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:31:20.439Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:31:50.368Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:31:50.368Z"}
+{"level":"info","message":"Client connected: tuJp7Oa2P-IwJZA_AAAB","timestamp":"2026-04-03T06:31:51.351Z"}
+{"level":"info","message":"Client connected: nt3VvPF2Uk0J27r9AAAD","timestamp":"2026-04-03T06:31:51.699Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:32:00.716Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:32:00.784Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:32:49.307Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:32:49.308Z"}
+{"level":"info","message":"Client connected: Bj1wfQDY4FarLn28AAAF","timestamp":"2026-04-03T06:34:07.668Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:07.980Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:08.999Z"}
+{"level":"info","message":"Client connected: RsX_8HwftqVHtzNLAAAH","timestamp":"2026-04-03T06:34:10.365Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:10.703Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇㅎㅇ","timestamp":"2026-04-03T06:34:11.928Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:11.931Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:?","timestamp":"2026-04-03T06:34:23.011Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:23.012Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:왜이래","timestamp":"2026-04-03T06:34:25.213Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:25.214Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:시발","timestamp":"2026-04-03T06:34:25.786Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:25.786Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:34:38.115Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:34:38.115Z"}
+{"level":"info","message":"Client connected: gaSKGBD4E97j-VPiAAAB","timestamp":"2026-04-03T06:34:38.378Z"}
+{"level":"info","message":"Client connected: HQSSkmKwIRVJyempAAAD","timestamp":"2026-04-03T06:34:38.462Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:34:43.303Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:34:43.304Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:35:05.268Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:35:05.268Z"}
+{"level":"info","message":"Client connected: i2YIAJ27bo9zeDBPAAAB","timestamp":"2026-04-03T06:35:05.827Z"}
+{"level":"info","message":"Client connected: syplazNV3a4SickKAAAD","timestamp":"2026-04-03T06:35:06.324Z"}
+{"level":"info","message":"Client connected: -7vd6fNrI7Y6thPtAAAF","timestamp":"2026-04-03T06:35:08.415Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:35:08.675Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:35:14.335Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:35:14.336Z"}
+{"level":"info","message":"Client connected: 2uyl4XLixUPbC-FWAAAB","timestamp":"2026-04-03T06:35:15.008Z"}
+{"level":"info","message":"Client connected: 9T8sviDjWkfZIKmDAAAD","timestamp":"2026-04-03T06:35:15.562Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:35:25.825Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:35:25.825Z"}
+{"level":"info","message":"Client connected: pjZzDnKPCWnvdRazAAAB","timestamp":"2026-04-03T06:35:26.541Z"}
+{"level":"info","message":"Client connected: h-XWrIlDchBKQ95GAAAD","timestamp":"2026-04-03T06:35:26.810Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:35:28.426Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:35:28.428Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:35:37.862Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:35:37.862Z"}
+{"level":"info","message":"Client connected: uFHoTGNJXoimjy27AAAB","timestamp":"2026-04-03T06:35:38.327Z"}
+{"level":"info","message":"Client connected: Fkv-YxR5nXARE4foAAAD","timestamp":"2026-04-03T06:35:38.950Z"}
+{"level":"info","message":"Client connected: JkHRavIYjPX9GOL-AAAF","timestamp":"2026-04-03T06:35:40.729Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:35:40.947Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:35:43.200Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:35:43.201Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:35:54.166Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:35:54.166Z"}
+{"level":"info","message":"Client connected: tTH9M0yk1ruy-GA4AAAB","timestamp":"2026-04-03T06:35:54.715Z"}
+{"level":"info","message":"Client connected: mZxKpicBBQxM87nNAAAD","timestamp":"2026-04-03T06:35:54.814Z"}
+{"level":"info","message":"Client connected: dZgqqGQV8nJSRyI4AAAF","timestamp":"2026-04-03T06:35:56.511Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:35:56.828Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:36:17.315Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:36:17.315Z"}
+{"level":"info","message":"Client connected: NCspJfZKO6m1m6BkAAAB","timestamp":"2026-04-03T06:36:18.017Z"}
+{"level":"info","message":"Client connected: jrrhL81G4ENZOR67AAAD","timestamp":"2026-04-03T06:36:18.525Z"}
+{"level":"info","message":"Client connected: WnhXQqt1Nq_qNMPtAAAF","timestamp":"2026-04-03T06:36:21.500Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:36:21.719Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:36:22.798Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:36:33.828Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:36:33.828Z"}
+{"level":"info","message":"Client connected: j9EzJYRJD1HIkD2pAAAB","timestamp":"2026-04-03T06:36:34.282Z"}
+{"level":"info","message":"Client connected: 2oUngfxYm22WUKpUAAAD","timestamp":"2026-04-03T06:36:34.298Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:37:04.794Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:37:04.816Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:37:05.017Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:37:05.020Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:37:25.917Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:37:25.918Z"}
+{"level":"info","message":"Client connected: kXe2UE9NjPvu2CFBAAAB","timestamp":"2026-04-03T06:37:26.201Z"}
+{"level":"info","message":"Client connected: fA9fzabeDupoxr8NAAAD","timestamp":"2026-04-03T06:37:26.824Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:37:51.785Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:37:51.787Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:38:14.568Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:38:14.568Z"}
+{"level":"info","message":"Client connected: S4Cw0JyZU3vnu6qNAAAB","timestamp":"2026-04-03T06:38:15.214Z"}
+{"level":"info","message":"Client connected: ila5VXKmkAEpu1T3AAAD","timestamp":"2026-04-03T06:38:15.439Z"}
+{"level":"info","message":"Client connected: 3CnSRz9IarOQX3-sAAAF","timestamp":"2026-04-03T06:38:16.971Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:38:17.172Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:38:20.804Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:38:20.804Z"}
+{"level":"info","message":"Client connected: 59Mw9ckZd98AZFb1AAAB","timestamp":"2026-04-03T06:38:21.469Z"}
+{"level":"info","message":"Client connected: hMLM1ZhjHFnF_GN8AAAD","timestamp":"2026-04-03T06:38:21.877Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:38:27.443Z"}
+{"level":"error","message":"Channel info not found: 9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:38:27.447Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:38:36.284Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:38:36.284Z"}
+{"level":"info","message":"Client connected: RfgL5arU2r7SnPNbAAAB","timestamp":"2026-04-03T06:38:36.720Z"}
+{"level":"info","message":"Client connected: AgPT9lh5UfRUmybiAAAD","timestamp":"2026-04-03T06:38:37.376Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:38:49.989Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:38:49.989Z"}
+{"level":"info","message":"Client connected: -i-LaNqfbTe5vu6cAAAB","timestamp":"2026-04-03T06:38:50.658Z"}
+{"level":"info","message":"Client connected: x3tN0f26G7DqQh1vAAAD","timestamp":"2026-04-03T06:38:51.132Z"}
+{"level":"info","message":"Client connected: mRkzV5jhuwr_oiwYAAAF","timestamp":"2026-04-03T06:38:51.365Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:38:51.468Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:39:02.018Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:39:02.018Z"}
+{"level":"info","message":"Client connected: vN4v-HsjLCqSXEv3AAAB","timestamp":"2026-04-03T06:39:02.409Z"}
+{"level":"info","message":"Client connected: 21hKrNfaxdzHBiNZAAAD","timestamp":"2026-04-03T06:39:03.107Z"}
+{"level":"info","message":"Client connected: ey1kegu7vlKTzJDfAAAF","timestamp":"2026-04-03T06:39:03.582Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:39:04.359Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:39:08.957Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:39:08.957Z"}
+{"level":"info","message":"Client connected: nldLuVPvJrhxBtHlAAAB","timestamp":"2026-04-03T06:39:09.544Z"}
+{"level":"info","message":"Client connected: qNHSznTVC2ax2_xkAAAD","timestamp":"2026-04-03T06:39:10.182Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:39:11.820Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:39:11.820Z"}
+{"level":"info","message":"Client connected: BgRoykf5-8QKES7pAAAB","timestamp":"2026-04-03T06:39:12.138Z"}
+{"level":"info","message":"Client connected: QNu-GQMyMBy1P6hFAAAD","timestamp":"2026-04-03T06:39:12.848Z"}
+{"level":"info","message":"Client connected: beolHURKWuFWK7GLAAAF","timestamp":"2026-04-03T06:39:13.694Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:39:13.812Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:41:01.942Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:41:01.943Z"}
+{"level":"info","message":"Client connected: vsmVft423TfwkkASAAAB","timestamp":"2026-04-03T06:41:02.708Z"}
+{"level":"info","message":"Client connected: eYMUMz7kvliJ_aPUAAAD","timestamp":"2026-04-03T06:41:03.013Z"}
+{"level":"info","message":"Client connected: bpqbqD0Eh1nCSTmBAAAF","timestamp":"2026-04-03T06:42:54.745Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:42:55.069Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T06:42:56.808Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:3","timestamp":"2026-04-03T06:43:01.542Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:2","timestamp":"2026-04-03T06:43:02.061Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:안녕","timestamp":"2026-04-03T06:43:03.722Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:11","timestamp":"2026-04-03T06:43:35.286Z"}
+{"level":"info","message":"Client connected: 9EzWEji94dLxWCWSAAAH","timestamp":"2026-04-03T06:43:38.091Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:43:38.340Z"}
+{"level":"info","message":"Client connected: S5UXZDAiN0qPnomNAAAJ","timestamp":"2026-04-03T06:43:40.044Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:43:40.151Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:11","timestamp":"2026-04-03T06:43:41.390Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:음","timestamp":"2026-04-03T06:43:45.918Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:끊기나","timestamp":"2026-04-03T06:43:48.065Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:머야","timestamp":"2026-04-03T06:43:48.634Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:댜재","timestamp":"2026-04-03T06:43:49.552Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄹ","timestamp":"2026-04-03T06:43:50.104Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅈㄷ","timestamp":"2026-04-03T06:43:50.372Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄹㅈ","timestamp":"2026-04-03T06:43:50.584Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄷㄹ","timestamp":"2026-04-03T06:43:50.858Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅈ","timestamp":"2026-04-03T06:43:51.108Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅁ","timestamp":"2026-04-03T06:43:51.415Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅋ","timestamp":"2026-04-03T06:43:51.787Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅁ","timestamp":"2026-04-03T06:43:52.101Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:하이","timestamp":"2026-04-03T06:43:53.073Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:도배","timestamp":"2026-04-03T06:43:55.988Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:하지","timestamp":"2026-04-03T06:43:56.661Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:마세","timestamp":"2026-04-03T06:43:57.417Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:요","timestamp":"2026-04-03T06:43:57.785Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅇㅇ","timestamp":"2026-04-03T06:44:04.967Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:다양한 이야기","timestamp":"2026-04-03T06:44:17.915Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:음","timestamp":"2026-04-03T06:44:18.842Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ","timestamp":"2026-04-03T06:44:39.654Z"}
+{"level":"info","message":"Client connected: EYlyOnX9lkDX9oCeAAAL","timestamp":"2026-04-03T06:44:46.797Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:44:47.065Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:47:05.084Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:47:05.085Z"}
+{"level":"info","message":"Client connected: ylDZsk7gDIy4u0AaAAAB","timestamp":"2026-04-03T06:47:06.201Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:47:23.050Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:47:23.050Z"}
+{"level":"info","message":"Client connected: 1-HZ3DIPvfry9GhGAAAB","timestamp":"2026-04-03T06:47:24.238Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:47:27.939Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:47:27.939Z"}
+{"level":"info","message":"Client connected: DeD5sjpfRmZIZRGBAAAB","timestamp":"2026-04-03T06:47:29.055Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:49:26.739Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:49:26.739Z"}
+{"level":"info","message":"Client connected: NS4wH4NOEoMDApG8AAAB","timestamp":"2026-04-03T06:49:27.177Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:49:56.363Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:49:56.363Z"}
+{"level":"info","message":"Client connected: Y5otA9IiCkmnMyoqAAAB","timestamp":"2026-04-03T06:49:56.937Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:50:26.459Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:50:26.459Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T06:53:40.898Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T06:53:40.898Z"}
+{"level":"info","message":"Client connected: mX0KAXbHOr-uNoCoAAAD","timestamp":"2026-04-03T06:53:46.992Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:25.154Z"}
+{"level":"info","message":"Client connected: YzL8QfiyRRhhwoUvAAAF","timestamp":"2026-04-03T06:58:26.721Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:26.846Z"}
+{"level":"info","message":"Client connected: rWnHNjURTmMUKE2mAAAH","timestamp":"2026-04-03T06:58:28.114Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:28.294Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-03T06:58:31.130Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:안녕하세요","timestamp":"2026-04-03T06:58:39.571Z"}
+{"level":"info","message":"Client connected: G2YXOG8W7WbYOiZLAAAJ","timestamp":"2026-04-03T06:58:42.847Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:42.985Z"}
+{"level":"info","message":"Client connected: v6v_h4l6hm-9-slWAAAL","timestamp":"2026-04-03T06:58:47.205Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:47.584Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄷㄷ","timestamp":"2026-04-03T06:58:50.852Z"}
+{"level":"info","message":"Client connected: rr3mYJkh2KwdWYMfAAAN","timestamp":"2026-04-03T06:58:51.654Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T06:58:51.814Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:00:59.804Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:00:59.804Z"}
+{"level":"info","message":"Client connected: tfnXTBMOReKH6WCrAAAB","timestamp":"2026-04-03T07:01:00.389Z"}
+{"level":"info","message":"Client connected: qXYad7zIFkEUOOnoAAAD","timestamp":"2026-04-03T07:01:00.570Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:01:34.625Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:01:34.625Z"}
+{"level":"info","message":"Client connected: gfphh2LSWB-jNYU_AAAB","timestamp":"2026-04-03T07:01:34.875Z"}
+{"level":"info","message":"Client connected: ytnzv1OH1UWm9-qYAAAD","timestamp":"2026-04-03T07:01:35.468Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:01:41.901Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:01:41.901Z"}
+{"level":"info","message":"Client connected: UhpxVv2_FTBhuQbFAAAB","timestamp":"2026-04-03T07:01:42.393Z"}
+{"level":"info","message":"Client connected: foyVXY7Wc9ub3Yx6AAAD","timestamp":"2026-04-03T07:01:42.423Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:01:53.126Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:01:53.126Z"}
+{"level":"info","message":"Client connected: QXVDe8ssILsUmapuAAAB","timestamp":"2026-04-03T07:01:53.432Z"}
+{"level":"info","message":"Client connected: GM-OMcz3XQePMMzIAAAD","timestamp":"2026-04-03T07:01:53.913Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:02:23.631Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:02:23.632Z"}
+{"level":"info","message":"Client connected: 873toNvG1tjhLNRbAAAB","timestamp":"2026-04-03T07:02:23.997Z"}
+{"level":"info","message":"Client connected: VrdQe9kim4BpmrbDAAAD","timestamp":"2026-04-03T07:02:24.186Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:02:56.889Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:02:56.889Z"}
+{"level":"info","message":"Client connected: Vusaw0UYNSVYSgk8AAAB","timestamp":"2026-04-03T07:02:57.448Z"}
+{"level":"info","message":"Client connected: wFMLN0hRLPAzv5pFAAAD","timestamp":"2026-04-03T07:02:57.514Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:03:07.537Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:03:07.538Z"}
+{"level":"info","message":"Client connected: 19hr3jwmFu4LAus-AAAB","timestamp":"2026-04-03T07:03:07.926Z"}
+{"level":"info","message":"Client connected: Qch86weBfZfEE5a2AAAD","timestamp":"2026-04-03T07:03:08.531Z"}
+{"level":"info","message":"Client connected: DlB2Tz7n4It_2B4jAAAF","timestamp":"2026-04-03T07:03:12.062Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:12.266Z"}
+{"level":"info","message":"Client connected: aCmGtWWva3yF3S82AAAH","timestamp":"2026-04-03T07:03:14.508Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:14.630Z"}
+{"level":"info","message":"Client connected: cXRABoOM7X5fJeYRAAAJ","timestamp":"2026-04-03T07:03:16.366Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:16.559Z"}
+{"level":"info","message":"Client connected: 6Aem0BPOxzavUeFvAAAL","timestamp":"2026-04-03T07:03:18.418Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:18.607Z"}
+{"level":"info","message":"Client connected: Vx-Hxvs_Ox14w-VPAAAN","timestamp":"2026-04-03T07:03:21.355Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:21.410Z"}
+{"level":"info","message":"Client connected: K_13beJDax5R9VUYAAAP","timestamp":"2026-04-03T07:03:28.922Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:29.085Z"}
+{"level":"info","message":"Client connected: QaAx6tnnrh5AD6z7AAAR","timestamp":"2026-04-03T07:03:31.155Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:31.349Z"}
+{"level":"info","message":"Client connected: AUx2DIfZlPQwcUe8AAAT","timestamp":"2026-04-03T07:03:36.205Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:03:36.260Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:05:33.207Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:05:33.207Z"}
+{"level":"info","message":"Client connected: 6W1-H0XgP2DsMsZsAAAB","timestamp":"2026-04-03T07:05:33.515Z"}
+{"level":"info","message":"Client connected: 5_QUWwujCF_e4W3eAAAD","timestamp":"2026-04-03T07:05:34.689Z"}
+{"level":"info","message":"Client connected: Va3CMHtTAd_wVu6xAAAF","timestamp":"2026-04-03T07:06:38.114Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:06:38.285Z"}
+{"level":"info","message":"Client connected: N25wzU3gV1_ThKuvAAAH","timestamp":"2026-04-03T07:13:43.405Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:13:43.664Z"}
+{"level":"info","message":"Client connected: mLtwjlalB-XFmld4AAAJ","timestamp":"2026-04-03T07:13:45.721Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:13:45.880Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:잘되네 저장","timestamp":"2026-04-03T07:13:51.019Z"}
+{"level":"info","message":"Client connected: FQLM_NSwvteyG7ZdAAAL","timestamp":"2026-04-03T07:13:58.870Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:13:59.043Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:14:28.663Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:14:28.678Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:14:28.700Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:14:28.726Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:38.956Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:38.996Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.036Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.072Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.195Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.215Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.221Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:16:39.252Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:10.812Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:10.874Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.011Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.013Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.078Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.096Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.097Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:19:11.136Z"}
+{"level":"info","message":"Client connected: Zbqfmf_n8U_QIozdAAAN","timestamp":"2026-04-03T07:22:41.585Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:22:41.689Z"}
+{"level":"info","message":"Client connected: W48O96iKYn-ga6TOAAAP","timestamp":"2026-04-03T07:22:42.142Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:30:04.885Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:30:04.885Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:30:58.478Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:30:58.478Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:31:18.580Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:31:18.580Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:31:45.027Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:31:45.027Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:31:47.473Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:31:47.473Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:32:34.919Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:32:34.919Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:33:43.458Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:33:43.458Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:33:43.806Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:33:43.806Z"}
+{"level":"info","message":"Client connected: _TL0wmqm0kZtPE__AAAB","timestamp":"2026-04-03T07:33:46.374Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:33:46.610Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:34:09.857Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:34:09.857Z"}
+{"level":"info","message":"Client connected: uQP5B7fFxQKtpwajAAAB","timestamp":"2026-04-03T07:34:10.699Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:34:46.149Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:34:46.149Z"}
+{"level":"info","message":"Client connected: B7T5Dvl14W3laSfhAAAB","timestamp":"2026-04-03T07:34:46.699Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:36:07.964Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:36:07.964Z"}
+{"level":"info","message":"Client connected: -3nfQ7YA7WTuqS1pAAAB","timestamp":"2026-04-03T07:36:08.696Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:36:54.622Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:36:54.622Z"}
+{"level":"info","message":"Client connected: uXFvkK-H8dfDKeZcAAAB","timestamp":"2026-04-03T07:36:55.698Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:37:49.185Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:37:49.185Z"}
+{"level":"info","message":"Client connected: uUm6fYDEtb4RztIKAAAB","timestamp":"2026-04-03T07:37:51.337Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:39:45.472Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:39:45.473Z"}
+{"level":"info","message":"Client connected: ZuHdbo8VKyVvV4vPAAAB","timestamp":"2026-04-03T07:39:45.697Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:40:01.966Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:40:02.094Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T07:40:07.217Z"}
+{"level":"info","message":"Client connected: YeNExXcjCHk1446_AAAD","timestamp":"2026-04-03T07:40:11.914Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:40:11.952Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:2","timestamp":"2026-04-03T07:40:16.205Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:굿","timestamp":"2026-04-03T07:40:19.749Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:41:33.744Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:41:33.745Z"}
+{"level":"info","message":"Client connected: houRQ3KhrJFFjhm_AAAB","timestamp":"2026-04-03T07:41:34.434Z"}
+{"level":"info","message":"Client connected: FJgujMnQxCLSshULAAAD","timestamp":"2026-04-03T07:41:36.787Z"}
+{"level":"info","message":"Client connected: pqOHIeDIZUlU6iS7AAAF","timestamp":"2026-04-03T07:41:39.596Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:41:39.821Z"}
+{"level":"info","message":"Client connected: 4XMD9VNgR8JbHBgwAAAH","timestamp":"2026-04-03T07:41:40.280Z"}
+{"level":"info","message":"Client connected: wEb-LZ1DGC6WNYSHAAAJ","timestamp":"2026-04-03T07:41:44.514Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:41:44.645Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:41:46.562Z"}
+{"level":"info","message":"Client connected: Fpmynk6oMjZ8MoqdAAAL","timestamp":"2026-04-03T07:41:47.841Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:41:47.909Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:gg","timestamp":"2026-04-03T07:41:54.244Z"}
+{"level":"info","message":"Client connected: txahWGWolFwMpnDQAAAN","timestamp":"2026-04-03T07:43:48.721Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:43:49.257Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:03.559Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:03.577Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:03.594Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:03.634Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:19.352Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:19.366Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:19.400Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:19.452Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:39.046Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:39.068Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:39.097Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:45:39.144Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:46:16.929Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:47:59.519Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:16.821Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:16.832Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:16.875Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:16.892Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:음","timestamp":"2026-04-03T07:48:38.869Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:?","timestamp":"2026-04-03T07:48:42.065Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:45.559Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:50.866Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T07:48:52.234Z"}
+{"level":"info","message":"Client connected: n9iF-Bet-qsYaksKAAAP","timestamp":"2026-04-03T07:48:59.748Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:48:59.821Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T07:49:00.997Z"}
+{"level":"info","message":"Client connected: XphMfpiDgYRrEJdgAAAR","timestamp":"2026-04-03T07:55:14.545Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:55:14.849Z"}
+{"level":"info","message":"Client connected: cq5n-2I-01q9QMdcAAAT","timestamp":"2026-04-03T07:55:15.288Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:55:32.525Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:55:32.586Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:55:37.280Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:55:37.328Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:55:47.722Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:55:47.722Z"}
+{"level":"info","message":"Client connected: xvIMQGHR6pja0hQbAAAB","timestamp":"2026-04-03T07:55:48.053Z"}
+{"level":"info","message":"Client connected: O17ctt2QDIItfW5sAAAD","timestamp":"2026-04-03T07:55:48.707Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:56:17.465Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:56:21.355Z"}
+{"level":"info","message":"Client disconnected: O17ctt2QDIItfW5sAAAD","timestamp":"2026-04-03T07:56:21.823Z"}
+{"level":"info","message":"Client connected: 6PEzxurWwXsthGXqAAAF","timestamp":"2026-04-03T07:56:23.006Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:56:23.208Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:56:31.541Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:56:34.235Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T07:56:38.432Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:57:50.479Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:57:50.479Z"}
+{"level":"info","message":"Client connected: c70Dg6UC6k95-SvzAAAB","timestamp":"2026-04-03T07:57:50.735Z"}
+{"level":"info","message":"Client connected: XXBPeRwt_oBCfqtaAAAD","timestamp":"2026-04-03T07:57:51.721Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T07:57:57.961Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T07:57:57.961Z"}
+{"level":"info","message":"Client connected: IusPqPZgUca0n6q6AAAB","timestamp":"2026-04-03T07:57:58.291Z"}
+{"level":"info","message":"Client connected: lb8FhzsM9Igvl3KZAAAD","timestamp":"2026-04-03T07:57:58.702Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:08.299Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:08.509Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:08.550Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:08.553Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:17.072Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:17.116Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:17.141Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:17.168Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:26.670Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:26.704Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:27.189Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:27.260Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:31.533Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:31.534Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:31.716Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:31.717Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:38.275Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:38.286Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:38.422Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:38.423Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:43.966Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:43.967Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:44.007Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:44.010Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:57.266Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:57.270Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:57.359Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:58:57.360Z"}
+{"level":"info","message":"Client disconnected: IusPqPZgUca0n6q6AAAB","timestamp":"2026-04-03T07:59:45.447Z"}
+{"level":"info","message":"Client disconnected: lb8FhzsM9Igvl3KZAAAD","timestamp":"2026-04-03T07:59:45.580Z"}
+{"level":"info","message":"Client connected: tW4iTNBrwUApZtTlAAAF","timestamp":"2026-04-03T07:59:53.479Z"}
+{"level":"info","message":"Client disconnected: tW4iTNBrwUApZtTlAAAF","timestamp":"2026-04-03T07:59:54.115Z"}
+{"level":"info","message":"Client connected: lq7JUFyRzS2AXFwgAAAH","timestamp":"2026-04-03T07:59:56.011Z"}
+{"level":"info","message":"Client disconnected: lq7JUFyRzS2AXFwgAAAH","timestamp":"2026-04-03T07:59:57.183Z"}
+{"level":"info","message":"Client connected: mOnJ50VYojwZs__rAAAJ","timestamp":"2026-04-03T07:59:59.607Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T07:59:59.833Z"}
+{"level":"info","message":"Client connected: tGq3A6HoN5lz2i14AAAL","timestamp":"2026-04-03T08:00:00.060Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:00:37.724Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:00:40.510Z"}
+{"level":"info","message":"Client disconnected: mOnJ50VYojwZs__rAAAJ","timestamp":"2026-04-03T08:00:40.674Z"}
+{"level":"info","message":"Client connected: wc0gwf3awyPBDZCNAAAN","timestamp":"2026-04-03T08:00:41.166Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:00:41.354Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:00:42.445Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:00:45.808Z"}
+{"level":"info","message":"Client disconnected: wc0gwf3awyPBDZCNAAAN","timestamp":"2026-04-03T08:00:47.757Z"}
+{"level":"info","message":"Client connected: AkdjtZkQFQ6pvQ7QAAAR","timestamp":"2026-04-03T08:01:05.406Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:01:05.471Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:01:07.796Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:01:12.287Z"}
+{"level":"info","message":"Client disconnected: AkdjtZkQFQ6pvQ7QAAAR","timestamp":"2026-04-03T08:01:13.895Z"}
+{"level":"info","message":"Client connected: iuNm4oNEWdgRduuFAAAV","timestamp":"2026-04-03T08:01:31.661Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:01:31.866Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:01:33.549Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:123","timestamp":"2026-04-03T08:02:48.881Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:02:49.362Z"}
+{"level":"info","message":"Client disconnected: tGq3A6HoN5lz2i14AAAL","timestamp":"2026-04-03T08:02:49.753Z"}
+{"level":"info","message":"Client connected: mB5sZYvsS0uC3cCcAAAX","timestamp":"2026-04-03T08:02:50.636Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:02:50.735Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:111","timestamp":"2026-04-03T08:02:51.505Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:02:53.779Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:03:25.474Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:111","timestamp":"2026-04-03T08:03:26.727Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:03:28.284Z"}
+{"level":"info","message":"Client disconnected: mB5sZYvsS0uC3cCcAAAX","timestamp":"2026-04-03T08:03:29.811Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:04:44.312Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:04:44.312Z"}
+{"level":"info","message":"Client disconnected: iuNm4oNEWdgRduuFAAAV","timestamp":"2026-04-03T08:04:44.977Z"}
+{"level":"info","message":"Client connected: 6TfETMoCHXU57qptAAAb","timestamp":"2026-04-03T08:04:47.047Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:04:47.458Z"}
+{"level":"info","message":"Client connected: CqjrPvZZX4uqSmBFAAAd","timestamp":"2026-04-03T08:04:48.136Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:05:16.965Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:05:17.058Z"}
+{"level":"info","message":"Client disconnected: CqjrPvZZX4uqSmBFAAAd","timestamp":"2026-04-03T08:05:17.599Z"}
+{"level":"info","message":"Client connected: WJBJjMR2EJiCMtm7AAAf","timestamp":"2026-04-03T08:05:18.447Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:05:18.686Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:11","timestamp":"2026-04-03T08:05:19.651Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:05:21.597Z"}
+{"level":"info","message":"Client disconnected: WJBJjMR2EJiCMtm7AAAf","timestamp":"2026-04-03T08:05:23.226Z"}
+{"level":"info","message":"Client connected: 0lKJAJhz4qvH_I1gAAAj","timestamp":"2026-04-03T08:05:28.532Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:05:29.573Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:22","timestamp":"2026-04-03T08:05:31.440Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:11","timestamp":"2026-04-03T08:05:32.219Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:37.412Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:37.414Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:37.415Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:37.415Z"}
+{"level":"info","message":"Client disconnected: 0lKJAJhz4qvH_I1gAAAj","timestamp":"2026-04-03T08:06:38.004Z"}
+{"level":"info","message":"Client disconnected: 6TfETMoCHXU57qptAAAb","timestamp":"2026-04-03T08:06:38.004Z"}
+{"level":"info","message":"Client connected: fmHJhQQivn2R71yIAAAm","timestamp":"2026-04-03T08:06:39.733Z"}
+{"level":"info","message":"Client connected: -kkR4tGMKNbtoCqzAAAn","timestamp":"2026-04-03T08:06:39.736Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:40.160Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:40.322Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:06:59.031Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:06:59.559Z"}
+{"level":"info","message":"Client disconnected: -kkR4tGMKNbtoCqzAAAn","timestamp":"2026-04-03T08:06:59.720Z"}
+{"level":"info","message":"Client connected: ZsI3H-xy4HcSyb6LAAAp","timestamp":"2026-04-03T08:07:00.369Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:00.444Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:07:02.144Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:14.031Z"}
+{"level":"info","message":"Client disconnected: ZsI3H-xy4HcSyb6LAAAp","timestamp":"2026-04-03T08:07:14.186Z"}
+{"level":"info","message":"Client connected: kkzuj2YM4OUyv5asAAAr","timestamp":"2026-04-03T08:07:14.779Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:15.094Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:16.038Z"}
+{"level":"info","message":"Client disconnected: kkzuj2YM4OUyv5asAAAr","timestamp":"2026-04-03T08:07:16.107Z"}
+{"level":"info","message":"Client connected: LQIT5BQt8T_Zb8oHAAAt","timestamp":"2026-04-03T08:07:16.555Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:16.732Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:21.711Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:42.296Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:dev12","timestamp":"2026-04-03T08:07:44.688Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:46.531Z"}
+{"level":"info","message":"Client disconnected: LQIT5BQt8T_Zb8oHAAAt","timestamp":"2026-04-03T08:07:47.998Z"}
+{"level":"info","message":"Client connected: QQ0Qa4JELViXljHXAAAx","timestamp":"2026-04-03T08:07:52.938Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:07:54.060Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:admin","timestamp":"2026-04-03T08:07:55.893Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:08:00.765Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:08:05.433Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:i'm admin","timestamp":"2026-04-03T08:08:08.242Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:08:12.389Z"}
+{"level":"info","message":"Client disconnected: QQ0Qa4JELViXljHXAAAx","timestamp":"2026-04-03T08:08:13.944Z"}
+{"level":"info","message":"Client connected: q-zHhk_2ImVFuuR3AAA1","timestamp":"2026-04-03T08:08:17.563Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:08:18.468Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:i'm dev12","timestamp":"2026-04-03T08:08:21.319Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:20.135Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:20.146Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:20.232Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:20.249Z"}
+{"level":"info","message":"Client disconnected: fmHJhQQivn2R71yIAAAm","timestamp":"2026-04-03T08:09:27.905Z"}
+{"level":"info","message":"Client disconnected: q-zHhk_2ImVFuuR3AAA1","timestamp":"2026-04-03T08:09:27.942Z"}
+{"level":"info","message":"Client connected: f3G3S8Xy1eqOiVXzAAA3","timestamp":"2026-04-03T08:09:34.633Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:34.643Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:34.713Z"}
+{"level":"info","message":"Client connected: i7CnGG-FoJlUrB8ZAAA5","timestamp":"2026-04-03T08:09:34.717Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:34.734Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:34.869Z"}
+{"level":"info","message":"Client disconnected: f3G3S8Xy1eqOiVXzAAA3","timestamp":"2026-04-03T08:09:35.470Z"}
+{"level":"info","message":"Client disconnected: i7CnGG-FoJlUrB8ZAAA5","timestamp":"2026-04-03T08:09:35.477Z"}
+{"level":"info","message":"Client connected: UDvVoauF_eHA5zGoAAA7","timestamp":"2026-04-03T08:09:37.358Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:37.764Z"}
+{"level":"info","message":"Client connected: y9pBF6zL_HyQT7O2AAA9","timestamp":"2026-04-03T08:09:38.117Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:39.242Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:39.285Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:47.146Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:47.201Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:51.426Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:09:51.486Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T08:10:00.744Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T08:10:00.744Z"}
+{"level":"info","message":"Client connected: RPXOReiM50N7kEGGAAAB","timestamp":"2026-04-03T08:10:01.289Z"}
+{"level":"info","message":"Client connected: XMY43rgV4L60_t1EAAAD","timestamp":"2026-04-03T08:10:01.708Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-03T08:10:07.001Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-03T08:10:07.001Z"}
+{"level":"info","message":"Client connected: BoVuJQ57Mcg-icfrAAAB","timestamp":"2026-04-03T08:10:07.720Z"}
+{"level":"info","message":"Client connected: Kkpn9nAIk0uyLcdHAAAD","timestamp":"2026-04-03T08:10:07.901Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:23.445Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:23.811Z"}
+{"level":"info","message":"Client disconnected: BoVuJQ57Mcg-icfrAAAB","timestamp":"2026-04-03T08:10:24.436Z"}
+{"level":"info","message":"Client connected: JaduLSwpOkWVVWQIAAAF","timestamp":"2026-04-03T08:10:25.581Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:25.673Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅎ","timestamp":"2026-04-03T08:10:27.571Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:31.343Z"}
+{"level":"info","message":"Client disconnected: Kkpn9nAIk0uyLcdHAAAD","timestamp":"2026-04-03T08:10:31.522Z"}
+{"level":"info","message":"Client connected: ArdfGW955ym7epRSAAAH","timestamp":"2026-04-03T08:10:32.279Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:32.335Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:끊ㄱ?","timestamp":"2026-04-03T08:10:35.783Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㄴㄴ","timestamp":"2026-04-03T08:10:38.388Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅋㅋ","timestamp":"2026-04-03T08:10:40.980Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:재미","timestamp":"2026-04-03T08:10:43.199Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:45.384Z"}
+{"level":"info","message":"Client disconnected: ArdfGW955ym7epRSAAAH","timestamp":"2026-04-03T08:10:45.424Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:47.622Z"}
+{"level":"info","message":"Client disconnected: JaduLSwpOkWVVWQIAAAF","timestamp":"2026-04-03T08:10:47.722Z"}
+{"level":"info","message":"Client connected: TCusY1IRejm9JQLGAAAJ","timestamp":"2026-04-03T08:10:48.207Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:48.443Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-03T08:10:49.432Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-03T08:10:52.155Z"}

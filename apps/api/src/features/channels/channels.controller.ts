@@ -29,12 +29,40 @@ import {
   JoinChannelDto,
   JoinChannelResponseDto,
 } from '@/features/channels/dto';
+import { GetChannelMeResponseDto } from '@/features/channels/dto/get-channel-me.dto';
 
 @Controller('channels')
 @ApiTags('channels')
 @ApiExtraModels(GetChannelsQueryDto)
 export class ChannelsController {
   constructor(private readonly channelsService: ChannelsService) {}
+
+  @Get(':channelId/me')
+  @ApiOperation({
+    summary: '속한 채널의 내 정보 조회',
+  })
+  @ApiResponse({
+    status: 200,
+    description: '조회 성공',
+    type: GetChannelMeResponseDto,
+  })
+  async getChannelMe(
+    @Param(
+      'channelId',
+      new ParseUUIDPipe({
+        exceptionFactory: () =>
+          new NotFoundException({ message: '채널을 찾을 수 없습니다' }),
+      }),
+    )
+    channelId: string,
+    @UserId() userId: string,
+  ) {
+    const result = await this.channelsService.getChannelMember(
+      channelId,
+      userId,
+    );
+    return new ApiResponseDto(result);
+  }
 
   @OptionalAuth()
   @Get('')

@@ -3,6 +3,7 @@ import {
   CreateChannelResponseDto,
   CreateDmDto,
   CreateDmResponseDto,
+  GetChannelMeResponseDto,
   GetChannelResponseDto,
   GetChannelsQueryDto,
   GetChannelsResponseDto,
@@ -49,6 +50,16 @@ export const channelsApi = {
     }
     return api.get(`/channels/${channelId}`);
   },
+
+  getChannelMe: (
+    channelId: string,
+    cookie?: string,
+  ): Promise<GetChannelMeResponseDto> => {
+    if (cookie) {
+      return serverApi.get(`/channels/${channelId}/me`, cookie);
+    }
+    return api.get(`/channels/${channelId}/me`);
+  },
 };
 
 export const channelKeys = {
@@ -57,4 +68,6 @@ export const channelKeys = {
   list: (query: GetChannelsQueryDto) =>
     ['channels', 'list', 'query', query] as const,
   detail: (channelId: string) => ['channels', 'detail', channelId] as const,
+  me: (channelId: string) =>
+    ['channels', 'me', 'channelId', channelId] as const,
 };

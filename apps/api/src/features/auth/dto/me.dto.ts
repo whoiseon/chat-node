@@ -24,6 +24,9 @@ class MeUser {
     example: '2026-03-24T12:00:00.000Z',
   })
   lastLoginAt!: string | null;
+
+  @ApiPropertyOptional({ type: 'string', nullable: true, example: null })
+  profileImageUrl!: string | null;
 }
 
 class MePayload {

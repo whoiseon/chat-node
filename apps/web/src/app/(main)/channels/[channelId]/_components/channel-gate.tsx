@@ -27,6 +27,7 @@ import { ChatMessageEditor } from '@/app/(main)/channels/[channelId]/_components
 import { useChannelId } from '@/app/(main)/channels/[channelId]/_context/channel-id.context';
 import { ChannelSearchProvider } from '@/app/(main)/channels/[channelId]/_context/channel-search.context';
 import { useChannel } from '@/app/(main)/channels/[channelId]/_hooks/use-channel';
+import { useChannelSocketEffect } from '@/app/(main)/channels/[channelId]/_hooks/use-channel-socket-effect';
 import { ManagerViewer } from '@/components/system/manager-viewer';
 import { TopBar } from '@/components/system/top-bar';
 import { useMe } from '@/lib/hooks/use-me';
@@ -35,7 +36,6 @@ export function ChannelGate() {
   const { channelId } = useChannelId();
   const { channel, isLoading } = useChannel(channelId);
   const { isAuthenticated } = useMe();
-
   if (isLoading) return null;
 
   if (!channel) {
@@ -49,6 +49,14 @@ export function ChannelGate() {
   if (!channel.joinedAt) {
     return <ChannelJoinForm channelId={channelId} />;
   }
+
+  return <ChannelRoom />;
+}
+
+function ChannelRoom() {
+  const { channelId } = useChannelId();
+
+  useChannelSocketEffect(channelId);
 
   return (
     <div className="flex flex-col flex-1">
@@ -118,7 +126,9 @@ function ChannelJoinForm({ channelId }: { channelId: string }) {
         password: data.password,
       },
       {
-        onSuccess: () => router.refresh(),
+        onSuccess: () => {
+          router.refresh();
+        },
       },
     );
   });

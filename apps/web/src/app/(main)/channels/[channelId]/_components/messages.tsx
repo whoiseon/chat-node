@@ -32,7 +32,7 @@ export function Message({
 export function DefaultMessage({ message }: MessageProps) {
   const { user } = useMe();
 
-  const isMe = message.sender.id === user.id;
+  const isMe = message.sender.id === user?.id;
 
   return (
     <Message
@@ -40,8 +40,8 @@ export function DefaultMessage({ message }: MessageProps) {
     >
       {!isMe && (
         <UserProfile
-          profileUrl={user.profileImage || ''}
-          username={user.username}
+          profileUrl={message?.sender.profileImage || ''}
+          username={message?.sender.username || ''}
         />
       )}
       <div className="flex flex-col gap-y-1 flex-1">

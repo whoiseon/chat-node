@@ -32,6 +32,7 @@ export const userTable = pgTable(
       mode: 'date',
     }).$onUpdate(() => new Date()),
     lastLoginAt: timestamp('last_login_at', { precision: 6, mode: 'date' }),
+    profileImageUrl: varchar('profile_image_url', { length: 512 }),
   },
   (table) => [uniqueIndex('user_username_idx').on(table.username)],
 );

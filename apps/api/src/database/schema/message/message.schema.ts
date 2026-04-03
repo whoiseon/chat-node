@@ -35,6 +35,10 @@ export const messageTable = pgTable(
     })
       .notNull()
       .defaultNow(),
+    deletedAt: timestamp('deleted_at', {
+      precision: 6,
+      mode: 'date',
+    }),
   },
   (table) => [
     index('message_channel_id_idx').on(table.channelId),
