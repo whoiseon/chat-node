@@ -18,7 +18,7 @@ export class GetChannelsQueryDto {
     example: 'e6f436e9-7f4f-4b52-95e3-ed43c07ad97b',
   })
   @IsOptional()
-  @IsUUID()
+  @IsString()
   cursor?: string;
 
   @ApiPropertyOptional({

@@ -9,8 +9,9 @@ import { PropsWithChildren } from 'react';
 import {
   ChatMessage,
   ChatMessageType,
-  ChatSender,
 } from '@/app/(main)/channels/[channelId]/_components/chat';
+import { formatMessageDate } from '@/lib/date';
+import { useMe } from '@/lib/hooks/use-me';
 
 interface MessageProps {
   className?: string;
@@ -29,14 +30,9 @@ export function Message({
 }
 
 export function DefaultMessage({ message }: MessageProps) {
-  const mockCurrentSender: ChatSender = {
-    id: 'user_me',
-    username: 'me',
-    displayName: '나',
-    profileImage: '',
-  };
+  const { user } = useMe();
 
-  const isMe = message.sender.id === mockCurrentSender.id;
+  const isMe = message.sender.id === user.id;
 
   return (
     <Message
@@ -44,8 +40,8 @@ export function DefaultMessage({ message }: MessageProps) {
     >
       {!isMe && (
         <UserProfile
-          profileUrl={mockCurrentSender.profileImage || ''}
-          username={mockCurrentSender.username}
+          profileUrl={user.profileImage || ''}
+          username={user.username}
         />
       )}
       <div className="flex flex-col gap-y-1 flex-1">
@@ -139,7 +135,7 @@ function MessageBubble({
       >
         <span className="text-yellow-500 dark:text-yellow-400">1</span>
         <span className="text-muted-foreground/60">
-          {format(createdAt, 'mm:ss')}
+          {formatMessageDate(createdAt)}
         </span>
       </div>
     </div>

@@ -8,9 +8,10 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { channelReadStatusTable } from '../chat/channel-read-status.schema';
-import { messageTable } from '../chat/message.schema';
+import { messageTable } from '@/database/schema/message/message.schema';
+
 import { channelMemberTable } from './channel-member.schema';
+import { channelReadStatusTable } from './channel-read-status.schema';
 
 export const channelTypeEnum = pgEnum('channel_type', ['CHANNEL', 'DM']);
 

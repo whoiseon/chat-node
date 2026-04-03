@@ -2,6 +2,7 @@
 
 import {
   Home,
+  MessageSquareX,
   MessageSquareQuote,
   MessageSquarePlus,
   TrendingUp,
@@ -43,6 +44,7 @@ import {
 export const Icons = {
   LogoIcon: MessageSquareQuote,
   MessagePlus: MessageSquarePlus,
+  MessageSquareX,
   Home,
   TrendingUp,
   More: EllipsisVertical,

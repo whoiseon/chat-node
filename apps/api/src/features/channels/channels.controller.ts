@@ -17,7 +17,7 @@ import {
 
 import { OptionalAuth, UserId } from '@/common/decorators';
 import { ApiResponseDto, NullPayloadResponseDto } from '@/common/dto';
-import { ChannelService } from '@/features/channel/channel.service';
+import { ChannelsService } from '@/features/channels/channels.service';
 import {
   CreateChannelDto,
   CreateChannelResponseDto,
@@ -28,13 +28,13 @@ import {
   GetChannelsResponseDto,
   JoinChannelDto,
   JoinChannelResponseDto,
-} from '@/features/channel/dto';
+} from '@/features/channels/dto';
 
-@Controller('channel')
-@ApiTags('channel')
+@Controller('channels')
+@ApiTags('channels')
 @ApiExtraModels(GetChannelsQueryDto)
-export class ChannelController {
-  constructor(private readonly channelService: ChannelService) {}
+export class ChannelsController {
+  constructor(private readonly channelsService: ChannelsService) {}
 
   @OptionalAuth()
   @Get('')
@@ -50,7 +50,7 @@ export class ChannelController {
     @Query() query: GetChannelsQueryDto,
     @UserId() userId: string | undefined,
   ) {
-    const result = await this.channelService.getChannels(query, userId);
+    const result = await this.channelsService.getChannels(query, userId);
     return new ApiResponseDto(result);
   }
 
@@ -70,10 +70,17 @@ export class ChannelController {
     type: NullPayloadResponseDto,
   })
   async getChannel(
-    @Param('channelId', new ParseUUIDPipe({ exceptionFactory: () => new NotFoundException({ message: '채널을 찾을 수 없습니다' }) })) channelId: string,
+    @Param(
+      'channelId',
+      new ParseUUIDPipe({
+        exceptionFactory: () =>
+          new NotFoundException({ message: '채널을 찾을 수 없습니다' }),
+      }),
+    )
+    channelId: string,
     @UserId() userId: string | undefined,
   ) {
-    const result = await this.channelService.getChannel(channelId, userId);
+    const result = await this.channelsService.getChannel(channelId, userId);
     return new ApiResponseDto(result);
   }
 
@@ -109,11 +116,18 @@ export class ChannelController {
     type: NullPayloadResponseDto,
   })
   async joinChannel(
-    @Param('channelId', new ParseUUIDPipe({ exceptionFactory: () => new NotFoundException({ message: '채널을 찾을 수 없습니다' }) })) channelId: string,
+    @Param(
+      'channelId',
+      new ParseUUIDPipe({
+        exceptionFactory: () =>
+          new NotFoundException({ message: '채널을 찾을 수 없습니다' }),
+      }),
+    )
+    channelId: string,
     @Body() body: JoinChannelDto,
     @UserId() userId: string,
   ) {
-    const result = await this.channelService.joinChannel(
+    const result = await this.channelsService.joinChannel(
       channelId,
       userId,
       body,
@@ -139,7 +153,7 @@ export class ChannelController {
     @Body() body: CreateChannelDto,
     @UserId() userId: string,
   ) {
-    const result = await this.channelService.createChannel(body, userId);
+    const result = await this.channelsService.createChannel(body, userId);
     return new ApiResponseDto(result);
   }
 
@@ -169,7 +183,7 @@ export class ChannelController {
     type: NullPayloadResponseDto,
   })
   async createDm(@Body() body: CreateDmDto, @UserId() userId: string) {
-    const result = await this.channelService.createDm(body, userId);
+    const result = await this.channelsService.createDm(body, userId);
     return new ApiResponseDto(result);
   }
 }

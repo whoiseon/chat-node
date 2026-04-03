@@ -12,8 +12,9 @@ import { validateEnv } from '@/common/utils';
 import { DatabaseModule } from '@/database';
 
 import { AuthModule } from './features/auth/auth.module';
-import { ChannelModule } from './features/channel/channel.module';
+import { ChannelsModule } from './features/channels/channels.module';
 import { HealthModule } from './features/health/health.module';
+import { MessagesModule } from './features/messages/messages.module';
 
 @Module({
   providers: [
@@ -44,7 +45,8 @@ import { HealthModule } from './features/health/health.module';
     CacheModule,
     AuthModule,
     HealthModule,
-    ChannelModule,
+    ChannelsModule,
+    MessagesModule,
   ],
 })
 export class AppModule {}

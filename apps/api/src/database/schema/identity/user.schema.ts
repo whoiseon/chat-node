@@ -9,8 +9,8 @@ import {
 } from 'drizzle-orm/pg-core';
 
 import { channelMemberTable } from '../channel/channel-member.schema';
-import { channelReadStatusTable } from '../chat/channel-read-status.schema';
-import { messageTable } from '../chat/message.schema';
+import { channelReadStatusTable } from '../channel/channel-read-status.schema';
+import { messageTable } from '@/database/schema/message/message.schema';
 
 export const userRoleEnum = pgEnum('user_role', ['USER', 'ADMIN']);
 

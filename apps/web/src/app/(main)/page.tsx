@@ -6,7 +6,7 @@ import TopBarRight from '@/app/(main)/_components/top-bar-right';
 import { getCookieString } from '@/app/_actions/get-cookie-string';
 import { Footer } from '@/components/layout/footer';
 import { TopBar } from '@/components/system/top-bar';
-import { channelApi, channelKeys } from '@/lib/api/services/channel.api';
+import { channelsApi, channelKeys } from '@/lib/api/services/channels.api';
 import getQueryClient from '@/lib/get-query-client';
 
 type Props = {
@@ -23,7 +23,7 @@ export default async function Home({ searchParams }: Props) {
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: channelKeys.list(query),
-    queryFn: () => channelApi.getChannels(query, cookieString),
+    queryFn: () => channelsApi.getChannels(query, cookieString),
     initialPageParam: undefined,
   });
 

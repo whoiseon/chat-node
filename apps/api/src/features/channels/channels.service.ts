@@ -38,11 +38,11 @@ import {
   CreateDmPayload,
   GetChannelsQueryDto,
   JoinChannelDto,
-} from '@/features/channel/dto';
+} from '@/features/channels/dto';
 
 @Injectable()
-export class ChannelService {
-  private readonly logger = new Logger(ChannelService.name);
+export class ChannelsService {
+  private readonly logger = new Logger(ChannelsService.name);
 
   constructor(@Inject(DB_TOKEN) private readonly db: AppDatabase) {}
 

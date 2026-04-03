@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelControllerCreateChannelData, ChannelControllerCreateChannelErrors, ChannelControllerCreateChannelResponses, ChannelControllerCreateDmData, ChannelControllerCreateDmErrors, ChannelControllerCreateDmResponses, ChannelControllerGetChannelData, ChannelControllerGetChannelErrors, ChannelControllerGetChannelResponses, ChannelControllerGetChannelsData, ChannelControllerGetChannelsResponses, ChannelControllerJoinChannelData, ChannelControllerJoinChannelErrors, ChannelControllerJoinChannelResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses } from './types.gen';
+import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelsControllerCreateChannelData, ChannelsControllerCreateChannelErrors, ChannelsControllerCreateChannelResponses, ChannelsControllerCreateDmData, ChannelsControllerCreateDmErrors, ChannelsControllerCreateDmResponses, ChannelsControllerGetChannelData, ChannelsControllerGetChannelErrors, ChannelsControllerGetChannelResponses, ChannelsControllerGetChannelsData, ChannelsControllerGetChannelsResponses, ChannelsControllerJoinChannelData, ChannelsControllerJoinChannelErrors, ChannelsControllerJoinChannelResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses, MessagesControllerGetMessagesData, MessagesControllerGetMessagesResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -91,13 +91,13 @@ export const healthControllerCheck = <ThrowOnError extends boolean = false>(opti
 /**
  * 채널 목록 조회
  */
-export const channelControllerGetChannels = <ThrowOnError extends boolean = false>(options?: Options<ChannelControllerGetChannelsData, ThrowOnError>) => (options?.client ?? client).get<ChannelControllerGetChannelsResponses, unknown, ThrowOnError>({ url: '/api/v1/channel', ...options });
+export const channelsControllerGetChannels = <ThrowOnError extends boolean = false>(options?: Options<ChannelsControllerGetChannelsData, ThrowOnError>) => (options?.client ?? client).get<ChannelsControllerGetChannelsResponses, unknown, ThrowOnError>({ url: '/api/v1/channels', ...options });
 
 /**
  * 채널 생성
  */
-export const channelControllerCreateChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerCreateChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerCreateChannelResponses, ChannelControllerCreateChannelErrors, ThrowOnError>({
-    url: '/api/v1/channel',
+export const channelsControllerCreateChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelsControllerCreateChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelsControllerCreateChannelResponses, ChannelsControllerCreateChannelErrors, ThrowOnError>({
+    url: '/api/v1/channels',
     ...options,
     headers: {
         'Content-Type': 'application/json',
@@ -108,15 +108,15 @@ export const channelControllerCreateChannel = <ThrowOnError extends boolean = fa
 /**
  * 채널 상세 조회
  */
-export const channelControllerGetChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerGetChannelData, ThrowOnError>) => (options.client ?? client).get<ChannelControllerGetChannelResponses, ChannelControllerGetChannelErrors, ThrowOnError>({ url: '/api/v1/channel/{channelId}', ...options });
+export const channelsControllerGetChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelsControllerGetChannelData, ThrowOnError>) => (options.client ?? client).get<ChannelsControllerGetChannelResponses, ChannelsControllerGetChannelErrors, ThrowOnError>({ url: '/api/v1/channels/{channelId}', ...options });
 
 /**
  * 채널 입장
  *
  * 채널에 입장합니다. 닉네임 미입력 시 아이디가 닉네임으로 설정됩니다. 비밀방인 경우 비밀번호 필수
  */
-export const channelControllerJoinChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerJoinChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerJoinChannelResponses, ChannelControllerJoinChannelErrors, ThrowOnError>({
-    url: '/api/v1/channel/{channelId}/join',
+export const channelsControllerJoinChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelsControllerJoinChannelData, ThrowOnError>) => (options.client ?? client).post<ChannelsControllerJoinChannelResponses, ChannelsControllerJoinChannelErrors, ThrowOnError>({
+    url: '/api/v1/channels/{channelId}/join',
     ...options,
     headers: {
         'Content-Type': 'application/json',
@@ -129,11 +129,16 @@ export const channelControllerJoinChannel = <ThrowOnError extends boolean = fals
  *
  * 대상 유저와 1:1 DM 채널을 생성합니다
  */
-export const channelControllerCreateDm = <ThrowOnError extends boolean = false>(options: Options<ChannelControllerCreateDmData, ThrowOnError>) => (options.client ?? client).post<ChannelControllerCreateDmResponses, ChannelControllerCreateDmErrors, ThrowOnError>({
-    url: '/api/v1/channel/dm',
+export const channelsControllerCreateDm = <ThrowOnError extends boolean = false>(options: Options<ChannelsControllerCreateDmData, ThrowOnError>) => (options.client ?? client).post<ChannelsControllerCreateDmResponses, ChannelsControllerCreateDmErrors, ThrowOnError>({
+    url: '/api/v1/channels/dm',
     ...options,
     headers: {
         'Content-Type': 'application/json',
         ...options.headers
     }
 });
+
+/**
+ * 대화 내역 조회
+ */
+export const messagesControllerGetMessages = <ThrowOnError extends boolean = false>(options: Options<MessagesControllerGetMessagesData, ThrowOnError>) => (options.client ?? client).get<MessagesControllerGetMessagesResponses, unknown, ThrowOnError>({ url: '/api/v1/messages', ...options });

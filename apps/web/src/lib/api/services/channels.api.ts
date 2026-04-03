@@ -12,22 +12,22 @@ import {
 
 import { api, serverApi } from '@/lib/api';
 
-export const channelApi = {
+export const channelsApi = {
   createChannel: (
     params: CreateChannelDto,
   ): Promise<CreateChannelResponseDto> => {
-    return api.post('/channel', params);
+    return api.post('/channels', params);
   },
 
   createDm: (params: CreateDmDto): Promise<CreateDmResponseDto> => {
-    return api.post('/channel/dm', params);
+    return api.post('/channels/dm', params);
   },
 
   joinChannel: (
     params: JoinChannelDto & { channelId: string },
   ): Promise<JoinChannelResponseDto> => {
     const { channelId, ...rest } = params;
-    return api.post(`/channel/${channelId}/join`, rest);
+    return api.post(`/channels/${channelId}/join`, rest);
   },
 
   getChannels: (
@@ -37,7 +37,7 @@ export const channelApi = {
     if (cookie) {
       return serverApi.get('/channel', cookie, { params: query });
     }
-    return api.get('/channel', { params: query });
+    return api.get('/channels', { params: query });
   },
 
   getChannel: (
@@ -45,16 +45,16 @@ export const channelApi = {
     cookie?: string,
   ): Promise<GetChannelResponseDto> => {
     if (cookie) {
-      return serverApi.get(`/channel/${channelId}`, cookie);
+      return serverApi.get(`/channels/${channelId}`, cookie);
     }
-    return api.get(`/channel/${channelId}`);
+    return api.get(`/channels/${channelId}`);
   },
 };
 
 export const channelKeys = {
-  all: ['channel'] as const,
-  listAll: ['channel', 'list'] as const,
+  all: ['channels'] as const,
+  listAll: ['channels', 'list'] as const,
   list: (query: GetChannelsQueryDto) =>
-    ['channel', 'list', 'query', query] as const,
-  detail: (channelId: string) => ['channel', 'detail', channelId] as const,
+    ['channels', 'list', 'query', query] as const,
+  detail: (channelId: string) => ['channels', 'detail', channelId] as const,
 };

@@ -155,7 +155,7 @@ export function ChannelList({ isMyTab, search }: ChannelListProps) {
   if (isLoading) return <ChannelCardSkeleton />;
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col">
       {channels.map((channel) => (
         <ChannelCard key={channel.id} channel={channel} isMyTab={isMyTab} />
       ))}
@@ -185,7 +185,7 @@ function ChannelCard({ channel, isMyTab }: ChannelCardProps) {
 
   return (
     <ChannelJoinButton channel={channel}>
-      <div className="cursor-pointer p-4 flex items-center gap-4 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-xl transition-colors">
+      <div className="cursor-pointer px-4 py-3 flex items-center gap-4 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors">
         <div
           className={cn(
             'relative z-0 flex items-center justify-center overflow-hidden aspect-square rounded-xl w-14',
@@ -216,8 +216,8 @@ function ChannelCard({ channel, isMyTab }: ChannelCardProps) {
                 {isMyTab && <ChannelMoreDropdown />}
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <p className="text-sm text-muted-foreground truncate flex-1">
+            <div className="flex items-center gap-4 max-w-[80%]">
+              <p className="text-sm text-muted-foreground line-clamp-2 flex-1 wrap-break-word">
                 {isMyTab
                   ? channel.lastMessage
                     ? channel.lastMessage.content
@@ -242,9 +242,9 @@ function ChannelCard({ channel, isMyTab }: ChannelCardProps) {
 
 function ChannelCardSkeleton() {
   return (
-    <div className="flex flex-col gap-y-8">
+    <div className="flex flex-col">
       {Array.from({ length: 10 }).map((_, i) => (
-        <div key={i} className="p-4 flex items-center gap-4 rounded-xl">
+        <div key={i} className="px-4 py-3 flex items-center gap-4 rounded-xl">
           <div
             className={cn(
               'relative z-0 flex items-center justify-center overflow-hidden aspect-square rounded-xl w-14',

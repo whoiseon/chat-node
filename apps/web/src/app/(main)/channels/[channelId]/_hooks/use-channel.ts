@@ -2,12 +2,12 @@
 
 import { useQuery } from '@tanstack/react-query';
 
-import { channelApi, channelKeys } from '@/lib/api/services/channel.api';
+import { channelsApi, channelKeys } from '@/lib/api/services/channels.api';
 
 export function useChannel(channelId: string) {
   const { data, ...rest } = useQuery({
     queryKey: channelKeys.detail(channelId),
-    queryFn: () => channelApi.getChannel(channelId),
+    queryFn: () => channelsApi.getChannel(channelId),
     meta: { skipGlobalErrorHandler: true },
   });
 

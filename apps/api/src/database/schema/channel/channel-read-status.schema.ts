@@ -1,8 +1,15 @@
 import { relations } from 'drizzle-orm';
-import { index, pgTable, primaryKey, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  index,
+  pgTable,
+  primaryKey,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
 
-import { channelTable } from '../channel/channel.schema';
 import { userTable } from '../identity/user.schema';
+
+import { channelTable } from './channel.schema';
 
 export const channelReadStatusTable = pgTable(
   'channel_read_status',

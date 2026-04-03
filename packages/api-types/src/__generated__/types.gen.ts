@@ -264,6 +264,51 @@ export type CreateDmResponseDto = {
     payload: CreateDmPayload;
 };
 
+export type GetMessagesQueryDto = {
+    /**
+     * 채널 ID
+     */
+    channelId: string;
+    /**
+     * 마지막으로 조회한 메시지 ID (커서)
+     */
+    cursor?: string;
+};
+
+export type MessageSenderDto = {
+    userId: string;
+    displayName: string;
+};
+
+export type MessageItemDto = {
+    id: string;
+    type: 'message' | 'system' | 'notice';
+    content: string;
+    sender?: MessageSenderDto | null;
+    createdAt: string;
+};
+
+export type MessageGroupDto = {
+    /**
+     * 날짜 (YYYY-MM-DD)
+     */
+    date: string;
+    messages: Array<MessageItemDto>;
+};
+
+export type GetMessagesPayload = {
+    rows: Array<MessageGroupDto>;
+    /**
+     * 다음 페이지 커서 (null이면 마지막 페이지)
+     */
+    nextCursor?: string | null;
+};
+
+export type GetMessagesResponseDto = {
+    error?: ApiErrorDto | null;
+    payload: GetMessagesPayload;
+};
+
 export type AuthControllerCheckUsernameData = {
     body?: never;
     path?: never;
@@ -449,7 +494,7 @@ export type HealthControllerCheckResponses = {
 
 export type HealthControllerCheckResponse = HealthControllerCheckResponses[keyof HealthControllerCheckResponses];
 
-export type ChannelControllerGetChannelsData = {
+export type ChannelsControllerGetChannelsData = {
     body?: never;
     path?: never;
     query?: {
@@ -470,80 +515,80 @@ export type ChannelControllerGetChannelsData = {
          */
         search?: string;
     };
-    url: '/api/v1/channel';
+    url: '/api/v1/channels';
 };
 
-export type ChannelControllerGetChannelsResponses = {
+export type ChannelsControllerGetChannelsResponses = {
     /**
      * 조회 성공
      */
     200: GetChannelsResponseDto;
 };
 
-export type ChannelControllerGetChannelsResponse = ChannelControllerGetChannelsResponses[keyof ChannelControllerGetChannelsResponses];
+export type ChannelsControllerGetChannelsResponse = ChannelsControllerGetChannelsResponses[keyof ChannelsControllerGetChannelsResponses];
 
-export type ChannelControllerCreateChannelData = {
+export type ChannelsControllerCreateChannelData = {
     body: CreateChannelDto;
     path?: never;
     query?: never;
-    url: '/api/v1/channel';
+    url: '/api/v1/channels';
 };
 
-export type ChannelControllerCreateChannelErrors = {
+export type ChannelsControllerCreateChannelErrors = {
     /**
      * 잘못된 채널 정보
      */
     400: NullPayloadResponseDto;
 };
 
-export type ChannelControllerCreateChannelError = ChannelControllerCreateChannelErrors[keyof ChannelControllerCreateChannelErrors];
+export type ChannelsControllerCreateChannelError = ChannelsControllerCreateChannelErrors[keyof ChannelsControllerCreateChannelErrors];
 
-export type ChannelControllerCreateChannelResponses = {
+export type ChannelsControllerCreateChannelResponses = {
     /**
      * 채널 생성 성공
      */
     200: CreateChannelResponseDto;
 };
 
-export type ChannelControllerCreateChannelResponse = ChannelControllerCreateChannelResponses[keyof ChannelControllerCreateChannelResponses];
+export type ChannelsControllerCreateChannelResponse = ChannelsControllerCreateChannelResponses[keyof ChannelsControllerCreateChannelResponses];
 
-export type ChannelControllerGetChannelData = {
+export type ChannelsControllerGetChannelData = {
     body?: never;
     path: {
         channelId: string;
     };
     query?: never;
-    url: '/api/v1/channel/{channelId}';
+    url: '/api/v1/channels/{channelId}';
 };
 
-export type ChannelControllerGetChannelErrors = {
+export type ChannelsControllerGetChannelErrors = {
     /**
      * 채널을 찾을 수 없음
      */
     404: NullPayloadResponseDto;
 };
 
-export type ChannelControllerGetChannelError = ChannelControllerGetChannelErrors[keyof ChannelControllerGetChannelErrors];
+export type ChannelsControllerGetChannelError = ChannelsControllerGetChannelErrors[keyof ChannelsControllerGetChannelErrors];
 
-export type ChannelControllerGetChannelResponses = {
+export type ChannelsControllerGetChannelResponses = {
     /**
      * 조회 성공
      */
     200: GetChannelResponseDto;
 };
 
-export type ChannelControllerGetChannelResponse = ChannelControllerGetChannelResponses[keyof ChannelControllerGetChannelResponses];
+export type ChannelsControllerGetChannelResponse = ChannelsControllerGetChannelResponses[keyof ChannelsControllerGetChannelResponses];
 
-export type ChannelControllerJoinChannelData = {
+export type ChannelsControllerJoinChannelData = {
     body: JoinChannelDto;
     path: {
         channelId: string;
     };
     query?: never;
-    url: '/api/v1/channel/{channelId}/join';
+    url: '/api/v1/channels/{channelId}/join';
 };
 
-export type ChannelControllerJoinChannelErrors = {
+export type ChannelsControllerJoinChannelErrors = {
     /**
      * 비밀번호 미입력
      */
@@ -562,25 +607,25 @@ export type ChannelControllerJoinChannelErrors = {
     409: NullPayloadResponseDto;
 };
 
-export type ChannelControllerJoinChannelError = ChannelControllerJoinChannelErrors[keyof ChannelControllerJoinChannelErrors];
+export type ChannelsControllerJoinChannelError = ChannelsControllerJoinChannelErrors[keyof ChannelsControllerJoinChannelErrors];
 
-export type ChannelControllerJoinChannelResponses = {
+export type ChannelsControllerJoinChannelResponses = {
     /**
      * 입장 성공
      */
     200: JoinChannelResponseDto;
 };
 
-export type ChannelControllerJoinChannelResponse = ChannelControllerJoinChannelResponses[keyof ChannelControllerJoinChannelResponses];
+export type ChannelsControllerJoinChannelResponse = ChannelsControllerJoinChannelResponses[keyof ChannelsControllerJoinChannelResponses];
 
-export type ChannelControllerCreateDmData = {
+export type ChannelsControllerCreateDmData = {
     body: CreateDmDto;
     path?: never;
     query?: never;
-    url: '/api/v1/channel/dm';
+    url: '/api/v1/channels/dm';
 };
 
-export type ChannelControllerCreateDmErrors = {
+export type ChannelsControllerCreateDmErrors = {
     /**
      * 자기 자신과 DM 생성 불가
      */
@@ -595,13 +640,38 @@ export type ChannelControllerCreateDmErrors = {
     409: NullPayloadResponseDto;
 };
 
-export type ChannelControllerCreateDmError = ChannelControllerCreateDmErrors[keyof ChannelControllerCreateDmErrors];
+export type ChannelsControllerCreateDmError = ChannelsControllerCreateDmErrors[keyof ChannelsControllerCreateDmErrors];
 
-export type ChannelControllerCreateDmResponses = {
+export type ChannelsControllerCreateDmResponses = {
     /**
      * DM 생성 성공
      */
     200: CreateDmResponseDto;
 };
 
-export type ChannelControllerCreateDmResponse = ChannelControllerCreateDmResponses[keyof ChannelControllerCreateDmResponses];
+export type ChannelsControllerCreateDmResponse = ChannelsControllerCreateDmResponses[keyof ChannelsControllerCreateDmResponses];
+
+export type MessagesControllerGetMessagesData = {
+    body?: never;
+    path?: never;
+    query: {
+        /**
+         * 채널 ID
+         */
+        channelId: string;
+        /**
+         * 마지막으로 조회한 메시지 ID (커서)
+         */
+        cursor?: string;
+    };
+    url: '/api/v1/messages';
+};
+
+export type MessagesControllerGetMessagesResponses = {
+    /**
+     * 조회 성공
+     */
+    200: GetMessagesResponseDto;
+};
+
+export type MessagesControllerGetMessagesResponse = MessagesControllerGetMessagesResponses[keyof MessagesControllerGetMessagesResponses];
