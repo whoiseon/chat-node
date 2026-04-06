@@ -1,18 +1,16 @@
-import { useObservable } from '@legendapp/state/react';
+import { useValue } from '@legendapp/state/react';
 
 import { channelState } from './channel.state';
+import { NewMessage } from './channel.type';
 
-export function useChannelState() {
-  const channel = useObservable(channelState);
-  return {
-    searchMode: channel.searchMode.get(),
-  };
+export function useChannelNewMessage() {
+  return useValue(channelState).newMessage;
 }
 
 export function useChannelActions() {
   return {
-    setSearchMode: (payload: boolean) => {
-      channelState.searchMode.set(payload);
+    setNewMessage: (payload: NewMessage | null) => {
+      channelState.newMessage.set(payload);
     },
   };
 }

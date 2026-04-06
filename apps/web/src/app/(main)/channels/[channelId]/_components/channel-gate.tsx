@@ -14,6 +14,7 @@ import { RequiredLabelSymbol } from '@repo/ui/components/ui/required-label-symbo
 import { cn } from '@repo/ui/lib/utils';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useJoinChannelMutation } from '@/app/(main)/_hooks/use-join-channel-mutation';
@@ -55,15 +56,16 @@ export function ChannelGate() {
 
 function ChannelRoom() {
   const { channelId } = useChannelId();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useChannelSocketEffect(channelId);
+  useChannelSocketEffect(channelId, scrollContainerRef);
 
   return (
-    <div className="flex flex-col flex-1">
+    <div className="flex flex-col flex-1 min-h-0">
       <ChannelSearchProvider>
         <ChannelTopBarContainer />
-        <ChatListContainer />
-        <ChatMessageEditor />
+        <ChatListContainer scrollContainerRef={scrollContainerRef} />
+        <ChatMessageEditor scrollContainerRef={scrollContainerRef} />
       </ChannelSearchProvider>
     </div>
   );

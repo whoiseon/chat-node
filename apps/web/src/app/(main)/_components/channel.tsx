@@ -216,7 +216,7 @@ function ChannelCard({ channel, isMyTab }: ChannelCardProps) {
                 {isMyTab && <ChannelMoreDropdown />}
               </div>
             </div>
-            <div className="flex items-center gap-4 max-w-[80%]">
+            <div className="flex items-center gap-4">
               <p className="text-sm text-muted-foreground line-clamp-2 flex-1 wrap-break-word">
                 {isMyTab
                   ? channel.lastMessage

@@ -76,7 +76,7 @@ export class MessageHandler {
       return {
         ...defaultPayload,
         type: 'notice',
-        content: payload.content,
+        content: payload.content || '',
         sender: {
           userId: channelInfo.userId,
           username: channelInfo.username,
@@ -89,7 +89,7 @@ export class MessageHandler {
     return {
       ...defaultPayload,
       type: 'message',
-      content: payload.content,
+      content: payload.content || '',
       sender: {
         userId: channelInfo.userId,
         username: channelInfo.username,

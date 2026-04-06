@@ -3,7 +3,6 @@
 import { UserProfile } from '@repo/ui/components/ui/avatar';
 import { Badge } from '@repo/ui/components/ui/badge';
 import { cn } from '@repo/ui/lib/utils';
-import { format } from 'date-fns';
 import { PropsWithChildren } from 'react';
 
 import {
@@ -11,11 +10,11 @@ import {
   ChatMessageType,
 } from '@/app/(main)/channels/[channelId]/_components/chat';
 import { formatMessageDate } from '@/lib/date';
-import { useMe } from '@/lib/hooks/use-me';
 
 interface MessageProps {
   className?: string;
   message: ChatMessage;
+  isMe?: boolean;
 }
 
 export function Message({
@@ -29,11 +28,7 @@ export function Message({
   );
 }
 
-export function DefaultMessage({ message }: MessageProps) {
-  const { user } = useMe();
-
-  const isMe = message.sender.id === user?.id;
-
+export function DefaultMessage({ message, isMe }: MessageProps) {
   return (
     <Message
       className={cn('justify-start gap-x-2', isMe && 'flex-row-reverse')}
@@ -121,7 +116,7 @@ function MessageBubble({
     >
       <div
         className={cn(
-          'bg-stone-200/50 dark:bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] wrap-break-word whitespace-pre-line',
+          'bg-stone-200/50 dark:bg-muted px-3.5 py-2 rounded-sm font-normal max-w-[70%] break-all whitespace-pre-line',
           isMe && 'bg-primary dark:bg-primary text-white',
         )}
       >

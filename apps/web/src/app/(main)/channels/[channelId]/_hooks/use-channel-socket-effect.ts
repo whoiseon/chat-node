@@ -1,17 +1,23 @@
 import { OnNewMessagePayload } from '@repo/api-types';
 import { InfiniteData, useQueryClient } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
 import { useScroll } from '@/app/(main)/channels/[channelId]/_hooks/use-scroll';
 import { useSocket } from '@/components/provider/socket-provider';
 import { messageKeys } from '@/lib/api/services/messages.api';
+import { useChannelActions } from '@/store/channel';
 
 import type { GetMessagesResponseDto } from '@repo/api-types';
 
-export function useChannelSocketEffect(channelId: string) {
+export function useChannelSocketEffect(
+  channelId: string,
+  scrollContainerRef: RefObject<HTMLElement | null>,
+) {
   const socket = useSocket();
   const queryClient = useQueryClient();
-  const { scrollToBottom, isAtBottom } = useScroll();
+
+  const { scrollToBottom, isAtBottom } = useScroll(scrollContainerRef);
+  const { setNewMessage } = useChannelActions();
 
   useEffect(() => {
     socket.emit('join_channel', { channelId });
@@ -72,6 +78,12 @@ export function useChannelSocketEffect(channelId: string) {
         requestAnimationFrame(() => {
           scrollToBottom();
         });
+      } else {
+        console.log('최하단 아님');
+        setNewMessage({
+          sender: message.sender?.displayName || '',
+          content: message.content,
+        });
       }
     });
 
@@ -80,5 +92,12 @@ export function useChannelSocketEffect(channelId: string) {
       socket.off('new_message');
       socket.emit('leave_channel', { channelId });
     };
-  }, [socket, channelId, queryClient, scrollToBottom, isAtBottom]);
+  }, [
+    socket,
+    channelId,
+    queryClient,
+    scrollToBottom,
+    isAtBottom,
+    setNewMessage,
+  ]);
 }

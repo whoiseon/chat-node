@@ -37,7 +37,7 @@ export default async function RootLayout({
           <HydrationBoundary state={dehydratedState}>
             <main
               id="app-container"
-              className="relative flex flex-col min-h-screen h-full max-w-150 mx-auto w-full"
+              className="relative flex flex-col h-full max-w-150 mx-auto w-full overflow-hidden"
             >
               {children}
             </main>

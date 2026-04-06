@@ -26,9 +26,10 @@ export interface ChatMessage {
 export interface ChatGroupProps {
   date: string;
   messages: ChatMessage[];
+  sessionUserId?: string;
 }
 
-export function ChatGroup({ date, messages }: ChatGroupProps) {
+export function ChatGroup({ date, messages, sessionUserId }: ChatGroupProps) {
   return (
     <ul className="py-2">
       <li className="flex items-center justify-center w-full py-4">
@@ -39,19 +40,29 @@ export function ChatGroup({ date, messages }: ChatGroupProps) {
         <div className="h-px w-full bg-border" />
       </li>
       {messages.map((message) => (
-        <ChatItem key={message.id} message={message} />
+        <ChatItem
+          key={message.id}
+          message={message}
+          isMe={sessionUserId === message.sender.id}
+        />
       ))}
     </ul>
   );
 }
 
-export function ChatItem({ message }: { message: ChatMessage }) {
+export function ChatItem({
+  message,
+  isMe,
+}: {
+  message: ChatMessage;
+  isMe?: boolean;
+}) {
   switch (message.type) {
     case 'system':
       return <SystemMessage message={message} />;
     case 'notice':
       return <NoticeMessage message={message} />;
     default:
-      return <DefaultMessage message={message} />;
+      return <DefaultMessage message={message} isMe={isMe} />;
   }
 }
