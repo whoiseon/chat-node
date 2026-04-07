@@ -1,7 +1,7 @@
 import { LogoWithText } from '@repo/ui/components/ui/logo';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
-import { ChannelTabs } from '@/app/(main)/_components/channel';
+import { ChannelTabs } from '@/app/(main)/_components/channel-tabs';
 import TopBarRight from '@/app/(main)/_components/top-bar-right';
 import { getCookieString } from '@/app/_actions/get-cookie-string';
 import { Footer } from '@/components/layout/footer';

@@ -51,11 +51,30 @@ export class Bootstrap {
     const channelHandler = new ChannelHandler(this.io);
     const messageHandler = new MessageHandler(this.io);
 
-    this.io.on('connection', (socket) => {
+    this.io.on('connection', async (socket) => {
       this.logger.info(`Client connected: ${socket.id}`);
 
       channelHandler.register(socket);
       messageHandler.register(socket);
+
+      // 유저의 가입한 채널 room에 자동 join (채널 목록에서도 new_message 수신)
+      try {
+        const res = await fetch(
+          `${env.API_URL}/api/v1/channels?joined=true&limit=200`,
+          { headers: { Authorization: `Bearer ${socket.data.token}` } },
+        );
+        const { payload } = await res.json();
+        if (payload?.channels) {
+          for (const channel of payload.channels) {
+            socket.join(`channel:${channel.id}`);
+          }
+          this.logger.info(
+            `Auto-joined ${payload.channels.length} channels for ${socket.id}`,
+          );
+        }
+      } catch (err) {
+        this.logger.error(`Failed to auto-join channels: ${err}`);
+      }
 
       socket.on('disconnect', () => {
         this.logger.info(`Client disconnected: ${socket.id}`);

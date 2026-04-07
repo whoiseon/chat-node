@@ -214,24 +214,39 @@ export class ChannelsService {
       );
     }
 
+    // 정렬 기준: 내 채팅은 최근 메시지순, 전체는 생성일순
+    const orderKey = joined
+      ? sortKey
+      : channelTable.createdAt;
+
     // 커서 처리
     if (cursor) {
-      const [cursorRow] = await this.db
+      const cursorQuery = this.db
         .select({
-          sortValue: sql<Date>`coalesce(${lastMessageSq.lastMessageAt}, ${channelTable.createdAt})`,
+          sortValue: joined
+            ? sql<Date>`coalesce(${lastMessageSq.lastMessageAt}, ${channelTable.createdAt})`
+            : channelTable.createdAt,
         })
-        .from(channelTable)
-        .leftJoin(lastMessageSq, eq(channelTable.id, lastMessageSq.channelId))
+        .from(channelTable);
+
+      if (joined) {
+        cursorQuery.leftJoin(
+          lastMessageSq,
+          eq(channelTable.id, lastMessageSq.channelId),
+        );
+      }
+
+      const [cursorRow] = await cursorQuery
         .where(eq(channelTable.id, cursor))
         .limit(1);
 
       if (cursorRow) {
-        conditions.push(lt(sortKey, cursorRow.sortValue));
+        conditions.push(lt(orderKey, cursorRow.sortValue));
       }
     }
 
     // limit + 1로 조회하여 다음 페이지 존재 여부 판단
-    const rows = await this.db
+    const baseQuery = this.db
       .select({
         id: channelTable.id,
         name: channelTable.name,
@@ -240,10 +255,18 @@ export class ChannelsService {
         password: channelTable.password,
         createdAt: channelTable.createdAt,
       })
-      .from(channelTable)
-      .leftJoin(lastMessageSq, eq(channelTable.id, lastMessageSq.channelId))
+      .from(channelTable);
+
+    if (joined) {
+      baseQuery.leftJoin(
+        lastMessageSq,
+        eq(channelTable.id, lastMessageSq.channelId),
+      );
+    }
+
+    const rows = await baseQuery
       .where(and(...conditions))
-      .orderBy(desc(sortKey))
+      .orderBy(desc(orderKey))
       .limit(limit + 1);
 
     const hasMore = rows.length > limit;
