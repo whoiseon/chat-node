@@ -134,12 +134,20 @@ export function ChatListContainer({
           type: msg.type as ChatGroupProps['messages'][number]['type'],
           sender: msg.sender
             ? {
-                id: msg.sender.userId,
+                userId: msg.sender.userId,
                 username: msg.sender.displayName,
                 displayName: msg.sender.displayName,
+                profileImageUrl: msg.sender.profileImageUrl,
               }
-            : { id: 'system', username: 'system', displayName: '시스템' },
+            : {
+                userId: 'system',
+                username: 'system',
+                displayName: '시스템',
+                profileImageUrl: null,
+              },
           createdAt: msg.createdAt,
+          deletedAt: msg.deletedAt,
+          unreadCount: msg.unreadCount,
         }));
 
         const existing = groupMap.get(group.date);

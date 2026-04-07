@@ -32,7 +32,7 @@ export const bootstrap = async (app: NestFastifyApplication): Promise<void> => {
   app.enableCors({
     credentials: true,
     origin: allowedOrigins.split(','),
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
   });
 
   // 유효성 검사 파이프 설정

@@ -1,5 +1,7 @@
 'use client';
 
+import { MessageItemDto } from '@repo/api-types';
+
 import {
   DefaultMessage,
   NoticeMessage,
@@ -8,24 +10,9 @@ import {
 
 export type ChatMessageType = 'message' | 'system' | 'notice';
 
-export interface ChatSender {
-  id: string;
-  username: string;
-  displayName: string;
-  profileImage?: string;
-}
-
-export interface ChatMessage {
-  id: string;
-  content: string;
-  type: ChatMessageType;
-  sender: ChatSender;
-  createdAt: string;
-}
-
 export interface ChatGroupProps {
   date: string;
-  messages: ChatMessage[];
+  messages: MessageItemDto[];
   sessionUserId?: string;
 }
 
@@ -43,7 +30,7 @@ export function ChatGroup({ date, messages, sessionUserId }: ChatGroupProps) {
         <ChatItem
           key={message.id}
           message={message}
-          isMe={sessionUserId === message.sender.id}
+          isMe={sessionUserId === message.sender?.userId}
         />
       ))}
     </ul>
@@ -54,7 +41,7 @@ export function ChatItem({
   message,
   isMe,
 }: {
-  message: ChatMessage;
+  message: MessageItemDto;
   isMe?: boolean;
 }) {
   switch (message.type) {

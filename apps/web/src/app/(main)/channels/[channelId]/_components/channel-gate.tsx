@@ -28,6 +28,7 @@ import { ChatMessageEditor } from '@/app/(main)/channels/[channelId]/_components
 import { useChannelId } from '@/app/(main)/channels/[channelId]/_context/channel-id.context';
 import { ChannelSearchProvider } from '@/app/(main)/channels/[channelId]/_context/channel-search.context';
 import { useChannel } from '@/app/(main)/channels/[channelId]/_hooks/use-channel';
+import { useChannelReadEffect } from '@/app/(main)/channels/[channelId]/_hooks/use-channel-read-effect';
 import { useChannelSocketEffect } from '@/app/(main)/channels/[channelId]/_hooks/use-channel-socket-effect';
 import { ManagerViewer } from '@/components/system/manager-viewer';
 import { TopBar } from '@/components/system/top-bar';
@@ -58,14 +59,18 @@ function ChannelRoom() {
   const { channelId } = useChannelId();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  useChannelSocketEffect(channelId, scrollContainerRef);
+  const { debouncedReadChannel } = useChannelReadEffect(channelId);
+  useChannelSocketEffect(channelId, scrollContainerRef, debouncedReadChannel);
 
   return (
     <div className="flex flex-col flex-1 min-h-0">
       <ChannelSearchProvider>
         <ChannelTopBarContainer />
         <ChatListContainer scrollContainerRef={scrollContainerRef} />
-        <ChatMessageEditor scrollContainerRef={scrollContainerRef} />
+        <ChatMessageEditor
+          scrollContainerRef={scrollContainerRef}
+          onScrollToBottom={debouncedReadChannel}
+        />
       </ChannelSearchProvider>
     </div>
   );

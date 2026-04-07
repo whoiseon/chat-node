@@ -12,5 +12,6 @@ export function useMessages(query: GetMessagesQueryDto) {
       messagesApi.getMessages({ ...query, cursor: pageParam }),
     initialPageParam: undefined as string | undefined,
     getNextPageParam: (lastPage) => lastPage.payload.nextCursor ?? undefined,
+    refetchOnWindowFocus: false,
   });
 }

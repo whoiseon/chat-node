@@ -519,6 +519,37 @@
         ]
       }
     },
+    "/api/v1/channels/{channelId}/read": {
+      "patch": {
+        "operationId": "ChannelsController_readChannel",
+        "parameters": [
+          {
+            "name": "channelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "채널 읽기 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NullPayloadResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "채널 읽기 (접속 시 호출)",
+        "tags": [
+          "channels"
+        ]
+      }
+    },
     "/api/v1/channels/dm": {
       "post": {
         "description": "대상 유저와 1:1 DM 채널을 생성합니다",
@@ -1553,11 +1584,22 @@
           "displayName": {
             "type": "string",
             "example": "사용자"
+          },
+          "profileImageUrl": {
+            "type": "string",
+            "example": "https://example.com/image.jpg",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "example": "chatnode"
           }
         },
         "required": [
           "userId",
-          "displayName"
+          "displayName",
+          "profileImageUrl",
+          "username"
         ]
       },
       "MessageItemDto": {
@@ -1591,13 +1633,24 @@
           "createdAt": {
             "type": "string",
             "example": "2026-03-25T12:00:00.000Z"
+          },
+          "deletedAt": {
+            "type": "object",
+            "example": "2026-03-25T12:00:00.000Z",
+            "nullable": true
+          },
+          "unreadCount": {
+            "type": "number",
+            "example": 1
           }
         },
         "required": [
           "id",
           "type",
           "content",
-          "createdAt"
+          "createdAt",
+          "deletedAt",
+          "unreadCount"
         ]
       },
       "MessageGroupDto": {

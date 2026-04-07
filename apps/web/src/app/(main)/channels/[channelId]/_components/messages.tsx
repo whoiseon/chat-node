@@ -1,19 +1,17 @@
 'use client';
 
+import { MessageItemDto } from '@repo/api-types';
 import { UserProfile } from '@repo/ui/components/ui/avatar';
 import { Badge } from '@repo/ui/components/ui/badge';
 import { cn } from '@repo/ui/lib/utils';
 import { PropsWithChildren } from 'react';
 
-import {
-  ChatMessage,
-  ChatMessageType,
-} from '@/app/(main)/channels/[channelId]/_components/chat';
+import { ChatMessageType } from '@/app/(main)/channels/[channelId]/_components/chat';
 import { formatMessageDate } from '@/lib/date';
 
 interface MessageProps {
   className?: string;
-  message: ChatMessage;
+  message: MessageItemDto;
   isMe?: boolean;
 }
 
@@ -35,13 +33,17 @@ export function DefaultMessage({ message, isMe }: MessageProps) {
     >
       {!isMe && (
         <UserProfile
-          profileUrl={message?.sender.profileImage || ''}
-          username={message?.sender.username || ''}
+          profileUrl={message.sender?.profileImageUrl || ''}
+          username={message.sender?.username || ''}
         />
       )}
       <div className="flex flex-col gap-y-1 flex-1">
-        {!isMe && <span className="pl-0.5">{message.sender.displayName}</span>}
-        <MessageBubble isMe={isMe} createdAt={message.createdAt}>
+        {!isMe && <span className="pl-0.5">{message.sender?.displayName}</span>}
+        <MessageBubble
+          isMe={isMe}
+          createdAt={message.createdAt}
+          unreadCount={message.unreadCount}
+        >
           {message.content}
         </MessageBubble>
       </div>
@@ -106,7 +108,12 @@ function MessageBubble({
   children,
   isMe,
   createdAt,
-}: PropsWithChildren & { isMe?: boolean; createdAt: string }) {
+  unreadCount,
+}: PropsWithChildren & {
+  isMe?: boolean;
+  createdAt: string;
+  unreadCount: number;
+}) {
   return (
     <div
       className={cn(
@@ -128,7 +135,9 @@ function MessageBubble({
           isMe && 'items-end',
         )}
       >
-        <span className="text-yellow-500 dark:text-yellow-400">1</span>
+        <span className="text-yellow-500 dark:text-yellow-400">
+          {unreadCount > 0 && unreadCount}
+        </span>
         <span className="text-muted-foreground/60">
           {formatMessageDate(createdAt)}
         </span>

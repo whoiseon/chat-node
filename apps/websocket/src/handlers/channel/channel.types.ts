@@ -3,4 +3,5 @@ export interface SocketCachedChannelMe {
   username: string;
   displayName: string;
   profileImageUrl: string;
+  joinedAt: string;
 }

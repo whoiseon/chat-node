@@ -5,6 +5,7 @@ import {
   NotFoundException,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
@@ -161,6 +162,30 @@ export class ChannelsController {
       body,
     );
     return new ApiResponseDto(result);
+  }
+
+  @Patch(':channelId/read')
+  @ApiOperation({
+    summary: '채널 읽기 (접속 시 호출)',
+  })
+  @ApiResponse({
+    status: 200,
+    description: '채널 읽기 성공',
+    type: NullPayloadResponseDto,
+  })
+  async readChannel(
+    @Param(
+      'channelId',
+      new ParseUUIDPipe({
+        exceptionFactory: () =>
+          new NotFoundException({ message: '채널을 찾을 수 없습니다' }),
+      }),
+    )
+    channelId: string,
+    @UserId() userId: string,
+  ) {
+    await this.channelsService.readChannel(channelId, userId);
+    return new ApiResponseDto(null);
   }
 
   @Post('')

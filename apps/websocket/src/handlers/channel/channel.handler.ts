@@ -30,6 +30,7 @@ export class ChannelHandler {
               username: mePayload.username,
               displayName: mePayload.displayName,
               profileImageUrl: mePayload.profileImageUrl ?? null,
+              joinedAt: mePayload.joinedAt,
             };
           }
         } catch (err) {

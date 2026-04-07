@@ -740,3 +740,468 @@
 {"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:04:53.628Z"}
 {"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:09:53.506Z"}
 {"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:09:53.528Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:35.894Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:35.951Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:36.097Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:36.117Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:36.672Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:36.682Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:45:36.688Z"}
+{"level":"info","message":"Client disconnected: Fs1LGbBWmB6a9Qh0AADB","timestamp":"2026-04-06T07:45:42.518Z"}
+{"level":"info","message":"Client disconnected: DxQlEuHhJ1PED2b3AAC_","timestamp":"2026-04-06T07:45:42.529Z"}
+{"level":"info","message":"Client connected: XdcptJwTgccoFfrkAADH","timestamp":"2026-04-06T07:46:47.531Z"}
+{"level":"info","message":"Client connected: V_x_9z5N-UnO3JmPAADJ","timestamp":"2026-04-06T07:46:47.758Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:46:47.851Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:50:36.680Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:50:36.809Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:16.339Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:16.395Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:17.255Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:17.257Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:18.071Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:18.268Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:18.932Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:19.128Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:20.401Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:54:20.667Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:55:05.050Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:55:05.425Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:55:14.019Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:55:14.326Z"}
+{"level":"info","message":"Client disconnected: V_x_9z5N-UnO3JmPAADJ","timestamp":"2026-04-06T07:58:07.299Z"}
+{"level":"info","message":"Client connected: aHaps57wiQ9BvmDQAADL","timestamp":"2026-04-06T07:58:12.528Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:12.566Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:12.825Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:12.937Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:13.017Z"}
+{"level":"info","message":"Client disconnected: aHaps57wiQ9BvmDQAADL","timestamp":"2026-04-06T07:58:17.469Z"}
+{"level":"info","message":"Client connected: ukHM2ZueRRboMpDsAADN","timestamp":"2026-04-06T07:58:20.098Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:20.429Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:20.675Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:58:20.820Z"}
+{"level":"info","message":"Client disconnected: XdcptJwTgccoFfrkAADH","timestamp":"2026-04-06T07:58:44.125Z"}
+{"level":"info","message":"Client connected: 62TnKUr1PC2p1yk9AADP","timestamp":"2026-04-06T07:58:45.115Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:02.567Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:02.691Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:06.584Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:06.743Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:09.384Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:10.047Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:10.718Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:10.758Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:11.130Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:11.131Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:12.496Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:13.168Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:13.172Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:15.236Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T07:59:15.912Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:00:49.639Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:00:49.639Z"}
+{"level":"info","message":"Client connected: gMltA6UvnsBR2BfmAAAB","timestamp":"2026-04-06T08:00:51.381Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:00:53.754Z"}
+{"level":"info","message":"Client connected: 7Sq6mkGm1Bw9xC_7AAAD","timestamp":"2026-04-06T08:00:53.815Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:00:54.186Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:00:54.223Z"}
+{"level":"info","message":"Client disconnected: gMltA6UvnsBR2BfmAAAB","timestamp":"2026-04-06T08:00:56.912Z"}
+{"level":"info","message":"Client disconnected: 7Sq6mkGm1Bw9xC_7AAAD","timestamp":"2026-04-06T08:00:56.913Z"}
+{"level":"info","message":"Client connected: BAGpavZaJ7-UBfPCAAAF","timestamp":"2026-04-06T08:00:59.921Z"}
+{"level":"info","message":"Client connected: VJhTA96xpWT9xxgkAAAH","timestamp":"2026-04-06T08:01:00.079Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.680Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.698Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.707Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.848Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.926Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:00.976Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:19.284Z"}
+{"level":"info","message":"Client disconnected: BAGpavZaJ7-UBfPCAAAF","timestamp":"2026-04-06T08:01:19.742Z"}
+{"level":"info","message":"Client connected: PrrgySWTUj4ZbSvzAAAJ","timestamp":"2026-04-06T08:01:20.409Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:20.490Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:20.634Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:01:20.737Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:45.805Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:46.109Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:46.170Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:46.186Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:47.058Z"}
+{"level":"info","message":"Client disconnected: VJhTA96xpWT9xxgkAAAH","timestamp":"2026-04-06T08:04:47.252Z"}
+{"level":"info","message":"Client connected: cURmuSLvzHsTUteoAAAL","timestamp":"2026-04-06T08:04:48.160Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:48.367Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:48.411Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:04:48.431Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:06:19.741Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:06:19.878Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:07:46.944Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:07:47.042Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:07:47.124Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:07:47.189Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:16.135Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:16.273Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:16.362Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:16.419Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:17.718Z"}
+{"level":"info","message":"Client disconnected: cURmuSLvzHsTUteoAAAL","timestamp":"2026-04-06T08:08:18.429Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:26.790Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:26.854Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:26.864Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:26.893Z"}
+{"level":"info","message":"Client connected: -Z01KKiUn06rNthAAAAN","timestamp":"2026-04-06T08:08:28.621Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:45.261Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:45.333Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:08:45.364Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:11:13.645Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:11:13.928Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:11:13.984Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:11:14.013Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:13:26.197Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:13:26.429Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:13:26.792Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:13:26.871Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:28.195Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:28.211Z"}
+{"level":"error","message":"Failed to fetch channel member: TypeError: fetch failed","timestamp":"2026-04-06T08:20:28.264Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:28.265Z"}
+{"level":"error","message":"Failed to fetch channel member: TypeError: fetch failed","timestamp":"2026-04-06T08:20:28.267Z"}
+{"level":"info","message":"Client disconnected: -Z01KKiUn06rNthAAAAN","timestamp":"2026-04-06T08:20:30.433Z"}
+{"level":"info","message":"Client connected: SPnGoKDtLfbYoR4aAAAR","timestamp":"2026-04-06T08:20:40.501Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:40.749Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:40.856Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:40.873Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:56.623Z"}
+{"level":"info","message":"Client disconnected: SPnGoKDtLfbYoR4aAAAR","timestamp":"2026-04-06T08:20:56.785Z"}
+{"level":"info","message":"Client connected: yoNBX9rMv3DCSZFzAAAT","timestamp":"2026-04-06T08:20:57.382Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:57.790Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:57.847Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:20:57.872Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:25:57.627Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:25:57.896Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:29.714Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:29.950Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:29.953Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:29.968Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:30.005Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:30.033Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:30.764Z"}
+{"level":"info","message":"Client disconnected: yoNBX9rMv3DCSZFzAAAT","timestamp":"2026-04-06T08:27:31.907Z"}
+{"level":"info","message":"Client connected: DN1RWvcG0hAnDJzHAAAV","timestamp":"2026-04-06T08:27:32.899Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:33.170Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:33.247Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:27:33.264Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:00.677Z"}
+{"level":"info","message":"Client disconnected: DN1RWvcG0hAnDJzHAAAV","timestamp":"2026-04-06T08:30:00.859Z"}
+{"level":"info","message":"Client connected: bbUAoKZ0o0K0VatMAAAX","timestamp":"2026-04-06T08:30:01.842Z"}
+{"level":"info","message":"Client disconnected: bbUAoKZ0o0K0VatMAAAX","timestamp":"2026-04-06T08:30:04.706Z"}
+{"level":"info","message":"Client connected: TwA2VdGvvEQ4oFfxAAAZ","timestamp":"2026-04-06T08:30:05.502Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:06.063Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:06.106Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:06.109Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:24.824Z"}
+{"level":"info","message":"Client disconnected: TwA2VdGvvEQ4oFfxAAAZ","timestamp":"2026-04-06T08:30:25.127Z"}
+{"level":"info","message":"Client connected: 6GIAXfHhdlwPriEeAAAb","timestamp":"2026-04-06T08:30:26.053Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:26.196Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:26.412Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:26.542Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:53.270Z"}
+{"level":"info","message":"Client disconnected: 6GIAXfHhdlwPriEeAAAb","timestamp":"2026-04-06T08:30:53.480Z"}
+{"level":"info","message":"Client connected: fIetA-R2sYDanut7AAAd","timestamp":"2026-04-06T08:30:54.235Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:54.672Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:54.807Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:30:54.862Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:31:28.751Z"}
+{"level":"info","message":"Client disconnected: fIetA-R2sYDanut7AAAd","timestamp":"2026-04-06T08:31:29.334Z"}
+{"level":"info","message":"Client connected: c1BC4GSmExnUzbLMAAAf","timestamp":"2026-04-06T08:31:30.365Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:31:30.473Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:31:30.541Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:31:30.720Z"}
+{"level":"info","message":"Client disconnected: PrrgySWTUj4ZbSvzAAAJ","timestamp":"2026-04-06T08:33:13.329Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:33:13.640Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:33:13.712Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:33:13.714Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:33:13.740Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:33:59.551Z"}
+{"level":"info","message":"Client disconnected: c1BC4GSmExnUzbLMAAAf","timestamp":"2026-04-06T08:34:00.229Z"}
+{"level":"info","message":"Client connected: o5WJAPly5GsCRNAJAAAj","timestamp":"2026-04-06T08:34:01.108Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:01.226Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:01.345Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:01.436Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:11.121Z"}
+{"level":"info","message":"Client disconnected: o5WJAPly5GsCRNAJAAAj","timestamp":"2026-04-06T08:34:12.565Z"}
+{"level":"info","message":"Client connected: GVQVOBrtJU2hMWfbAAAp","timestamp":"2026-04-06T08:34:34.032Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:36.212Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:36.274Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:36.296Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:37.907Z"}
+{"level":"info","message":"Client disconnected: GVQVOBrtJU2hMWfbAAAp","timestamp":"2026-04-06T08:34:38.015Z"}
+{"level":"info","message":"Client connected: WPBbEwSab0fEeswSAAAr","timestamp":"2026-04-06T08:34:38.516Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:38.929Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:39.046Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:39.068Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:40.838Z"}
+{"level":"info","message":"Client disconnected: WPBbEwSab0fEeswSAAAr","timestamp":"2026-04-06T08:34:40.955Z"}
+{"level":"info","message":"Client connected: b8LxWBrbyGWeN3H-AAAt","timestamp":"2026-04-06T08:34:41.508Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:41.867Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:42.077Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:42.120Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:44.029Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:48.562Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:48.603Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:48.624Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:48.674Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:34:48.696Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅎㅇ","timestamp":"2026-04-06T08:34:51.089Z"}
+{"level":"info","message":"Client connected: Xfe0bgwZo7sw4SQpAAAx","timestamp":"2026-04-06T08:35:00.709Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:00.978Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:01.046Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:01.094Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:안녕하세요","timestamp":"2026-04-06T08:35:05.680Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:반갑습니다~","timestamp":"2026-04-06T08:35:13.140Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:ㅋㅋ","timestamp":"2026-04-06T08:35:18.283Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:23.482Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:23.578Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:23.664Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:23.690Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:32.195Z"}
+{"level":"info","message":"Client disconnected: b8LxWBrbyGWeN3H-AAAt","timestamp":"2026-04-06T08:35:32.319Z"}
+{"level":"info","message":"Client connected: vfeuAwZsyS9w2px9AAAz","timestamp":"2026-04-06T08:35:33.191Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:33.230Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:33.332Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:33.366Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:39.242Z"}
+{"level":"info","message":"Client disconnected: Xfe0bgwZo7sw4SQpAAAx","timestamp":"2026-04-06T08:35:39.428Z"}
+{"level":"info","message":"Client connected: 14Bk_X5u9O1vFab4AAA1","timestamp":"2026-04-06T08:35:39.968Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:40.197Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:40.348Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:40.378Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:42.233Z"}
+{"level":"info","message":"Client disconnected: vfeuAwZsyS9w2px9AAAz","timestamp":"2026-04-06T08:35:42.331Z"}
+{"level":"info","message":"Client connected: jvwLL-UKpggE9dXgAAA3","timestamp":"2026-04-06T08:35:43.365Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:43.611Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:43.704Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:35:43.732Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:52.345Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:52.812Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:52.825Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:52.831Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.239Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.243Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.243Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.244Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.245Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.261Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.274Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:37:53.302Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.204Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.215Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.259Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.261Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.302Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.305Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.313Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.320Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.356Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.368Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.374Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:38:58.393Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:06.874Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:06.918Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:06.971Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:06.989Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:09.862Z"}
+{"level":"info","message":"Client disconnected: jvwLL-UKpggE9dXgAAA3","timestamp":"2026-04-06T08:39:10.493Z"}
+{"level":"info","message":"Client connected: OFZGQBBWksbEA6wmAAA5","timestamp":"2026-04-06T08:39:11.824Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:12.143Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:12.202Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:12.219Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:19.718Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:19.754Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:19.790Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:19.812Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:21.675Z"}
+{"level":"info","message":"Client disconnected: 14Bk_X5u9O1vFab4AAA1","timestamp":"2026-04-06T08:39:21.851Z"}
+{"level":"info","message":"Client connected: Eaz1WDrUOs-vq2wDAAA7","timestamp":"2026-04-06T08:39:22.716Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:22.817Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:22.966Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:39:22.992Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:25.929Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:25.948Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:25.952Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.000Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.119Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.126Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.132Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.133Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.173Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.188Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.193Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:40:26.204Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.263Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.264Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.301Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.463Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.566Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.569Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.577Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.580Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.602Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.627Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.663Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:42.683Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.345Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.348Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.374Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.395Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.430Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.432Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.441Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.444Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.628Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.638Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.663Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:51.671Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.562Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.570Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.655Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.657Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.755Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.756Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.756Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.765Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.806Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.824Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.829Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:55.856Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.786Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.791Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.822Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.829Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.856Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.856Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.858Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.864Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.909Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.928Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.934Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:42:59.958Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.424Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.426Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.482Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.486Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.526Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.527Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.527Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.528Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.596Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.616Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.616Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:43:04.638Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:10.306Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:10.432Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:21.936Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:22.029Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:49.763Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:49.767Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:49.924Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:49.929Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.091Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.100Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.106Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.106Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.114Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.131Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.335Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.336Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.430Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.430Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.611Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:44:50.612Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:1","timestamp":"2026-04-06T08:45:23.401Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:2","timestamp":"2026-04-06T08:45:25.346Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:49:50.148Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:49:50.191Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:49:50.373Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T08:49:50.399Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:51:19.070Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:51:19.070Z"}
+{"level":"info","message":"Client connected: lAq2MkqxC1VECbvRAAAB","timestamp":"2026-04-06T08:51:20.028Z"}
+{"level":"info","message":"Client connected: 4d3DnBjazNYWCjhPAAAD","timestamp":"2026-04-06T08:51:20.335Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:52:06.190Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:52:06.190Z"}
+{"level":"info","message":"Client connected: 7lncYjoeGfHHSovIAAAB","timestamp":"2026-04-06T08:52:06.691Z"}
+{"level":"info","message":"Client connected: N81vs6DJmtnz86NgAAAD","timestamp":"2026-04-06T08:52:07.337Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:55:09.767Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:55:09.767Z"}
+{"level":"info","message":"Client connected: zwf3SU3ZFDXnfCfuAAAB","timestamp":"2026-04-06T08:55:10.192Z"}
+{"level":"info","message":"Client connected: wD_ClURku3lf3EkkAAAD","timestamp":"2026-04-06T08:55:10.341Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:55:16.068Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:55:16.068Z"}
+{"level":"info","message":"Client connected: 1jlEeOGbWKCarZLLAAAB","timestamp":"2026-04-06T08:55:16.493Z"}
+{"level":"info","message":"Client connected: ML3m17LeVQKVlxx5AAAD","timestamp":"2026-04-06T08:55:17.326Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:58:05.374Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:58:05.374Z"}
+{"level":"info","message":"Client connected: YBcMKmx2gwgzZ5j-AAAB","timestamp":"2026-04-06T08:58:05.772Z"}
+{"level":"info","message":"Client connected: 8H3aqCQ68mfzuoDkAAAD","timestamp":"2026-04-06T08:58:06.334Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:59:00.950Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:59:00.950Z"}
+{"level":"info","message":"Client connected: h4QnySpnW6HnxOTOAAAB","timestamp":"2026-04-06T08:59:01.331Z"}
+{"level":"info","message":"Client connected: WXXytYcNy31w9SnRAAAD","timestamp":"2026-04-06T08:59:01.965Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:59:08.238Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:59:08.238Z"}
+{"level":"info","message":"Client connected: Ba6A6S4t0ztNk3ZUAAAC","timestamp":"2026-04-06T08:59:09.342Z"}
+{"level":"info","message":"Client connected: lTYFHIhD8RdBnmWDAAAD","timestamp":"2026-04-06T08:59:09.347Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:59:13.416Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:59:13.416Z"}
+{"level":"info","message":"Client connected: bE3L1rA1uqmFWMFcAAAB","timestamp":"2026-04-06T08:59:14.348Z"}
+{"level":"info","message":"Client connected: uHBtDfSK8heWjVgPAAAD","timestamp":"2026-04-06T08:59:14.624Z"}
+{"level":"info","message":"environment path: .env.development","timestamp":"2026-04-06T08:59:23.536Z"}
+{"level":"info","message":"Server is running on port 4004","timestamp":"2026-04-06T08:59:23.536Z"}
+{"level":"info","message":"Client connected: beZICLjFeTh1hk3VAAAB","timestamp":"2026-04-06T08:59:24.696Z"}
+{"level":"info","message":"Client connected: U4wRQwN4oA0eCtRjAAAD","timestamp":"2026-04-06T08:59:25.341Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:39.394Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:39.616Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:39.620Z"}
+{"level":"error","message":"Failed to fetch channel member: TypeError: fetch failed","timestamp":"2026-04-06T09:01:39.632Z"}
+{"level":"error","message":"Failed to fetch channel member: TypeError: fetch failed","timestamp":"2026-04-06T09:01:39.634Z"}
+{"level":"info","message":"Client disconnected: U4wRQwN4oA0eCtRjAAAD","timestamp":"2026-04-06T09:01:45.237Z"}
+{"level":"info","message":"Client connected: PVVuETpybMfKFyuZAAAF","timestamp":"2026-04-06T09:01:46.427Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:46.833Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:46.886Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:01:46.984Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:zz","timestamp":"2026-04-06T09:01:49.216Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.868Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.919Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.929Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.966Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.971Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.992Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:20.998Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.053Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.054Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.056Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.072Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.073Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.084Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.110Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:21.898Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:22.045Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:22.172Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:22.245Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:23.870Z"}
+{"level":"info","message":"Client disconnected: PVVuETpybMfKFyuZAAAF","timestamp":"2026-04-06T09:02:24.632Z"}
+{"level":"info","message":"Client connected: L6RA0ubtsZrM-SsxAAAH","timestamp":"2026-04-06T09:02:25.912Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:26.458Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:26.592Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:26.621Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:zz","timestamp":"2026-04-06T09:02:28.536Z"}
+{"level":"info","message":"ws:send_message channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862 content:아무도 안읽은상태","timestamp":"2026-04-06T09:02:32.524Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:36.183Z"}
+{"level":"info","message":"Client disconnected: beZICLjFeTh1hk3VAAAB","timestamp":"2026-04-06T09:02:36.380Z"}
+{"level":"info","message":"Client connected: WXGD1pnLIAK_Je7yAAAJ","timestamp":"2026-04-06T09:02:37.118Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:37.295Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:37.442Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:37.460Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:40.032Z"}
+{"level":"info","message":"Client disconnected: L6RA0ubtsZrM-SsxAAAH","timestamp":"2026-04-06T09:02:40.209Z"}
+{"level":"info","message":"Client connected: QgjBqVsv-5i5rkJxAAAL","timestamp":"2026-04-06T09:02:41.106Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:41.301Z"}
+{"level":"info","message":"ws:leave_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:41.374Z"}
+{"level":"info","message":"ws:join_channel:9b3f0e1e-d681-4a4b-bf56-68c1c1f28862","timestamp":"2026-04-06T09:02:41.396Z"}

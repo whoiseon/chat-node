@@ -22,6 +22,7 @@ import {
   sql,
 } from 'drizzle-orm';
 
+import { AppCache, CACHE_TOKEN } from '@/common/cache';
 import {
   AppDatabase,
   channelMemberTable,
@@ -44,7 +45,47 @@ import {
 export class ChannelsService {
   private readonly logger = new Logger(ChannelsService.name);
 
-  constructor(@Inject(DB_TOKEN) private readonly db: AppDatabase) {}
+  constructor(
+    @Inject(DB_TOKEN) private readonly db: AppDatabase,
+    @Inject(CACHE_TOKEN) private readonly cache: AppCache,
+  ) {}
+
+  async syncMemberCountsToCache() {
+    const rows = await this.db
+      .select({
+        channelId: channelMemberTable.channelId,
+        count: count(),
+      })
+      .from(channelMemberTable)
+      .groupBy(channelMemberTable.channelId);
+
+    const pipeline = this.cache.pipeline();
+    for (const row of rows) {
+      pipeline.set(`channel:${row.channelId}:member_count`, row.count);
+    }
+    await pipeline.exec();
+
+    this.logger.log(
+      `Synced member counts to cache for ${rows.length} channels`,
+    );
+  }
+
+  async readChannel(channelId: string, userId: string) {
+    await this.db
+      .insert(channelReadStatusTable)
+      .values({
+        channelId,
+        userId,
+        lastReadAt: new Date(),
+      })
+      .onConflictDoUpdate({
+        target: [
+          channelReadStatusTable.channelId,
+          channelReadStatusTable.userId,
+        ],
+        set: { lastReadAt: new Date() },
+      });
+  }
 
   async getChannelMember(channelId: string, userId: string) {
     const [member] = await this.db
@@ -488,6 +529,8 @@ export class ChannelsService {
       displayName,
     });
 
+    await this.cache.incr(`channel:${channelId}:member_count`);
+
     return { channelId, role: 'USER' as const, displayName };
   }
 
@@ -528,6 +571,8 @@ export class ChannelsService {
 
       return channel!.id;
     });
+
+    await this.cache.set(`channel:${channelId}:member_count`, 1);
 
     return { channelId };
   }

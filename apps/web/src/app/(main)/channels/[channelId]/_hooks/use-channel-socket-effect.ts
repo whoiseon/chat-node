@@ -1,4 +1,7 @@
-import { OnNewMessagePayload } from '@repo/api-types';
+import {
+  OnNewMessagePayload,
+  OnReadStatusUpdatedPayload,
+} from '@repo/api-types';
 import { InfiniteData, useQueryClient } from '@tanstack/react-query';
 import { RefObject, useEffect } from 'react';
 
@@ -12,6 +15,7 @@ import type { GetMessagesResponseDto } from '@repo/api-types';
 export function useChannelSocketEffect(
   channelId: string,
   scrollContainerRef: RefObject<HTMLElement | null>,
+  onRead?: () => void,
 ) {
   const socket = useSocket();
   const queryClient = useQueryClient();
@@ -20,7 +24,13 @@ export function useChannelSocketEffect(
   const { setNewMessage } = useChannelActions();
 
   useEffect(() => {
-    socket.emit('join_channel', { channelId });
+    socket.emit(
+      'join_channel',
+      { channelId },
+      (res: { ok: boolean }) => {
+        if (res.ok) onRead?.();
+      },
+    );
 
     const handleBeforeUnload = () => {
       socket.emit('leave_channel', { channelId });
@@ -40,6 +50,8 @@ export function useChannelSocketEffect(
             content: message.content,
             sender: message.sender,
             createdAt: message.createdAt,
+            deletedAt: null,
+            unreadCount: message.unreadCount,
           };
 
           const firstPage = old.pages[0];
@@ -78,8 +90,11 @@ export function useChannelSocketEffect(
         requestAnimationFrame(() => {
           scrollToBottom();
         });
+        // 탭이 활성 상태일 때만 읽음 처리
+        if (document.visibilityState === 'visible') {
+          onRead?.();
+        }
       } else {
-        console.log('최하단 아님');
         setNewMessage({
           sender: message.sender?.displayName || '',
           content: message.content,
@@ -87,9 +102,50 @@ export function useChannelSocketEffect(
       }
     });
 
+    socket.on('read_status_updated', (payload: OnReadStatusUpdatedPayload) => {
+      queryClient.setQueryData<InfiniteData<GetMessagesResponseDto>>(
+        messageKeys.list({ channelId }),
+        (old) => {
+          if (!old) return old;
+
+          return {
+            ...old,
+            pages: old.pages.map((page) => ({
+              ...page,
+              payload: {
+                ...page.payload,
+                rows: page.payload.rows.map((group) => ({
+                  ...group,
+                  messages: group.messages.map((msg) => {
+                    if (msg.unreadCount <= 0) return msg;
+
+                    // 이번에 새로 읽은 범위: prevLastReadAt < createdAt <= lastReadAt
+                    const isAfterPrev = payload.prevLastReadAt
+                      ? msg.createdAt > payload.prevLastReadAt
+                      : false; // prevLastReadAt이 null이면 범위 판단 불가 → 무시
+                    const isBeforeCurrent =
+                      msg.createdAt <= payload.lastReadAt;
+
+                    if (isAfterPrev && isBeforeCurrent) {
+                      return {
+                        ...msg,
+                        unreadCount: msg.unreadCount - 1,
+                      };
+                    }
+                    return msg;
+                  }),
+                })),
+              },
+            })),
+          };
+        },
+      );
+    });
+
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       socket.off('new_message');
+      socket.off('read_status_updated');
       socket.emit('leave_channel', { channelId });
     };
   }, [
@@ -99,5 +155,6 @@ export function useChannelSocketEffect(
     scrollToBottom,
     isAtBottom,
     setNewMessage,
+    onRead,
   ]);
 }

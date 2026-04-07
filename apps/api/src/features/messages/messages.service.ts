@@ -1,9 +1,10 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { and, desc, eq, lt } from 'drizzle-orm';
+import { and, count, desc, eq, gte, lt, lte, sql } from 'drizzle-orm';
 
 import {
   AppDatabase,
   channelMemberTable,
+  channelReadStatusTable,
   DB_TOKEN,
   messageTable,
   userTable,
@@ -34,6 +35,28 @@ export class MessagesService {
       }
     }
 
+    // 메시지 생성 시점 이전에 가입한 멤버 수 (서브쿼리)
+    const memberCountAtCreation = this.db
+      .select({ count: count() })
+      .from(channelMemberTable)
+      .where(
+        and(
+          eq(channelMemberTable.channelId, messageTable.channelId),
+          lte(channelMemberTable.joinedAt, messageTable.createdAt),
+        ),
+      );
+
+    // 메시지를 읽은 멤버 수 (서브쿼리)
+    const readCount = this.db
+      .select({ count: count() })
+      .from(channelReadStatusTable)
+      .where(
+        and(
+          eq(channelReadStatusTable.channelId, messageTable.channelId),
+          gte(channelReadStatusTable.lastReadAt, messageTable.createdAt),
+        ),
+      );
+
     const rows = await this.db
       .select({
         id: messageTable.id,
@@ -45,6 +68,8 @@ export class MessagesService {
         profileImageUrl: userTable.profileImageUrl,
         createdAt: messageTable.createdAt,
         deletedAt: messageTable.deletedAt,
+        memberCount: sql<number>`(${memberCountAtCreation})`,
+        readCount: sql<number>`(${readCount})`,
       })
       .from(messageTable)
       .leftJoin(
@@ -78,14 +103,17 @@ export class MessagesService {
         } | null;
         createdAt: string;
         deletedAt: string | null;
+        unreadCount: number;
       }[]
     >();
 
     for (const row of messages) {
       const date = row.createdAt.toISOString().split('T')[0]!;
+
       if (!grouped.has(date)) {
         grouped.set(date, []);
       }
+
       grouped.get(date)!.push({
         id: row.id,
         type: row.type,
@@ -100,6 +128,7 @@ export class MessagesService {
           : null,
         createdAt: row.createdAt.toISOString(),
         deletedAt: row.deletedAt?.toISOString() || null,
+        unreadCount: Math.max(0, row.memberCount - row.readCount),
       });
     }
 
@@ -113,4 +142,5 @@ export class MessagesService {
       nextCursor: hasMore && lastItem ? lastItem.id : null,
     };
   }
+
 }

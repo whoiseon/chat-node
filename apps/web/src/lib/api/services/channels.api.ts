@@ -9,6 +9,7 @@ import {
   GetChannelsResponseDto,
   JoinChannelDto,
   JoinChannelResponseDto,
+  NullPayloadResponseDto,
 } from '@repo/api-types';
 
 import { api, serverApi } from '@/lib/api';
@@ -59,6 +60,10 @@ export const channelsApi = {
       return serverApi.get(`/channels/${channelId}/me`, cookie);
     }
     return api.get(`/channels/${channelId}/me`);
+  },
+
+  readChannel: (channelId: string): Promise<NullPayloadResponseDto> => {
+    return api.patch(`/channels/${channelId}/read`);
   },
 };
 

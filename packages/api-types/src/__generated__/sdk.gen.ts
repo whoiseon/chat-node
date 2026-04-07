@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelsControllerCreateChannelData, ChannelsControllerCreateChannelErrors, ChannelsControllerCreateChannelResponses, ChannelsControllerCreateDmData, ChannelsControllerCreateDmErrors, ChannelsControllerCreateDmResponses, ChannelsControllerGetChannelData, ChannelsControllerGetChannelErrors, ChannelsControllerGetChannelMeData, ChannelsControllerGetChannelMeResponses, ChannelsControllerGetChannelResponses, ChannelsControllerGetChannelsData, ChannelsControllerGetChannelsResponses, ChannelsControllerJoinChannelData, ChannelsControllerJoinChannelErrors, ChannelsControllerJoinChannelResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses, MessagesControllerGetMessagesData, MessagesControllerGetMessagesResponses } from './types.gen';
+import type { AuthControllerCheckUsernameData, AuthControllerCheckUsernameResponses, AuthControllerForceLogoutData, AuthControllerForceLogoutErrors, AuthControllerForceLogoutResponses, AuthControllerGetMeData, AuthControllerGetMeResponses, AuthControllerRefreshData, AuthControllerRefreshErrors, AuthControllerRefreshResponses, AuthControllerSignInData, AuthControllerSignInErrors, AuthControllerSignInResponses, AuthControllerSignOutData, AuthControllerSignOutErrors, AuthControllerSignOutResponses, AuthControllerSignUpData, AuthControllerSignUpErrors, AuthControllerSignUpResponses, ChannelsControllerCreateChannelData, ChannelsControllerCreateChannelErrors, ChannelsControllerCreateChannelResponses, ChannelsControllerCreateDmData, ChannelsControllerCreateDmErrors, ChannelsControllerCreateDmResponses, ChannelsControllerGetChannelData, ChannelsControllerGetChannelErrors, ChannelsControllerGetChannelMeData, ChannelsControllerGetChannelMeResponses, ChannelsControllerGetChannelResponses, ChannelsControllerGetChannelsData, ChannelsControllerGetChannelsResponses, ChannelsControllerJoinChannelData, ChannelsControllerJoinChannelErrors, ChannelsControllerJoinChannelResponses, ChannelsControllerReadChannelData, ChannelsControllerReadChannelResponses, HealthControllerCheckData, HealthControllerCheckErrors, HealthControllerCheckResponses, MessagesControllerGetMessagesData, MessagesControllerGetMessagesResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -128,6 +128,11 @@ export const channelsControllerJoinChannel = <ThrowOnError extends boolean = fal
         ...options.headers
     }
 });
+
+/**
+ * 채널 읽기 (접속 시 호출)
+ */
+export const channelsControllerReadChannel = <ThrowOnError extends boolean = false>(options: Options<ChannelsControllerReadChannelData, ThrowOnError>) => (options.client ?? client).patch<ChannelsControllerReadChannelResponses, unknown, ThrowOnError>({ url: '/api/v1/channels/{channelId}/read', ...options });
 
 /**
  * DM 생성

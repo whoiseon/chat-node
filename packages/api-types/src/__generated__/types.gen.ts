@@ -298,6 +298,8 @@ export type GetMessagesQueryDto = {
 export type MessageSenderDto = {
     userId: string;
     displayName: string;
+    profileImageUrl: string | null;
+    username: string;
 };
 
 export type MessageItemDto = {
@@ -306,6 +308,10 @@ export type MessageItemDto = {
     content: string;
     sender?: MessageSenderDto | null;
     createdAt: string;
+    deletedAt: {
+        [key: string]: unknown;
+    } | null;
+    unreadCount: number;
 };
 
 export type MessageGroupDto = {
@@ -655,6 +661,24 @@ export type ChannelsControllerJoinChannelResponses = {
 };
 
 export type ChannelsControllerJoinChannelResponse = ChannelsControllerJoinChannelResponses[keyof ChannelsControllerJoinChannelResponses];
+
+export type ChannelsControllerReadChannelData = {
+    body?: never;
+    path: {
+        channelId: string;
+    };
+    query?: never;
+    url: '/api/v1/channels/{channelId}/read';
+};
+
+export type ChannelsControllerReadChannelResponses = {
+    /**
+     * 채널 읽기 성공
+     */
+    200: NullPayloadResponseDto;
+};
+
+export type ChannelsControllerReadChannelResponse = ChannelsControllerReadChannelResponses[keyof ChannelsControllerReadChannelResponses];
 
 export type ChannelsControllerCreateDmData = {
     body: CreateDmDto;

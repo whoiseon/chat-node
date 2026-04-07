@@ -13,10 +13,12 @@ import { useChannelNewMessage } from '@/store/channel';
 
 interface ChatMessageEditorProps {
   scrollContainerRef: RefObject<HTMLDivElement | null>;
+  onScrollToBottom?: () => void;
 }
 
 export function ChatMessageEditor({
   scrollContainerRef,
+  onScrollToBottom,
 }: ChatMessageEditorProps) {
   const { scrollToBottom } = useScroll(scrollContainerRef);
   const newMessage = useChannelNewMessage();
@@ -45,7 +47,10 @@ export function ChatMessageEditor({
     <div className="bg-background px-2 pb-2 md:pb-4 sticky bottom-0">
       <NewMessageToast
         message={newMessage}
-        onPress={() => scrollToBottom()}
+        onPress={() => {
+          scrollToBottom();
+          onScrollToBottom?.();
+        }}
       />
       <form
         className="flex flex-col bg-card rounded-md min-h-25 z-10 shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:shadow-none"

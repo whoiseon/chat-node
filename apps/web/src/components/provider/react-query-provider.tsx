@@ -35,7 +35,7 @@ function makeQueryClient() {
       },
     }),
     mutationCache: new MutationCache({
-      onError: (error) => {
+      onError: (error, query) => {
         const toast = getToast();
         const errorResponse = extractError(error);
         toast({

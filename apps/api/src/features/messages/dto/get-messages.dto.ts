@@ -27,6 +27,15 @@ class MessageSenderDto {
 
   @ApiProperty({ example: '사용자' })
   displayName!: string;
+
+  @ApiProperty({
+    example: 'https://example.com/image.jpg',
+    nullable: true,
+  })
+  profileImageUrl!: string;
+
+  @ApiProperty({ example: 'chatnode' })
+  username!: string;
 }
 
 class MessageItemDto {
@@ -44,6 +53,12 @@ class MessageItemDto {
 
   @ApiProperty({ example: '2026-03-25T12:00:00.000Z' })
   createdAt!: string;
+
+  @ApiProperty({ example: '2026-03-25T12:00:00.000Z', nullable: true })
+  deletedAt!: string | null;
+
+  @ApiProperty({ example: 1 })
+  unreadCount!: number;
 }
 
 class MessageGroupDto {
